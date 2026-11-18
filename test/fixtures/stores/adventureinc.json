@@ -1,0 +1,4661 @@
+{
+  "products": [
+    {
+      "id": 15610876625120,
+      "title": "Hydro Flask 12oz Lightweight Mug",
+      "handle": "hydro-flask-12oz-mug-354ml-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Joyfully Lightweight.</h2>\n<p>The new Lightweight Mug is here to keep your drinks hot for all-day sipping in a sleek, lightweight style. A new, ergonomic handle is paired with a closeable, leak-resistant press-in lid. Meet us for a cup.</p>\n<ul>\n<li>Hot stays hot</li>\n<li>Cold stays cold</li>\n<li>TempShield® double-wall vacuum insulation</li>\n<li>Leak-resistant, closable press-in lid</li>\n<li>Won't retain odors or leftover flavors</li>\n<li>Durable stainless steel</li>\n<li>Ergonomic handle</li>\n<li>Tapered base for easy stacking</li>\n<li>To ensure the finish stays shiny, hand washing is recommended</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n</ul>",
+      "published_at": "2026-11-18T13:27:53+02:00",
+      "created_at": "2026-11-17T15:15:09+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Coffee",
+      "tags": [
+        "12oz/354ml",
+        "Coffee Mug"
+      ],
+      "variants": [
+        {
+          "id": 68706965324000,
+          "title": "Emerald Green",
+          "option1": "Emerald Green",
+          "option2": null,
+          "option3": null,
+          "sku": "LWM12CP348",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401487229152,
+            "product_id": 15610876625120,
+            "position": 4,
+            "created_at": "2026-11-17T15:16:02+02:00",
+            "updated_at": "2026-11-17T15:16:03+02:00",
+            "alt": null,
+            "width": 1173,
+            "height": 954,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP348_12ozLightweightMug_EmeraldGreen_StraightOn_NoShadow.jpg?v=1794921363",
+            "variant_ids": [
+              68706965324000
+            ]
+          },
+          "available": false,
+          "price": "599.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15610876625120,
+          "created_at": "2026-11-17T15:15:10+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68706982756576,
+          "title": "Sapphire Blue",
+          "option1": "Sapphire Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "LWM12CP392",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401487130848,
+            "product_id": 15610876625120,
+            "position": 3,
+            "created_at": "2026-11-17T15:16:02+02:00",
+            "updated_at": "2026-11-17T15:16:03+02:00",
+            "alt": null,
+            "width": 1173,
+            "height": 954,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP392_12ozLightweightMug_SapphireBlue_StraightOn_NoShadow.jpg?v=1794921363",
+            "variant_ids": [
+              68706982756576
+            ]
+          },
+          "available": false,
+          "price": "599.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 2,
+          "product_id": 15610876625120,
+          "created_at": "2026-11-17T15:19:53+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57401487294688,
+          "created_at": "2026-11-17T15:16:02+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T15:16:03+02:00",
+          "product_id": 15610876625120,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP392_12ozLightweightMug_SapphireBlue_HighAngled_LidOn_NoShadow.jpg?v=1794921363",
+          "width": 931,
+          "height": 1063
+        },
+        {
+          "id": 57401487261920,
+          "created_at": "2026-11-17T15:16:02+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T15:16:03+02:00",
+          "product_id": 15610876625120,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP392_12ozLightweightMug_SapphireBlue_HighAngled_LidOff_NoShadow.jpg?v=1794921363",
+          "width": 931,
+          "height": 1063
+        },
+        {
+          "id": 57401487130848,
+          "created_at": "2026-11-17T15:16:02+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T15:16:03+02:00",
+          "product_id": 15610876625120,
+          "variant_ids": [
+            68706982756576
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP392_12ozLightweightMug_SapphireBlue_StraightOn_NoShadow.jpg?v=1794921363",
+          "width": 1173,
+          "height": 954
+        },
+        {
+          "id": 57401487229152,
+          "created_at": "2026-11-17T15:16:02+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T15:16:03+02:00",
+          "product_id": 15610876625120,
+          "variant_ids": [
+            68706965324000
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP348_12ozLightweightMug_EmeraldGreen_StraightOn_NoShadow.jpg?v=1794921363",
+          "width": 1173,
+          "height": 954
+        },
+        {
+          "id": 57401487196384,
+          "created_at": "2026-11-17T15:16:02+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T15:16:03+02:00",
+          "product_id": 15610876625120,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP348_12ozLightweightMug_EmeraldGreen_HighAngled_LidOn_NoShadow.jpg?v=1794921363",
+          "width": 931,
+          "height": 1063
+        },
+        {
+          "id": 57401487163616,
+          "created_at": "2026-11-17T15:16:02+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T15:16:03+02:00",
+          "product_id": 15610876625120,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LWM12CP348_12ozLightweightMug_EmeraldGreen_HighAngled_LidOn.jpg?v=1794921363",
+          "width": 931,
+          "height": 1063
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Emerald Green",
+            "Sapphire Blue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15557487067360,
+      "title": "Storm Leather Balm",
+      "handle": "storm-leather-balsam-copy",
+      "body_html": "<p><span>Storm Spray On Leather Balm is the perfect </span><span>solution to treat finer leathers such as gloves, </span><span>bags &amp; jackets keeping them supple. </span><span>Restore water repellency performance, improve leather protection &amp; rejuvenate signs of aging all in one formulation. Storm Leather Balm is a water based emulsion that conditions and maintains the suppleness of leather and can be </span><span>buffed for a high quality natural shine.</span></p>",
+      "published_at": "2026-11-18T13:27:33+02:00",
+      "created_at": "2026-11-06T15:04:32+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Storm",
+      "product_type": "Footwear",
+      "tags": [],
+      "variants": [
+        {
+          "id": 68511355273440,
+          "title": "100ml",
+          "option1": "100ml",
+          "option2": null,
+          "option3": null,
+          "sku": "S62461-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57140769554656,
+            "product_id": 15557487067360,
+            "position": 1,
+            "created_at": "2026-11-06T15:05:52+02:00",
+            "updated_at": "2026-11-06T15:05:54+02:00",
+            "alt": null,
+            "width": 1946,
+            "height": 1946,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S62461LEATHERBALM100_web.jpg?v=1793970354",
+            "variant_ids": [
+              68511355273440
+            ]
+          },
+          "available": false,
+          "price": "0.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 15557487067360,
+          "created_at": "2026-11-06T15:04:32+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57140769554656,
+          "created_at": "2026-11-06T15:05:52+02:00",
+          "position": 1,
+          "updated_at": "2026-11-06T15:05:54+02:00",
+          "product_id": 15557487067360,
+          "variant_ids": [
+            68511355273440
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S62461LEATHERBALM100_web.jpg?v=1793970354",
+          "width": 1946,
+          "height": 1946
+        }
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "position": 1,
+          "values": [
+            "100ml"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15619886678240,
+      "title": "Hydro Flask 16oz Flip Sip Travel Mug 473ml",
+      "handle": "hydro-flask-16oz-flip-sip-travel-mug-473ml",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Hot to go.</h2>\n<p>The Flip Sip Travel Mug is designed with hot drinks in mind. Cupholder compatible, keeping drinks hot for up to 12 hours, the new Flip Sip Cap clicks up out of the way while drinking, and is leakproof when closed.</p>\n<ul>\n<li>12 hours hot</li>\n<li>24 hours cold</li>\n<li>TempShield® double-wall vacuum insulation</li>\n<li>Flip Sip cap clicks up out of the way when open</li>\n<li>Leakproof when closed</li>\n<li>Fits most cupholders</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Bottle fits all Wide Mouth caps and lids</li>\n</ul>",
+      "published_at": "2026-11-18T12:06:54+02:00",
+      "created_at": "2026-11-18T12:06:54+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Coffee",
+      "tags": [
+        "16oz/473ml",
+        "Black",
+        "Coffee",
+        "Flex Sip Lid"
+      ],
+      "variants": [
+        {
+          "id": 68748825592032,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "W16FCX001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432135598304,
+            "product_id": 15619886678240,
+            "position": 6,
+            "created_at": "2026-11-18T12:08:47+02:00",
+            "updated_at": "2026-11-18T12:08:48+02:00",
+            "alt": null,
+            "width": 834,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX001_16ozTravelMugFlipSipCap_Black_StraightOn_NoShadow.jpg?v=1794996528",
+            "variant_ids": [
+              68748825592032
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 1,
+          "product_id": 15619886678240,
+          "created_at": "2026-11-18T12:06:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748825624800,
+          "title": "Harbor Blue",
+          "option1": "Harbor Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "W16FCX384",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432135827680,
+            "product_id": 15619886678240,
+            "position": 7,
+            "created_at": "2026-11-18T12:08:47+02:00",
+            "updated_at": "2026-11-18T12:08:48+02:00",
+            "alt": null,
+            "width": 834,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX384_16ozTravelMugFlipSipCap_HarborBlue_StraightOn.jpg?v=1794996528",
+            "variant_ids": [
+              68748825624800
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 2,
+          "product_id": 15619886678240,
+          "created_at": "2026-11-18T12:06:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748825657568,
+          "title": "Palmer Green",
+          "option1": "Palmer Green",
+          "option2": null,
+          "option3": null,
+          "sku": "W16FCX346",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432135794912,
+            "product_id": 15619886678240,
+            "position": 1,
+            "created_at": "2026-11-18T12:08:47+02:00",
+            "updated_at": "2026-11-18T12:08:48+02:00",
+            "alt": null,
+            "width": 834,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX346_16ozTravelMugFlipSipCap_PalmerGreen_StraightOn.jpg?v=1794996528",
+            "variant_ids": [
+              68748825657568
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 3,
+          "product_id": 15619886678240,
+          "created_at": "2026-11-18T12:06:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748825690336,
+          "title": "Shale Grey",
+          "option1": "Shale Grey",
+          "option2": null,
+          "option3": null,
+          "sku": "W16FCX043",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432135631072,
+            "product_id": 15619886678240,
+            "position": 8,
+            "created_at": "2026-11-18T12:08:47+02:00",
+            "updated_at": "2026-11-18T12:08:48+02:00",
+            "alt": null,
+            "width": 834,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX043_16ozTravelMugFlipSipCap_ShaleGray_StraightOn.jpg?v=1794996528",
+            "variant_ids": [
+              68748825690336
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 4,
+          "product_id": 15619886678240,
+          "created_at": "2026-11-18T12:06:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748825723104,
+          "title": "Utopia Purple",
+          "option1": "Utopia Purple",
+          "option2": null,
+          "option3": null,
+          "sku": "W16FCX527",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432135565536,
+            "product_id": 15619886678240,
+            "position": 9,
+            "created_at": "2026-11-18T12:08:47+02:00",
+            "updated_at": "2026-11-18T12:08:48+02:00",
+            "alt": null,
+            "width": 834,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX527_16ozTravelMugFlipSipCap_UtopiaPurple_StraightOn.jpg?v=1794996528",
+            "variant_ids": [
+              68748825723104
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 5,
+          "product_id": 15619886678240,
+          "created_at": "2026-11-18T12:06:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57432135794912,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [
+            68748825657568
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX346_16ozTravelMugFlipSipCap_PalmerGreen_StraightOn.jpg?v=1794996528",
+          "width": 834,
+          "height": 1600
+        },
+        {
+          "id": 57432135762144,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 2,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX346_16ozTravelMugFlipSipCap_PalmerGreen_HighAngled_StrapUp.jpg?v=1794996528",
+          "width": 1062,
+          "height": 1514
+        },
+        {
+          "id": 57432135729376,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 3,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX346_16ozTravelMugFlipSipCap_PalmerGreen_HighAngled_StrapDown_CapOpen_NoShadow.jpg?v=1794996528",
+          "width": 1062,
+          "height": 1514
+        },
+        {
+          "id": 57432135663840,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 4,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX346_16ozTravelMugFlipSipCap_PalmerGreen_Angled_NoShadow.jpg?v=1794996528",
+          "width": 788,
+          "height": 1600
+        },
+        {
+          "id": 57432135696608,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 5,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX346_16ozTravelMugFlipSipCap_PalmerGreen_HB.jpg?v=1794996528",
+          "width": 938,
+          "height": 1600
+        },
+        {
+          "id": 57432135598304,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 6,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [
+            68748825592032
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX001_16ozTravelMugFlipSipCap_Black_StraightOn_NoShadow.jpg?v=1794996528",
+          "width": 834,
+          "height": 1600
+        },
+        {
+          "id": 57432135827680,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 7,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [
+            68748825624800
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX384_16ozTravelMugFlipSipCap_HarborBlue_StraightOn.jpg?v=1794996528",
+          "width": 834,
+          "height": 1600
+        },
+        {
+          "id": 57432135631072,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 8,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [
+            68748825690336
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX043_16ozTravelMugFlipSipCap_ShaleGray_StraightOn.jpg?v=1794996528",
+          "width": 834,
+          "height": 1600
+        },
+        {
+          "id": 57432135565536,
+          "created_at": "2026-11-18T12:08:47+02:00",
+          "position": 9,
+          "updated_at": "2026-11-18T12:08:48+02:00",
+          "product_id": 15619886678240,
+          "variant_ids": [
+            68748825723104
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W16FCX527_16ozTravelMugFlipSipCap_UtopiaPurple_StraightOn.jpg?v=1794996528",
+          "width": 834,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Black",
+            "Harbor Blue",
+            "Palmer Green",
+            "Shale Grey",
+            "Utopia Purple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15619865608416,
+      "title": "Hydro Flask 12oz Flip Sip Travel Mug 354ml",
+      "handle": "hydro-flask-12oz-coffee-flask-with-flex-sip-lid-354ml-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Hot to go.</h2>\n<p>The Flip Sip Travel Mug is designed with hot drinks in mind. Cupholder compatible, keeping drinks hot for up to 12 hours, the new Flip Sip Cap clicks up out of the way while drinking, and is leakproof when closed.</p>\n<ul>\n<li>12 hours hot</li>\n<li>24 hours cold</li>\n<li>TempShield® double-wall vacuum insulation</li>\n<li>Flip Sip cap clicks up out of the way when open</li>\n<li>Leakproof when closed</li>\n<li>Fits most cupholders</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Bottle fits all Wide Mouth caps and lids</li>\n</ul>",
+      "published_at": "2026-11-18T11:59:55+02:00",
+      "created_at": "2026-11-18T11:59:55+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Coffee",
+      "tags": [
+        "12oz/354ml",
+        "Black",
+        "Coffee",
+        "Flex Sip Lid"
+      ],
+      "variants": [
+        {
+          "id": 68748821594336,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "W12FCX001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432114954464,
+            "product_id": 15619865608416,
+            "position": 6,
+            "created_at": "2026-11-18T12:03:21+02:00",
+            "updated_at": "2026-11-18T12:03:22+02:00",
+            "alt": null,
+            "width": 942,
+            "height": 1579,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX001_12ozTravelMugFlipSipCap_Black_StraightOn.jpg?v=1794996202",
+            "variant_ids": [
+              68748821594336
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 1,
+          "product_id": 15619865608416,
+          "created_at": "2026-11-18T12:06:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748821627104,
+          "title": "Harbor Blue",
+          "option1": "Harbor Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "W12FCX384",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432115151072,
+            "product_id": 15619865608416,
+            "position": 9,
+            "created_at": "2026-11-18T12:03:21+02:00",
+            "updated_at": "2026-11-18T12:03:23+02:00",
+            "alt": null,
+            "width": 942,
+            "height": 1579,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX384_12ozTravelMugFlipSipCap_HarborBlue_StraightOn_NoShadow.jpg?v=1794996203",
+            "variant_ids": [
+              68748821627104
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 2,
+          "product_id": 15619865608416,
+          "created_at": "2026-11-18T12:06:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748821659872,
+          "title": "Palmer Green",
+          "option1": "Palmer Green",
+          "option2": null,
+          "option3": null,
+          "sku": "W12FCX346",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432114921696,
+            "product_id": 15619865608416,
+            "position": 1,
+            "created_at": "2026-11-18T12:03:21+02:00",
+            "updated_at": "2026-11-18T12:03:23+02:00",
+            "alt": null,
+            "width": 942,
+            "height": 1578,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX346_12ozTravelMugFlipSipCap_PalmerGreen_StraightOn.jpg?v=1794996203",
+            "variant_ids": [
+              68748821659872
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 3,
+          "product_id": 15619865608416,
+          "created_at": "2026-11-18T12:06:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748821692640,
+          "title": "Shale Grey",
+          "option1": "Shale Grey",
+          "option2": null,
+          "option3": null,
+          "sku": "W12FCX043",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432115020000,
+            "product_id": 15619865608416,
+            "position": 8,
+            "created_at": "2026-11-18T12:03:21+02:00",
+            "updated_at": "2026-11-18T12:03:23+02:00",
+            "alt": null,
+            "width": 942,
+            "height": 1579,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX043_12ozTravelMugFlipSipCap_ShaleGray_StraightOn.jpg?v=1794996203",
+            "variant_ids": [
+              68748821692640
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 4,
+          "product_id": 15619865608416,
+          "created_at": "2026-11-18T12:06:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748821725408,
+          "title": "Utopia Purple",
+          "option1": "Utopia Purple",
+          "option2": null,
+          "option3": null,
+          "sku": "W12FCX527",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57432115183840,
+            "product_id": 15619865608416,
+            "position": 10,
+            "created_at": "2026-11-18T12:03:21+02:00",
+            "updated_at": "2026-11-18T12:03:22+02:00",
+            "alt": null,
+            "width": 942,
+            "height": 1578,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX527_12ozTravelMugFlipSipCap_UtopiaPurple_StraightOn_NoShadow.jpg?v=1794996202",
+            "variant_ids": [
+              68748821725408
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "649.00",
+          "position": 5,
+          "product_id": 15619865608416,
+          "created_at": "2026-11-18T12:06:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57432114921696,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T12:03:23+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [
+            68748821659872
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX346_12ozTravelMugFlipSipCap_PalmerGreen_StraightOn.jpg?v=1794996203",
+          "width": 942,
+          "height": 1578
+        },
+        {
+          "id": 57432115052768,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 2,
+          "updated_at": "2026-11-18T12:03:23+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX346_12ozTravelMugFlipSipCap_PalmerGreen_Angled.jpg?v=1794996203",
+          "width": 815,
+          "height": 1600
+        },
+        {
+          "id": 57432115118304,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 3,
+          "updated_at": "2026-11-18T12:03:23+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX346_12ozTravelMugFlipSipCap_PalmerGreen_HighAngled_StrapUp_NoShadow.jpg?v=1794996203",
+          "width": 1032,
+          "height": 1411
+        },
+        {
+          "id": 57432115216608,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 4,
+          "updated_at": "2026-11-18T12:03:22+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX346_12ozTravelMugFlipSipCap_PalmerGreen_HighAngled_StrapDown_CapOpen.jpg?v=1794996202",
+          "width": 1032,
+          "height": 1411
+        },
+        {
+          "id": 57432115085536,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 5,
+          "updated_at": "2026-11-18T12:03:23+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX346_12ozTravelMugFlipSipCap_PalmerGreen_HB.jpg?v=1794996203",
+          "width": 1000,
+          "height": 1600
+        },
+        {
+          "id": 57432114954464,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 6,
+          "updated_at": "2026-11-18T12:03:22+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [
+            68748821594336
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX001_12ozTravelMugFlipSipCap_Black_StraightOn.jpg?v=1794996202",
+          "width": 942,
+          "height": 1579
+        },
+        {
+          "id": 57432114987232,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 7,
+          "updated_at": "2026-11-18T12:03:22+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX043_12ozTravelMugFlipSipCap_ShaleGray_Angled_NoShadow.jpg?v=1794996202",
+          "width": 815,
+          "height": 1600
+        },
+        {
+          "id": 57432115020000,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 8,
+          "updated_at": "2026-11-18T12:03:23+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [
+            68748821692640
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX043_12ozTravelMugFlipSipCap_ShaleGray_StraightOn.jpg?v=1794996203",
+          "width": 942,
+          "height": 1579
+        },
+        {
+          "id": 57432115151072,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 9,
+          "updated_at": "2026-11-18T12:03:23+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [
+            68748821627104
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX384_12ozTravelMugFlipSipCap_HarborBlue_StraightOn_NoShadow.jpg?v=1794996203",
+          "width": 942,
+          "height": 1579
+        },
+        {
+          "id": 57432115183840,
+          "created_at": "2026-11-18T12:03:21+02:00",
+          "position": 10,
+          "updated_at": "2026-11-18T12:03:22+02:00",
+          "product_id": 15619865608416,
+          "variant_ids": [
+            68748821725408
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W12FCX527_12ozTravelMugFlipSipCap_UtopiaPurple_StraightOn_NoShadow.jpg?v=1794996202",
+          "width": 942,
+          "height": 1578
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Black",
+            "Harbor Blue",
+            "Palmer Green",
+            "Shale Grey",
+            "Utopia Purple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15619820355808,
+      "title": "Hydro Flask 32oz Wide Mouth Bottle with Straw Cap, 946ml - Limited Edition",
+      "handle": "hydro-flask-32oz-wide-mouth-bottle-with-straw-cap-946ml-limited-edition-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Limited Edition</h2>\n<p>Limited Edition Glimmer Hydro Flask. Sip with a smidge of shimmer with the Hydro Flask 32 oz Wide Mouth Bottle With Flex Straw Cap. With a comfortable, flexible handle, the closeable, leakproof straw cap is easy to open and close with one hand for on-demand hydration. Double-wall insulation keeps drinks cold up to 24 hours for cool refreshment. The insulated bottle easily fits ice cubes and is dishwasher safe.</p>\n<ul>\n<li>Shimmery, glimmer finish</li>\n<li>24 hours cold</li>\n<li>TempShield®️ double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not intended for use with hot beverages or carbonated drinks</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Bottle fits all Wide Mouth caps and lids</li>\n</ul>",
+      "published_at": "2026-11-18T11:49:26+02:00",
+      "created_at": "2026-11-18T11:49:26+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "32oz/946ml",
+        "Flex Straw Cap",
+        "Hydration",
+        "Wide Mouth"
+      ],
+      "variants": [
+        {
+          "id": 68748656672992,
+          "title": "Woodland Camo",
+          "option1": "Woodland Camo",
+          "option2": null,
+          "option3": null,
+          "sku": "W32CFS-LE26-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57431947673824,
+            "product_id": 15619820355808,
+            "position": 1,
+            "created_at": "2026-11-18T11:51:31+02:00",
+            "updated_at": "2026-11-18T11:51:31+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/w32cfs-le26-1-32-oz-wide-flex-straw-bottle-woodland-camo-straight.jpg?v=1794995491",
+            "variant_ids": [
+              68748656672992
+            ]
+          },
+          "available": false,
+          "price": "1099.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15619820355808,
+          "created_at": "2026-11-18T11:53:21+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57431947673824,
+          "created_at": "2026-11-18T11:51:31+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T11:51:31+02:00",
+          "product_id": 15619820355808,
+          "variant_ids": [
+            68748656672992
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/w32cfs-le26-1-32-oz-wide-flex-straw-bottle-woodland-camo-straight.jpg?v=1794995491",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57431947706592,
+          "created_at": "2026-11-18T11:51:31+02:00",
+          "position": 2,
+          "updated_at": "2026-11-18T11:51:31+02:00",
+          "product_id": 15619820355808,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/w32cfs-le26-1-32-oz-wide-flex-straw-bottle-woodland-camo-angled.jpg?v=1794995491",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57431953146080,
+          "created_at": "2026-11-18T11:52:04+02:00",
+          "position": 3,
+          "updated_at": "2026-11-18T11:52:05+02:00",
+          "product_id": 15619820355808,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_big_32oz_web_res-7.jpg?v=1794995525",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57431953178848,
+          "created_at": "2026-11-18T11:52:04+02:00",
+          "position": 4,
+          "updated_at": "2026-11-18T11:52:05+02:00",
+          "product_id": 15619820355808,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_big_32oz_web_res-1.jpg?v=1794995525",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57431953211616,
+          "created_at": "2026-11-18T11:52:04+02:00",
+          "position": 5,
+          "updated_at": "2026-11-18T11:52:05+02:00",
+          "product_id": 15619820355808,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_big_32oz_web_res-2.jpg?v=1794995525",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57431953244384,
+          "created_at": "2026-11-18T11:52:04+02:00",
+          "position": 6,
+          "updated_at": "2026-11-18T11:52:05+02:00",
+          "product_id": 15619820355808,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_big_32oz_web_res-4.jpg?v=1794995525",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Woodland Camo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15619754524896,
+      "title": "Hydro Flask 32oz Wide Mouth Bottle with Straw Cap, 946ml - Limited Edition",
+      "handle": "hydro-flask-32oz-wide-mouth-bottle-with-straw-cap-946ml-limited-edition",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Limited Edition</h2>\n<p>Limited Edition Glimmer Hydro Flask. Sip with a smidge of shimmer with the Hydro Flask 32 oz Wide Mouth Bottle With Flex Straw Cap. With a comfortable, flexible handle, the closeable, leakproof straw cap is easy to open and close with one hand for on-demand hydration. Double-wall insulation keeps drinks cold up to 24 hours for cool refreshment. The insulated bottle easily fits ice cubes and is dishwasher safe.</p>\n<ul>\n<li>Shimmery, glimmer finish</li>\n<li>24 hours cold</li>\n<li>TempShield®️ double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not intended for use with hot beverages or carbonated drinks</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Bottle fits all Wide Mouth caps and lids</li>\n</ul>",
+      "published_at": "2026-11-18T11:36:36+02:00",
+      "created_at": "2026-11-18T11:36:36+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "32oz/946ml",
+        "Flex Straw Cap",
+        "Hydration",
+        "Wide Mouth"
+      ],
+      "variants": [
+        {
+          "id": 68748607095008,
+          "title": "Glimmer Black",
+          "option1": "Glimmer Black",
+          "option2": null,
+          "option3": null,
+          "sku": "LE-H26W32-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57431748182240,
+            "product_id": 15619754524896,
+            "position": 3,
+            "created_at": "2026-11-18T11:39:06+02:00",
+            "updated_at": "2026-11-18T11:39:08+02:00",
+            "alt": null,
+            "width": 964,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-1_32ozWideFlexStrawBottle_GlimmerBlack_StraightOn.jpg?v=1794994748",
+            "variant_ids": [
+              68748607095008
+            ]
+          },
+          "available": false,
+          "price": "1099.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15619754524896,
+          "created_at": "2026-11-18T11:49:08+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748607127776,
+          "title": "Glimmer Purple",
+          "option1": "Glimmer Purple",
+          "option2": null,
+          "option3": null,
+          "sku": "LE-H26W32-3",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57431748083936,
+            "product_id": 15619754524896,
+            "position": 1,
+            "created_at": "2026-11-18T11:39:06+02:00",
+            "updated_at": "2026-11-18T11:39:08+02:00",
+            "alt": null,
+            "width": 964,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-3_32ozWideFlexStrawBottle_GlimmerPurple_StraightOn.jpg?v=1794994748",
+            "variant_ids": [
+              68748607127776
+            ]
+          },
+          "available": false,
+          "price": "1099.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 2,
+          "product_id": 15619754524896,
+          "created_at": "2026-11-18T11:49:08+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68748607160544,
+          "title": "Glimmer Teal",
+          "option1": "Glimmer Teal",
+          "option2": null,
+          "option3": null,
+          "sku": "LE-H26W32-2",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57431748215008,
+            "product_id": 15619754524896,
+            "position": 2,
+            "created_at": "2026-11-18T11:39:06+02:00",
+            "updated_at": "2026-11-18T11:39:08+02:00",
+            "alt": null,
+            "width": 964,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-2_32ozWideFlexStrawBottle_GlimmerTeal_StraightOn_NoShadow.jpg?v=1794994748",
+            "variant_ids": [
+              68748607160544
+            ]
+          },
+          "available": false,
+          "price": "1099.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 3,
+          "product_id": 15619754524896,
+          "created_at": "2026-11-18T11:49:08+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57431748083936,
+          "created_at": "2026-11-18T11:39:06+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T11:39:08+02:00",
+          "product_id": 15619754524896,
+          "variant_ids": [
+            68748607127776
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-3_32ozWideFlexStrawBottle_GlimmerPurple_StraightOn.jpg?v=1794994748",
+          "width": 964,
+          "height": 1600
+        },
+        {
+          "id": 57431748215008,
+          "created_at": "2026-11-18T11:39:06+02:00",
+          "position": 2,
+          "updated_at": "2026-11-18T11:39:08+02:00",
+          "product_id": 15619754524896,
+          "variant_ids": [
+            68748607160544
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-2_32ozWideFlexStrawBottle_GlimmerTeal_StraightOn_NoShadow.jpg?v=1794994748",
+          "width": 964,
+          "height": 1600
+        },
+        {
+          "id": 57431748182240,
+          "created_at": "2026-11-18T11:39:06+02:00",
+          "position": 3,
+          "updated_at": "2026-11-18T11:39:08+02:00",
+          "product_id": 15619754524896,
+          "variant_ids": [
+            68748607095008
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-1_32ozWideFlexStrawBottle_GlimmerBlack_StraightOn.jpg?v=1794994748",
+          "width": 964,
+          "height": 1600
+        },
+        {
+          "id": 57431748116704,
+          "created_at": "2026-11-18T11:39:06+02:00",
+          "position": 4,
+          "updated_at": "2026-11-18T11:39:08+02:00",
+          "product_id": 15619754524896,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-1_32ozWideFlexStrawBottle_GlimmerBlack_Angled.jpg?v=1794994748",
+          "width": 775,
+          "height": 1600
+        },
+        {
+          "id": 57431748149472,
+          "created_at": "2026-11-18T11:39:06+02:00",
+          "position": 5,
+          "updated_at": "2026-11-18T11:39:08+02:00",
+          "product_id": 15619754524896,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26W32-1_32ozWideFlexStrawBottle_GlimmerBlack_HB.jpg?v=1794994748",
+          "width": 1098,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Glimmer Black",
+            "Glimmer Purple",
+            "Glimmer Teal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10027110760672,
+      "title": "Hydro Flask Wide Mouth with Flex Straw Cap 24oz/709ml - Limited Edition",
+      "handle": "hydro-flask-wide-mouth-with-flex-straw-cap-24oz-709ml-fir",
+      "body_html": "<div class=\"product-details-tab__item--inner js-product-details-description\">\n<div class=\"a-product-attribute__value\">\n<div data-content-type=\"row\" data-appearance=\"contained\" data-element=\"main\">\n<div data-enable-parallax=\"0\" data-parallax-speed=\"0.5\" data-background-images=\"{}\" data-background-type=\"image\" data-video-loop=\"true\" data-video-play-only-visible=\"true\" data-video-lazy-load=\"true\" data-video-fallback-src=\"\" data-element=\"inner\" data-pb-style=\"JDYNOE9\">\n<div data-content-type=\"html\" data-appearance=\"default\" data-element=\"main\" data-decoded=\"true\">\n<h2 data-uw-rm-heading=\"prs\">Flip it and sip it.</h2>\n<p>Flip it and sip it with the Hydro Flask 24 oz Wide Mouth Bottle With Flex Straw Cap. With a comfortable, flexible handle, the closeable, leakproof straw cap is easy to open and close with one hand, for on-demand hydration. Double-wall insulation keeps drinks cold up to 24 hours for cool refreshment. The slim design fits most cupholders, easily fits ice cubes and is dishwasher safe.</p>\n<ul>\n<li>24 hours cold</li>\n<li>TempShield®️ double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Fits most cupholders</li>\n<li>Pure taste, no flavor transfer</li>\n<li>Wide Mouth opening is ice-cube friendly</li>\n<li>Dishwasher safe</li>\n<li>Flex Straw Cap not intended for use with hot liquids</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Bottle fits all Wide Mouth caps and lids</li>\n</ul>\n</div>\n</div>\n</div>\n</div>\n</div>",
+      "published_at": "2026-11-18T11:30:18+02:00",
+      "created_at": "2026-08-09T06:37:26+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "24oz/709ml",
+        "Fir",
+        "Flex Straw Cap",
+        "Hydration",
+        "Wide Mouth"
+      ],
+      "variants": [
+        {
+          "id": 53890022441184,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "W24FS-LE26-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": false,
+          "price": "1099.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 10027110760672,
+          "created_at": "2026-08-09T06:37:26+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57431398351072,
+          "created_at": "2026-11-18T11:28:31+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T11:28:32+02:00",
+          "product_id": 10027110760672,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W24FS-LE26-1_24ozWideFlexStrawCap_WoodlandCamo_Angled.jpg?v=1794994112",
+          "width": 858,
+          "height": 1600
+        },
+        {
+          "id": 57431398777056,
+          "created_at": "2026-11-18T11:28:32+02:00",
+          "position": 2,
+          "updated_at": "2026-11-18T11:28:33+02:00",
+          "product_id": 10027110760672,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W24FS-LE26-1_24ozWideFlexStrawCap_WoodlandCamo_StraightOn.jpg?v=1794994113",
+          "width": 830,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15619613393120,
+      "title": "Hydro Flask 40oz Wide Mouth Bottle with Flex Cap, 1.18L",
+      "handle": "hydro-flask-32oz-wide-mouth-bottle-with-flex-cap-946ml-copy-1",
+      "body_html": "<h2>The best water bottle.</h2>\n<p>Stainless steel, insulated, reusable, and sized for epic days—our 40 oz Wide Mouth water bottle is the flask to grab to keep cold drinks cold and hot ones hot. The large opening makes it easy to add ice—and get yourself a bigger gulp.</p>\n<ul>\n<li>24 hours cold, 12 hours hot</li>\n<li>TempShield®️ double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Pure taste, no flavor transfer</li>\n<li>Durable stainless steel</li>\n<li>Wide Mouth opening is ice-cube friendly</li>\n<li>BPA-Free</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Keep hot liquids out of the reach of children</li>\n</ul>",
+      "published_at": "2026-11-18T11:11:55+02:00",
+      "created_at": "2026-11-18T11:11:55+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "40oz/1183ml",
+        "Flex Cap",
+        "Hydration",
+        "Wide Mouth"
+      ],
+      "variants": [
+        {
+          "id": 68746886217952,
+          "title": "White",
+          "option1": "White",
+          "option2": null,
+          "option3": null,
+          "sku": "W40CTS110",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57430979674336,
+            "product_id": 15619613393120,
+            "position": 3,
+            "created_at": "2026-11-18T11:14:37+02:00",
+            "updated_at": "2026-11-18T11:14:38+02:00",
+            "alt": null,
+            "width": 856,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS110_40ozWideFlexCap_White_StraightOn.jpg?v=1794993278",
+            "variant_ids": [
+              68746886217952
+            ]
+          },
+          "available": false,
+          "price": "699.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 1,
+          "product_id": 15619613393120,
+          "created_at": "2026-11-18T11:11:55+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68747027677408,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "W40CTS001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57430979707104,
+            "product_id": 15619613393120,
+            "position": 4,
+            "created_at": "2026-11-18T11:14:37+02:00",
+            "updated_at": "2026-11-18T11:14:38+02:00",
+            "alt": null,
+            "width": 856,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS001_40ozWideFlexCap_Black_StraightOn.jpg?v=1794993278",
+            "variant_ids": [
+              68747027677408
+            ]
+          },
+          "available": false,
+          "price": "699.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 2,
+          "product_id": 15619613393120,
+          "created_at": "2026-11-18T11:15:21+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68747168088288,
+          "title": "Capri Blue",
+          "option1": "Capri Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "W40CTS382",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57430979739872,
+            "product_id": 15619613393120,
+            "position": 5,
+            "created_at": "2026-11-18T11:14:37+02:00",
+            "updated_at": "2026-11-18T11:14:38+02:00",
+            "alt": null,
+            "width": 856,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS382_40ozWideFlexCap_CapriBlue_StraightOn.jpg?v=1794993278",
+            "variant_ids": [
+              68747168088288
+            ]
+          },
+          "available": false,
+          "price": "699.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 3,
+          "product_id": 15619613393120,
+          "created_at": "2026-11-18T11:19:36+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68747168121056,
+          "title": "Harbor Blue",
+          "option1": "Harbor Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "W40CTS384",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57430979576032,
+            "product_id": 15619613393120,
+            "position": 1,
+            "created_at": "2026-11-18T11:14:37+02:00",
+            "updated_at": "2026-11-18T11:14:38+02:00",
+            "alt": null,
+            "width": 856,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS384_40ozWideFlexCap_HarborBlue_StraightOn_NoShadow.jpg?v=1794993278",
+            "variant_ids": [
+              68747168121056
+            ]
+          },
+          "available": false,
+          "price": "699.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 4,
+          "product_id": 15619613393120,
+          "created_at": "2026-11-18T11:19:36+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68747168153824,
+          "title": "Shale Grey",
+          "option1": "Shale Grey",
+          "option2": null,
+          "option3": null,
+          "sku": "W40CTS043",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57430979641568,
+            "product_id": 15619613393120,
+            "position": 2,
+            "created_at": "2026-11-18T11:14:37+02:00",
+            "updated_at": "2026-11-18T11:14:38+02:00",
+            "alt": null,
+            "width": 856,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS043_40ozWideFlexCap_ShaleGray_StraightOn.jpg?v=1794993278",
+            "variant_ids": [
+              68747168153824
+            ]
+          },
+          "available": false,
+          "price": "699.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 5,
+          "product_id": 15619613393120,
+          "created_at": "2026-11-18T11:19:36+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57430979576032,
+          "created_at": "2026-11-18T11:14:37+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T11:14:38+02:00",
+          "product_id": 15619613393120,
+          "variant_ids": [
+            68747168121056
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS384_40ozWideFlexCap_HarborBlue_StraightOn_NoShadow.jpg?v=1794993278",
+          "width": 856,
+          "height": 1600
+        },
+        {
+          "id": 57430979641568,
+          "created_at": "2026-11-18T11:14:37+02:00",
+          "position": 2,
+          "updated_at": "2026-11-18T11:14:38+02:00",
+          "product_id": 15619613393120,
+          "variant_ids": [
+            68747168153824
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS043_40ozWideFlexCap_ShaleGray_StraightOn.jpg?v=1794993278",
+          "width": 856,
+          "height": 1600
+        },
+        {
+          "id": 57430979674336,
+          "created_at": "2026-11-18T11:14:37+02:00",
+          "position": 3,
+          "updated_at": "2026-11-18T11:14:38+02:00",
+          "product_id": 15619613393120,
+          "variant_ids": [
+            68746886217952
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS110_40ozWideFlexCap_White_StraightOn.jpg?v=1794993278",
+          "width": 856,
+          "height": 1600
+        },
+        {
+          "id": 57430979707104,
+          "created_at": "2026-11-18T11:14:37+02:00",
+          "position": 4,
+          "updated_at": "2026-11-18T11:14:38+02:00",
+          "product_id": 15619613393120,
+          "variant_ids": [
+            68747027677408
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS001_40ozWideFlexCap_Black_StraightOn.jpg?v=1794993278",
+          "width": 856,
+          "height": 1600
+        },
+        {
+          "id": 57430979739872,
+          "created_at": "2026-11-18T11:14:37+02:00",
+          "position": 5,
+          "updated_at": "2026-11-18T11:14:38+02:00",
+          "product_id": 15619613393120,
+          "variant_ids": [
+            68747168088288
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/W40CTS382_40ozWideFlexCap_CapriBlue_StraightOn.jpg?v=1794993278",
+          "width": 856,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "White",
+            "Black",
+            "Capri Blue",
+            "Harbor Blue",
+            "Shale Grey"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15619431301344,
+      "title": "Hydro Flask Shaker Straw Pack",
+      "handle": "hydro-flask-shaker-bottle-24oz-709ml-copy",
+      "body_html": "<h2>Shake it &amp; sip it</h2>\n<p>Shake it and sip it with the new Shaker Bottle Straw. Optimized for easy drinking, the straw securely shuts into the closed cap, and springs up when opened. The wide opening is ideal for thick shakes and smoothies, and the leak-resistant straw creates a secure seal. Dishwasher safe, it’s ready for the next day.</p>\n<ul>\n<li>Wide straw for thick shakes</li>\n<li>Flexible straw securely shuts in cap and springs up when opened</li>\n<li>Leakproof when closed</li>\n<li>Splash-resistant when open</li>\n<li>Dishwasher sfae</li>\n<li>Not intended for use with hot liquids</li>\n<li>Includes two straws</li>\n</ul>",
+      "published_at": "2026-11-18T10:19:44+02:00",
+      "created_at": "2026-11-18T10:19:44+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Kitchenware",
+      "tags": [
+        "24oz/709ml",
+        "Shaker Bottle",
+        "Shaker Straw"
+      ],
+      "variants": [
+        {
+          "id": 68745859662048,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "SHKCS001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": false,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 15619431301344,
+          "created_at": "2026-11-18T10:19:45+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57430101623008,
+          "created_at": "2026-11-18T10:22:06+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T10:22:07+02:00",
+          "product_id": 15619431301344,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/SHKCS001_ShakerCapStraw2-PackAccessory_Black-ShaleGray_StraightOn.jpg?v=1794990127",
+          "width": 799,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10033621663968,
+      "title": "Hydro Flask Shaker Bottle 24oz/709ml",
+      "handle": "shaker-bottle-24oz-709ml-popstar-pink",
+      "body_html": "<h2>Shake it up.</h2>\n<p>Shake up a perfect smoothie, protein or supplement shake. The Insulated Shaker Bottle features an ergonomic design and a leakproof, flip-top chug spout. An internal whisk ball mixes it right every time and the insulation helps keep contents cold for up to 24 hours. The Shaker Bottle is not intended for hot or carbonated beverages.</p>\n<ul>\n<li>24 hours cold</li>\n<li>Leakproof when closed</li>\n<li>Dishwasher safe</li>\n<li>Pure taste, no flavor transfer</li>\n<li>TempShield® double-wall vacuum insulation</li>\n<li>Durable stainless steel</li>\n<li>Spring-assisted flip-top chug spout</li>\n<li>Whisk ball for quick and easy mixing, even the thickest supplements</li>\n<li>Removable gasket for easy cleaning</li>\n<li>Ergonomic shape for a good grip</li>\n</ul>",
+      "published_at": "2026-11-18T10:19:04+02:00",
+      "created_at": "2026-08-11T06:23:32+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Kitchenware",
+      "tags": [
+        "24oz/709ml",
+        "Kitchenware",
+        "new",
+        "Shaker Bottle"
+      ],
+      "variants": [
+        {
+          "id": 68745856385248,
+          "title": "Popstar Pink",
+          "option1": "Popstar Pink",
+          "option2": null,
+          "option3": null,
+          "sku": "MXC24668",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55286080962784,
+            "product_id": 10033621663968,
+            "position": 1,
+            "created_at": "2026-08-11T06:27:34+02:00",
+            "updated_at": "2026-08-11T06:27:36+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24668_24ozInsulatedShakerBottle_PopstarPink_StraightOn_NoShadow.jpg?v=1786422456",
+            "variant_ids": [
+              68745856385248
+            ]
+          },
+          "available": true,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 10033621663968,
+          "created_at": "2026-11-18T10:19:07+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745856418016,
+          "title": "Agave",
+          "option1": "Agave",
+          "option2": null,
+          "option3": null,
+          "sku": "MXCC24374",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55286034039008,
+            "product_id": 10033621663968,
+            "position": 6,
+            "created_at": "2026-08-11T06:23:27+02:00",
+            "updated_at": "2026-08-11T06:23:29+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXCC24374_24ozInsulatedShakerBottle_Agave_StraightOn_NoShadow.jpg?v=1786422209",
+            "variant_ids": [
+              68745856418016
+            ]
+          },
+          "available": false,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 2,
+          "product_id": 10033621663968,
+          "created_at": "2026-11-18T10:19:07+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745856450784,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "MXC24001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57429967077600,
+            "product_id": 10033621663968,
+            "position": 7,
+            "created_at": "2026-11-18T10:16:11+02:00",
+            "updated_at": "2026-11-18T10:16:12+02:00",
+            "alt": null,
+            "width": 1086,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24001_24ozInsulatedShakerBottle_Black_StraightOn.jpg?v=1794989772",
+            "variant_ids": [
+              68745856450784
+            ]
+          },
+          "available": false,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 3,
+          "product_id": 10033621663968,
+          "created_at": "2026-11-18T10:19:07+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745856483552,
+          "title": "Capri Blue",
+          "option1": "Capri Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "MXC24382",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57429969207520,
+            "product_id": 10033621663968,
+            "position": 9,
+            "created_at": "2026-11-18T10:16:30+02:00",
+            "updated_at": "2026-11-18T10:16:31+02:00",
+            "alt": null,
+            "width": 1086,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24382_24ozInsulatedShakerBottle_CapriBlue_StraightOn_Front_3.jpg?v=1794989791",
+            "variant_ids": [
+              68745856483552
+            ]
+          },
+          "available": false,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 4,
+          "product_id": 10033621663968,
+          "created_at": "2026-11-18T10:19:07+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745856516320,
+          "title": "Mermaid Green",
+          "option1": "Mermaid Green",
+          "option2": null,
+          "option3": null,
+          "sku": "MXC24344",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57429968945376,
+            "product_id": 10033621663968,
+            "position": 8,
+            "created_at": "2026-11-18T10:16:27+02:00",
+            "updated_at": "2026-11-18T10:16:28+02:00",
+            "alt": null,
+            "width": 1086,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24344_24ozInsulatedShakerBottle_MermaidGreen_StraightOn_NoShadow.jpg?v=1794989788",
+            "variant_ids": [
+              68745856516320
+            ]
+          },
+          "available": false,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 5,
+          "product_id": 10033621663968,
+          "created_at": "2026-11-18T10:19:07+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 55286080962784,
+          "created_at": "2026-08-11T06:27:34+02:00",
+          "position": 1,
+          "updated_at": "2026-08-11T06:27:36+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [
+            68745856385248
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24668_24ozInsulatedShakerBottle_PopstarPink_StraightOn_NoShadow.jpg?v=1786422456",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55286036300000,
+          "created_at": "2026-08-11T06:23:40+02:00",
+          "position": 2,
+          "updated_at": "2026-08-11T06:24:59+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24668_24ozInsulatedShakerBottle_PopstarPink_StraightOn_Side_3.jpg?v=1786422299",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55286080995552,
+          "created_at": "2026-08-11T06:27:34+02:00",
+          "position": 3,
+          "updated_at": "2026-08-11T06:27:36+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24668_24ozInsulatedShakerBottle_PopstarPink_HB_3.jpg?v=1786422456",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55286081028320,
+          "created_at": "2026-08-11T06:27:34+02:00",
+          "position": 4,
+          "updated_at": "2026-08-11T06:27:36+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24668_24ozInsulatedShakerBottle_PopstarPink_Feature_Ball_3.jpg?v=1786422456",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55286081061088,
+          "created_at": "2026-08-11T06:27:34+02:00",
+          "position": 5,
+          "updated_at": "2026-08-11T06:27:36+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24668_24ozInsulatedShakerBottle_PopstarPink_Angled_NoShadow.jpg?v=1786422456",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55286034039008,
+          "created_at": "2026-08-11T06:23:27+02:00",
+          "position": 6,
+          "updated_at": "2026-08-11T06:23:29+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [
+            68745856418016
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXCC24374_24ozInsulatedShakerBottle_Agave_StraightOn_NoShadow.jpg?v=1786422209",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57429967077600,
+          "created_at": "2026-11-18T10:16:11+02:00",
+          "position": 7,
+          "updated_at": "2026-11-18T10:16:12+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [
+            68745856450784
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24001_24ozInsulatedShakerBottle_Black_StraightOn.jpg?v=1794989772",
+          "width": 1086,
+          "height": 1600
+        },
+        {
+          "id": 57429968945376,
+          "created_at": "2026-11-18T10:16:27+02:00",
+          "position": 8,
+          "updated_at": "2026-11-18T10:16:28+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [
+            68745856516320
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24344_24ozInsulatedShakerBottle_MermaidGreen_StraightOn_NoShadow.jpg?v=1794989788",
+          "width": 1086,
+          "height": 1600
+        },
+        {
+          "id": 57429969207520,
+          "created_at": "2026-11-18T10:16:30+02:00",
+          "position": 9,
+          "updated_at": "2026-11-18T10:16:31+02:00",
+          "product_id": 10033621663968,
+          "variant_ids": [
+            68745856483552
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/MXC24382_24ozInsulatedShakerBottle_CapriBlue_StraightOn_Front_3.jpg?v=1794989791",
+          "width": 1086,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Popstar Pink",
+            "Agave",
+            "Black",
+            "Capri Blue",
+            "Mermaid Green"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15619282534624,
+      "title": "Adventure Inc Gift Card",
+      "handle": "adventure-inc-gift-card",
+      "body_html": "<p><strong><span>Give the gift of adventure.</span></strong></p>\n<p><span>Not sure what to choose? Let them pick the gear for their next adventure. From everyday essentials to equipment for the trails, an Adventure Inc Gift Card puts the choice in their hands.</span></p>\n<ul>\n<li><span>Choose your gift card value.</span></li>\n<li><span>Send it straight to someone special by email, with your own personal message—or have it emailed to yourself.</span></li>\n<li><span>Redeem online at checkout using the unique gift card code.</span></li>\n<li><span>Spend it across multiple orders until the balance runs out, or put it towards a bigger purchase and pay the difference.</span></li>\n</ul>\n<p><span>Delivered digitally, with no delivery fees. Perfect for birthdays, celebrations or a little encouragement to get outdoors.</span></p>",
+      "published_at": "2026-11-18T09:30:55+02:00",
+      "created_at": "2026-11-18T09:30:54+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Adventure Inc",
+      "product_type": "",
+      "tags": [
+        "Gift Card",
+        "Voucher"
+      ],
+      "variants": [
+        {
+          "id": 68745313911008,
+          "title": "R 250.00",
+          "option1": "R 250.00",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "featured_image": null,
+          "available": true,
+          "price": "250.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 15619282534624,
+          "created_at": "2026-11-18T09:30:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745313943776,
+          "title": "R 500.00",
+          "option1": "R 500.00",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "featured_image": null,
+          "available": true,
+          "price": "500.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 2,
+          "product_id": 15619282534624,
+          "created_at": "2026-11-18T09:30:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745313976544,
+          "title": "R 1,000.00",
+          "option1": "R 1,000.00",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "featured_image": null,
+          "available": true,
+          "price": "1000.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 3,
+          "product_id": 15619282534624,
+          "created_at": "2026-11-18T09:30:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745314009312,
+          "title": "R 1,500.00",
+          "option1": "R 1,500.00",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "featured_image": null,
+          "available": true,
+          "price": "1500.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 4,
+          "product_id": 15619282534624,
+          "created_at": "2026-11-18T09:30:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745314042080,
+          "title": "R 2,000.00",
+          "option1": "R 2,000.00",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "featured_image": null,
+          "available": true,
+          "price": "2000.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 5,
+          "product_id": 15619282534624,
+          "created_at": "2026-11-18T09:30:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745314074848,
+          "title": "R 2,500.00",
+          "option1": "R 2,500.00",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "featured_image": null,
+          "available": true,
+          "price": "2500.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 6,
+          "product_id": 15619282534624,
+          "created_at": "2026-11-18T09:30:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68745314107616,
+          "title": "R 3,000.00",
+          "option1": "R 3,000.00",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "featured_image": null,
+          "available": true,
+          "price": "3000.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 7,
+          "product_id": 15619282534624,
+          "created_at": "2026-11-18T09:30:54+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57432420614368,
+          "created_at": "2026-11-18T12:53:33+02:00",
+          "position": 1,
+          "updated_at": "2026-11-18T12:53:35+02:00",
+          "product_id": 15619282534624,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/AdventureIncmountaingiftcard_1.png?v=1794999215",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "options": [
+        {
+          "name": "Denominations",
+          "position": 1,
+          "values": [
+            "R 250.00",
+            "R 500.00",
+            "R 1,000.00",
+            "R 1,500.00",
+            "R 2,000.00",
+            "R 2,500.00",
+            "R 3,000.00"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15611045740768,
+      "title": "Hydro Flask Micro Hydro Bottle, 400ml - Limited Edition",
+      "handle": "hydro-flask-micro-hydro-bottle-400ml-copy",
+      "body_html": "<h2>Only the essentials.</h2>\n<p>A larger mini Hydro Flask, this Micro Hydro delivers 13.5 oz / 400 mL of hot and cold in a mini Hydro Flask. Just the essentials with a nod to minimalistic style. The new removable FlexClip™ bottle strap lets you easily slip it on a bag or waist. Pop it in your pocket, fit in a lunch box, the tiny size sits easily in the palm of your hand. The Micro Hydro boasts Hydro Flask’s iconic insulation, leakproof technology and lifetime warranty. Cute, useful and destined for beloved status.</p>\n<ul>\n<li>24 hours cold, 10 hours hot</li>\n<li>Removable FlexClip™ bottle strap</li>\n<li>Double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Fits Micro 400 Boot</li>\n<li>Not intended for use with carbonated drinks</li>\n<li>Not intended for children under 12 years old</li>\n<li>NOTE: This cap does not fit Micro Hydro Straw bottle styles</li>\n</ul>",
+      "published_at": "2026-11-17T16:11:06+02:00",
+      "created_at": "2026-11-17T16:11:06+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "13.5oz/400ml",
+        "Flex Cap",
+        "Hydration",
+        "Micro Hydro",
+        "new"
+      ],
+      "variants": [
+        {
+          "id": 68707794059488,
+          "title": "Woodland Camo",
+          "option1": "Woodland Camo",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400-LEINT-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57403347206368,
+            "product_id": 15611045740768,
+            "position": 1,
+            "created_at": "2026-11-17T16:11:54+02:00",
+            "updated_at": "2026-11-17T16:11:55+02:00",
+            "alt": null,
+            "width": 817,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400-LE26-1_MicroHydro400mL_WoodlandCamo_StraightOn.jpg?v=1794924715",
+            "variant_ids": [
+              68707794059488
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15611045740768,
+          "created_at": "2026-11-17T16:11:06+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57403347206368,
+          "created_at": "2026-11-17T16:11:54+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T16:11:55+02:00",
+          "product_id": 15611045740768,
+          "variant_ids": [
+            68707794059488
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400-LE26-1_MicroHydro400mL_WoodlandCamo_StraightOn.jpg?v=1794924715",
+          "width": 817,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Woodland Camo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15611023098080,
+      "title": "Hydro Flask Micro Hydro Bottle, 400ml",
+      "handle": "hydro-flask-micro-hydro-bottle-300ml-limited-edition-copy-copy",
+      "body_html": "<h2>Only the essentials.</h2>\n<p>A larger mini Hydro Flask, this Micro Hydro delivers 13.5 oz / 400 mL of hot and cold in a mini Hydro Flask. Just the essentials with a nod to minimalistic style. The new removable FlexClip™ bottle strap lets you easily slip it on a bag or waist. Pop it in your pocket, fit in a lunch box, the tiny size sits easily in the palm of your hand. The Micro Hydro boasts Hydro Flask’s iconic insulation, leakproof technology and lifetime warranty. Cute, useful and destined for beloved status.</p>\n<ul>\n<li>24 hours cold, 10 hours hot</li>\n<li>Removable FlexClip™ bottle strap</li>\n<li>Double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Fits Micro 400 Boot</li>\n<li>Not intended for use with carbonated drinks</li>\n<li>Not intended for children under 12 years old</li>\n<li>NOTE: This cap does not fit Micro Hydro Straw bottle styles</li>\n</ul>",
+      "published_at": "2026-11-17T15:59:33+02:00",
+      "created_at": "2026-11-17T15:59:33+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "13.5oz/400ml",
+        "Flex Cap",
+        "Hydration",
+        "Micro Hydro",
+        "new"
+      ],
+      "variants": [
+        {
+          "id": 68707759325408,
+          "title": "Birch",
+          "option1": "Birch",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400035",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996588768,
+            "product_id": 15611023098080,
+            "position": 4,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400035_MicroHydro400mL_Birch_StraightOn_NoShadow_V2.jpg?v=1794924119",
+            "variant_ids": [
+              68707759325408
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T15:59:35+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707777970400,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996490464,
+            "product_id": 15611023098080,
+            "position": 3,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400001_MicroHydro400mL_Black_StraightOn_V2.jpg?v=1794924119",
+            "variant_ids": [
+              68707777970400
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 2,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:04:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707778003168,
+          "title": "Burgundy",
+          "option1": "Burgundy",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400674",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996818144,
+            "product_id": 15611023098080,
+            "position": 12,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:58+02:00",
+            "alt": null,
+            "width": 786,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400674_MicroHydro400mL_Burgundy_StraightOn_NoShadow.jpg?v=1794924118",
+            "variant_ids": [
+              68707778003168
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 3,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:04:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707778035936,
+          "title": "Harbor Blue",
+          "option1": "Harbor Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400384",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996752608,
+            "product_id": 15611023098080,
+            "position": 10,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 786,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400384_MicroHydro400mL_HarborBlue_StraightOn_NoShadow_V2.jpg?v=1794924119",
+            "variant_ids": [
+              68707778035936
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 4,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:04:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707778068704,
+          "title": "Oat",
+          "option1": "Oat",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400114",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996687072,
+            "product_id": 15611023098080,
+            "position": 9,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400114_MicroHydro400mL_Oat_StraightOn_V2.jpg?v=1794924119",
+            "variant_ids": [
+              68707778068704
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 5,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:04:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707778101472,
+          "title": "Palmer Green",
+          "option1": "Palmer Green",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400346",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996719840,
+            "product_id": 15611023098080,
+            "position": 1,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400346_MicroHydro400mL_PalmerGreen_StraightOn_NoShadow.jpg?v=1794924119",
+            "variant_ids": [
+              68707778101472
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 6,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:04:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707778134240,
+          "title": "Shale Grey",
+          "option1": "Shale Grey",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400043",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996621536,
+            "product_id": 15611023098080,
+            "position": 7,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400043_MicroHydro400mL_ShaleGray_StraightOn_V2.jpg?v=1794924119",
+            "variant_ids": [
+              68707778134240
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 7,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:04:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707778167008,
+          "title": "Trillium",
+          "option1": "Trillium",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400678",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996457696,
+            "product_id": 15611023098080,
+            "position": 2,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400678_MicroHydro400mL_Trillium_StraightOn_V2.jpg?v=1794924119",
+            "variant_ids": [
+              68707778167008
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 8,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:04:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707790258400,
+          "title": "Utopia Purple",
+          "option1": "Utopia Purple",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400527",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996785376,
+            "product_id": 15611023098080,
+            "position": 11,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400527_MicroHydro400mL_UtopiaPurple_StraightOn_NoShadow.jpg?v=1794924119",
+            "variant_ids": [
+              68707790258400
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 9,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:09:38+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707781673184,
+          "title": "White",
+          "option1": "White",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY400110",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402996654304,
+            "product_id": 15611023098080,
+            "position": 8,
+            "created_at": "2026-11-17T16:01:57+02:00",
+            "updated_at": "2026-11-17T16:01:59+02:00",
+            "alt": null,
+            "width": 785,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400110_MicroHydro400mL_White_StraightOn_V2.jpg?v=1794924119",
+            "variant_ids": [
+              68707781673184
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 10,
+          "product_id": 15611023098080,
+          "created_at": "2026-11-17T16:06:20+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57402996719840,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707778101472
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400346_MicroHydro400mL_PalmerGreen_StraightOn_NoShadow.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996457696,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707778167008
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400678_MicroHydro400mL_Trillium_StraightOn_V2.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996490464,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707777970400
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400001_MicroHydro400mL_Black_StraightOn_V2.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996588768,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707759325408
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400035_MicroHydro400mL_Birch_StraightOn_NoShadow_V2.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996523232,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400035_400mLMicroHydro_Birch_Angled.jpg?v=1794924119",
+          "width": 753,
+          "height": 1600
+        },
+        {
+          "id": 57402996556000,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400035_MicroHydro400mL_Birch_HB_V2.jpg?v=1794924119",
+          "width": 1019,
+          "height": 1600
+        },
+        {
+          "id": 57402996621536,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 7,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707778134240
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400043_MicroHydro400mL_ShaleGray_StraightOn_V2.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996654304,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 8,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707781673184
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400110_MicroHydro400mL_White_StraightOn_V2.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996687072,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 9,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707778068704
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400114_MicroHydro400mL_Oat_StraightOn_V2.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996752608,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 10,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707778035936
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400384_MicroHydro400mL_HarborBlue_StraightOn_NoShadow_V2.jpg?v=1794924119",
+          "width": 786,
+          "height": 1600
+        },
+        {
+          "id": 57402996785376,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 11,
+          "updated_at": "2026-11-17T16:01:59+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707790258400
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400527_MicroHydro400mL_UtopiaPurple_StraightOn_NoShadow.jpg?v=1794924119",
+          "width": 785,
+          "height": 1600
+        },
+        {
+          "id": 57402996818144,
+          "created_at": "2026-11-17T16:01:57+02:00",
+          "position": 12,
+          "updated_at": "2026-11-17T16:01:58+02:00",
+          "product_id": 15611023098080,
+          "variant_ids": [
+            68707778003168
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY400674_MicroHydro400mL_Burgundy_StraightOn_NoShadow.jpg?v=1794924118",
+          "width": 786,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Birch",
+            "Black",
+            "Burgundy",
+            "Harbor Blue",
+            "Oat",
+            "Palmer Green",
+            "Shale Grey",
+            "Trillium",
+            "Utopia Purple",
+            "White"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15611000258784,
+      "title": "Hydro Flask Micro Hydro Bottle, 300ml - Limited Edition (Copy)",
+      "handle": "hydro-flask-micro-hydro-bottle-200ml-limited-edition-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Limited Edition Micro Hydro</h2>\n<p>Limited Edition Glimmer Hydro Flask. Sip with a smidge of shimmer with the 300 mL Micro Hydro that delivers hot and cold in a mini stainless steel insulated bottle. Just the essentials with a nod to minimalistic style. The removable FlexClip™ bottle strap lets you easily clip it on a bag or waist. Pop it in your pocket, fit in a lunch box, the tiny size sits easily in the palm of your hand. The Micro Hydro boasts Hydro Flask’s iconic insulation, leakproof technology and lifetime warranty. Cute, useful and destined for beloved status.</p>\n<ul>\n<li>Shimmery, glimmer finish</li>\n<li>24 hours cold, 9 hours hot</li>\n<li>Removable FlexClip™ bottle strap</li>\n<li>Double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Not intended for use with carbonated drinks</li>\n<li>Not intended for children under 12 years old</li>\n</ul>",
+      "published_at": "2026-11-17T15:52:10+02:00",
+      "created_at": "2026-11-17T15:52:10+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "10oz/300ml",
+        "Flex Cap",
+        "Hydration",
+        "Micro Hydro",
+        "new"
+      ],
+      "variants": [
+        {
+          "id": 68707680059616,
+          "title": "Glimmer Black",
+          "option1": "Glimmer Black",
+          "option2": null,
+          "option3": null,
+          "sku": "LE-H26TNY3-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402766164192,
+            "product_id": 15611000258784,
+            "position": 3,
+            "created_at": "2026-11-17T15:54:33+02:00",
+            "updated_at": "2026-11-17T15:54:35+02:00",
+            "alt": null,
+            "width": 762,
+            "height": 1523,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-1_MicroHydro300mL_GlimmerBlack_StraightOn.jpg?v=1794923675",
+            "variant_ids": [
+              68707680059616
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15611000258784,
+          "created_at": "2026-11-17T15:55:05+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707680092384,
+          "title": "Glimmer Purple",
+          "option1": "Glimmer Purple",
+          "option2": null,
+          "option3": null,
+          "sku": "LE-H26TNY3-3",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402766098656,
+            "product_id": 15611000258784,
+            "position": 1,
+            "created_at": "2026-11-17T15:54:33+02:00",
+            "updated_at": "2026-11-17T15:54:35+02:00",
+            "alt": null,
+            "width": 762,
+            "height": 1523,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-3_MicroHydro300mL_GlimmerPurple_StraightOn.jpg?v=1794923675",
+            "variant_ids": [
+              68707680092384
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 2,
+          "product_id": 15611000258784,
+          "created_at": "2026-11-17T15:55:05+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707680125152,
+          "title": "Glimmer Teal",
+          "option1": "Glimmer Teal",
+          "option2": null,
+          "option3": null,
+          "sku": "LE-H26TNY3-2",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402766295264,
+            "product_id": 15611000258784,
+            "position": 7,
+            "created_at": "2026-11-17T15:54:33+02:00",
+            "updated_at": "2026-11-17T15:54:35+02:00",
+            "alt": null,
+            "width": 762,
+            "height": 1523,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-2_MicroHydro300mL_GlimmerTeal_StraightOn_NoShadow.jpg?v=1794923675",
+            "variant_ids": [
+              68707680125152
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 3,
+          "product_id": 15611000258784,
+          "created_at": "2026-11-17T15:55:05+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57402766098656,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [
+            68707680092384
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-3_MicroHydro300mL_GlimmerPurple_StraightOn.jpg?v=1794923675",
+          "width": 762,
+          "height": 1523
+        },
+        {
+          "id": 57402766131424,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-1_MicroHydro300mL_GlimmerBlack_Angled.jpg?v=1794923675",
+          "width": 752,
+          "height": 1538
+        },
+        {
+          "id": 57402766164192,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [
+            68707680059616
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-1_MicroHydro300mL_GlimmerBlack_StraightOn.jpg?v=1794923675",
+          "width": 762,
+          "height": 1523
+        },
+        {
+          "id": 57402766196960,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-2_MicroHydro300mL_GlimmerTeal_Angled.jpg?v=1794923675",
+          "width": 752,
+          "height": 1538
+        },
+        {
+          "id": 57402766229728,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-2_MicroHydro300mL_GlimmerTeal_Angled_NoShadow.jpg?v=1794923675",
+          "width": 752,
+          "height": 1538
+        },
+        {
+          "id": 57402766262496,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-2_MicroHydro300mL_GlimmerTeal_StraightOn.jpg?v=1794923675",
+          "width": 762,
+          "height": 1523
+        },
+        {
+          "id": 57402766295264,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 7,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [
+            68707680125152
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-2_MicroHydro300mL_GlimmerTeal_StraightOn_NoShadow.jpg?v=1794923675",
+          "width": 762,
+          "height": 1523
+        },
+        {
+          "id": 57402766328032,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 8,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-3_MicroHydro300mL_GlimmerPurple_Angled.jpg?v=1794923675",
+          "width": 752,
+          "height": 1538
+        },
+        {
+          "id": 57402766360800,
+          "created_at": "2026-11-17T15:54:33+02:00",
+          "position": 9,
+          "updated_at": "2026-11-17T15:54:35+02:00",
+          "product_id": 15611000258784,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LE-H26TNY3-3_MicroHydro300mL_GlimmerPurple_HB.jpg?v=1794923675",
+          "width": 860,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Glimmer Black",
+            "Glimmer Purple",
+            "Glimmer Teal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15610971816160,
+      "title": "Hydro Flask Micro Hydro Bottle, 200ml - Limited Edition",
+      "handle": "hydro-flask-micro-hydro-bottle-200ml-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Only the essentials.</h2>\n<p>Fresh from Hydro Flask Japan, the Micro Hydro delivers 6.7 oz / 200 mL of hot and cold in a mini Hydro Flask. Just the essentials with a nod to minimalistic style. The new removable FlexClip™ bottle strap lets you easily slip it on a bag or waist. Pop it in your pocket, fit in a lunch box, the tiny size sits easily in the palm of your hand. The Micro Hydro boasts Hydro Flask’s iconic insulation, leakproof technology and lifetime warranty. Cute, useful and destined for beloved status.</p>\n<ul>\n<li>20 hours cold, 7 hours hot</li>\n<li>Removable FlexClip™ bottle strap</li>\n<li>Double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Fits Micro 200 Boot</li>\n<li>Not intended for use with carbonated drinks</li>\n<li>Not intended for children under 12 years old</li>\n<li>NOTE: This cap does not fit Micro Hydro Straw bottle styles</li>\n</ul>\n<h2></h2>\n<div class=\"specs-tab grid lg:grid-cols-3 hf:gap-5 md:grid-cols-2 pb-8 md:pb-0\"></div>",
+      "published_at": "2026-11-17T15:48:37+02:00",
+      "created_at": "2026-11-17T15:43:17+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "6.7oz/200ml",
+        "Flex Cap",
+        "Hydration",
+        "Micro Hydro",
+        "new"
+      ],
+      "variants": [
+        {
+          "id": 68707197649120,
+          "title": "Woodland Camo",
+          "option1": "Woodland Camo",
+          "option2": null,
+          "option3": null,
+          "sku": "TNY200-LE26-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402327269600,
+            "product_id": 15610971816160,
+            "position": 1,
+            "created_at": "2026-11-17T15:45:39+02:00",
+            "updated_at": "2026-11-17T15:45:40+02:00",
+            "alt": null,
+            "width": 687,
+            "height": 1330,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY200-LE26-1_MicroHydro200mL_WoodlandCamo_StraightOn_d2e591ca-a04a-4501-9958-79f20ff47ce3.jpg?v=1794923140",
+            "variant_ids": [
+              68707197649120
+            ]
+          },
+          "available": false,
+          "price": "399.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15610971816160,
+          "created_at": "2026-11-17T15:43:18+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57402327269600,
+          "created_at": "2026-11-17T15:45:39+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T15:45:40+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [
+            68707197649120
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY200-LE26-1_MicroHydro200mL_WoodlandCamo_StraightOn_d2e591ca-a04a-4501-9958-79f20ff47ce3.jpg?v=1794923140",
+          "width": 687,
+          "height": 1330
+        },
+        {
+          "id": 57402327236832,
+          "created_at": "2026-11-17T15:45:39+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T15:45:40+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/TNY200-LE26-1_MicroHydro200mL_WoodlandCamo_Angled_NoShadow_37dce316-d178-4d7f-b93b-5b80f204ef97.jpg?v=1794923140",
+          "width": 677,
+          "height": 1342
+        },
+        {
+          "id": 57402341589216,
+          "created_at": "2026-11-17T15:45:58+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T15:45:59+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_micro_200ml-3.jpg?v=1794923159",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402341490912,
+          "created_at": "2026-11-17T15:45:58+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T15:46:00+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_micro_200ml-14.jpg?v=1794923160",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402341523680,
+          "created_at": "2026-11-17T15:45:58+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T15:45:59+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_group-5_1.jpg?v=1794923159",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402341556448,
+          "created_at": "2026-11-17T15:45:58+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T15:46:00+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_micro_200ml-1.jpg?v=1794923160",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402341621984,
+          "created_at": "2026-11-17T15:45:58+02:00",
+          "position": 7,
+          "updated_at": "2026-11-17T15:46:00+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_micro_200ml-10.jpg?v=1794923160",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402341654752,
+          "created_at": "2026-11-17T15:45:58+02:00",
+          "position": 8,
+          "updated_at": "2026-11-17T15:45:59+02:00",
+          "product_id": 15610971816160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/camo_micro_200ml-12.jpg?v=1794923159",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Woodland Camo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15610915782880,
+      "title": "Hydro Flask 200ml Micro Hydro Gift Set - Limited Edition",
+      "handle": "hydro-flask-32oz-lightweight-flex-straw-bottle-946ml-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Limited Edition Micro Gift Set</h2>\n<p>Create a cosmic connection with two exclusive designs of the Micro Hydro 200 mL. In addition to the award-winning Hydro Flask insulation, durability and performance, these ombré Micro Hydro insulated bottles feature a removable FlexClip™ bottle strap with printed designs. Complete with fun gift box packaging featuring one of each style, this Micro gift set is ideal for grabbing and gifting.</p>\n<ul>\n<li>20 hours cold, 7 hours hot</li>\n<li>Removable FlexClip™ bottle strap</li>\n<li>Double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Won't retain odor or leftover flavor</li>\n<li>Durable stainless steel</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n<li>Great for gifting</li>\n</ul>",
+      "published_at": "2026-11-17T15:33:41+02:00",
+      "created_at": "2026-11-17T15:33:41+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "6.7oz/200ml",
+        "gift set",
+        "Hydration"
+      ],
+      "variants": [
+        {
+          "id": 68707472802016,
+          "title": "Cosmic",
+          "option1": "Cosmic",
+          "option2": null,
+          "option3": null,
+          "sku": "LE26-TNYB-A",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57402097041632,
+            "product_id": 15610915782880,
+            "position": 1,
+            "created_at": "2026-11-17T15:39:31+02:00",
+            "updated_at": "2026-11-17T15:39:33+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/le26-tnyb-a-200-ml-micro-hydro-gift-set-cosmic-packaging-straight_705b53a4-bcbb-47d7-915c-5b1103a8b7fa.jpg?v=1794922773",
+            "variant_ids": [
+              68707472802016
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 1,
+          "product_id": 15610915782880,
+          "created_at": "2026-11-17T15:50:57+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57402097041632,
+          "created_at": "2026-11-17T15:39:31+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T15:39:33+02:00",
+          "product_id": 15610915782880,
+          "variant_ids": [
+            68707472802016
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/le26-tnyb-a-200-ml-micro-hydro-gift-set-cosmic-packaging-straight_705b53a4-bcbb-47d7-915c-5b1103a8b7fa.jpg?v=1794922773",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402096976096,
+          "created_at": "2026-11-17T15:39:31+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T15:39:33+02:00",
+          "product_id": 15610915782880,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/le26-tnyb-a-200-ml-micro-hydro-gift-set-cosmic-duo-straight_c5dfd986-8bd0-4291-88fe-d89c1989dda2.jpg?v=1794922773",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402097008864,
+          "created_at": "2026-11-17T15:39:31+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T15:39:32+02:00",
+          "product_id": 15610915782880,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/le26-tnyb-a-200-ml-micro-hydro-gift-set-cosmic-packaging-angled_a6b0bee8-c790-46b6-9cac-c4d99b22f8bb.jpg?v=1794922772",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57402097074400,
+          "created_at": "2026-11-17T15:39:31+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T15:39:33+02:00",
+          "product_id": 15610915782880,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/094a7450_8b2204e3-f20b-4114-a796-b3c985d49c86.jpg?v=1794922773",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Cosmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15610900414688,
+      "title": "Hydro Flask 32oz Lightweight Flex Straw Bottle 946ml",
+      "handle": "hydro-flask-24oz-lightweight-flex-straw-bottle-709ml-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Joyfully lightweight</h2>\n<p>The same Hydro Flask insulation and durability you love in a sleek, lightweight design. Flip it and sip it with the Hydro Flask Lightweight Bottle With Flex Straw Cap. With a comfortable, perforated, airy strap, the closeable, leakproof straw cap is easy to open and close with one hand, for on-demand hydration. The smooth, sleek bottle easily slides into bags and totes while keeping your drinks cold up to 24 hours.</p>\n<ul>\n<li>24 hours cold</li>\n<li>TempShield® double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Closeable straw cap</li>\n<li>Won't retain odors or leftover flavors</li>\n<li>Durable stainless steel</li>\n<li>Lightweight perforated strap</li>\n<li>Lightweight aluminum flex pivots</li>\n<li>Wide Mouth</li>\n<li>Flex Straw Cap not intended for use with hot liquids</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n</ul>",
+      "published_at": "2026-11-17T15:28:16+02:00",
+      "created_at": "2026-11-17T15:28:16+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "32oz/946ml",
+        "Hydration",
+        "Serpentine",
+        "Straw Lid",
+        "Trail Series",
+        "Wide Mouth"
+      ],
+      "variants": [
+        {
+          "id": 68707000123616,
+          "title": "Emerald Green",
+          "option1": "Emerald Green",
+          "option2": null,
+          "option3": null,
+          "sku": "LW32LWFS348",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401776767200,
+            "product_id": 15610900414688,
+            "position": 6,
+            "created_at": "2026-11-17T15:30:37+02:00",
+            "updated_at": "2026-11-17T15:30:39+02:00",
+            "alt": null,
+            "width": 936,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS348_32ozLightweightFlexStraw_EmeraldGreen_StraightOn.jpg?v=1794922239",
+            "variant_ids": [
+              68707000123616
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 1,
+          "product_id": 15610900414688,
+          "created_at": "2026-11-17T15:28:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707000156384,
+          "title": "Obsidian",
+          "option1": "Obsidian",
+          "option2": null,
+          "option3": null,
+          "sku": "LW32LWFS080",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401776701664,
+            "product_id": 15610900414688,
+            "position": 2,
+            "created_at": "2026-11-17T15:30:37+02:00",
+            "updated_at": "2026-11-17T15:30:39+02:00",
+            "alt": null,
+            "width": 936,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS080_32ozLightweightFlexStraw_Obsidian_StraightOn_NoShadow.jpg?v=1794922239",
+            "variant_ids": [
+              68707000156384
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 2,
+          "product_id": 15610900414688,
+          "created_at": "2026-11-17T15:28:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68707000189152,
+          "title": "Sapphire Blue",
+          "option1": "Sapphire Blue",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401776603360,
+            "product_id": 15610900414688,
+            "position": 3,
+            "created_at": "2026-11-17T15:30:37+02:00",
+            "updated_at": "2026-11-17T15:30:39+02:00",
+            "alt": null,
+            "width": 936,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS392_32ozLightweightFlexStraw_SapphireBlue_StraightOn_NoShadow.jpg?v=1794922239",
+            "variant_ids": [
+              68707000189152
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 3,
+          "product_id": 15610900414688,
+          "created_at": "2026-11-17T15:28:16+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57401776799968,
+          "created_at": "2026-11-17T15:30:37+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T15:30:39+02:00",
+          "product_id": 15610900414688,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS392_32ozLightweightFlexStraw_SapphireBlue_Angled.jpg?v=1794922239",
+          "width": 839,
+          "height": 1600
+        },
+        {
+          "id": 57401776701664,
+          "created_at": "2026-11-17T15:30:37+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T15:30:39+02:00",
+          "product_id": 15610900414688,
+          "variant_ids": [
+            68707000156384
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS080_32ozLightweightFlexStraw_Obsidian_StraightOn_NoShadow.jpg?v=1794922239",
+          "width": 936,
+          "height": 1600
+        },
+        {
+          "id": 57401776603360,
+          "created_at": "2026-11-17T15:30:37+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T15:30:39+02:00",
+          "product_id": 15610900414688,
+          "variant_ids": [
+            68707000189152
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS392_32ozLightweightFlexStraw_SapphireBlue_StraightOn_NoShadow.jpg?v=1794922239",
+          "width": 936,
+          "height": 1600
+        },
+        {
+          "id": 57401776636128,
+          "created_at": "2026-11-17T15:30:37+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T15:30:39+02:00",
+          "product_id": 15610900414688,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS080_32ozLightweightFlexStraw_Obsidian_Angled_NoShadow.jpg?v=1794922239",
+          "width": 839,
+          "height": 1600
+        },
+        {
+          "id": 57401776668896,
+          "created_at": "2026-11-17T15:30:37+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T15:30:39+02:00",
+          "product_id": 15610900414688,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS080_32ozLightweightFlexStraw_Obsidian_HB.jpg?v=1794922239",
+          "width": 845,
+          "height": 1600
+        },
+        {
+          "id": 57401776767200,
+          "created_at": "2026-11-17T15:30:37+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T15:30:39+02:00",
+          "product_id": 15610900414688,
+          "variant_ids": [
+            68707000123616
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS348_32ozLightweightFlexStraw_EmeraldGreen_StraightOn.jpg?v=1794922239",
+          "width": 936,
+          "height": 1600
+        },
+        {
+          "id": 57401776734432,
+          "created_at": "2026-11-17T15:30:37+02:00",
+          "position": 7,
+          "updated_at": "2026-11-17T15:30:39+02:00",
+          "product_id": 15610900414688,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW32LWFS348_32ozLightweightFlexStraw_EmeraldGreen_Angled.jpg?v=1794922239",
+          "width": 839,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Emerald Green",
+            "Obsidian",
+            "Sapphire Blue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15610885800160,
+      "title": "Hydro Flask 24oz Lightweight Flex Straw Bottle 709ml",
+      "handle": "hydro-flask-24oz-lightweight-wide-mouth-flex-cap-bottle-709ml-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Joyfully lightweight</h2>\n<p>The same Hydro Flask insulation and durability you love in a sleek, lightweight design. Flip it and sip it with the Hydro Flask Lightweight Bottle With Flex Straw Cap. With a comfortable, perforated, airy strap, the closeable, leakproof straw cap is easy to open and close with one hand, for on-demand hydration. The smooth, sleek bottle easily slides into bags and totes while keeping your drinks cold up to 24 hours.</p>\n<ul>\n<li>24 hours cold</li>\n<li>TempShield® double-wall vacuum insulation</li>\n<li>Leakproof when closed</li>\n<li>Closeable straw cap</li>\n<li>Won't retain odors or leftover flavors</li>\n<li>Durable stainless steel</li>\n<li>Lightweight perforated strap</li>\n<li>Lightweight aluminum flex pivots</li>\n<li>Wide Mouth</li>\n<li>Flex Straw Cap not intended for use with hot liquids</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n</ul>",
+      "published_at": "2026-11-17T15:20:40+02:00",
+      "created_at": "2026-11-17T15:20:40+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Bottles",
+      "tags": [
+        "24oz/709ml",
+        "Hydration",
+        "Serpentine",
+        "Straw Lid",
+        "Trail Series",
+        "Wide Mouth"
+      ],
+      "variants": [
+        {
+          "id": 68706983117024,
+          "title": "Emerald Green",
+          "option1": "Emerald Green",
+          "option2": null,
+          "option3": null,
+          "sku": "LW24LWFS348",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401671614688,
+            "product_id": 15610885800160,
+            "position": 7,
+            "created_at": "2026-11-17T15:25:03+02:00",
+            "updated_at": "2026-11-17T15:25:04+02:00",
+            "alt": null,
+            "width": 960,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS348_24ozLightweightFlexStraw_EmeraldGreen_StraightOn.jpg?v=1794921904",
+            "variant_ids": [
+              68706983117024
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 1,
+          "product_id": 15610885800160,
+          "created_at": "2026-11-17T15:20:41+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68706997371104,
+          "title": "Obsidian",
+          "option1": "Obsidian",
+          "option2": null,
+          "option3": null,
+          "sku": "LW24LWFS080",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401671549152,
+            "product_id": 15610885800160,
+            "position": 3,
+            "created_at": "2026-11-17T15:25:03+02:00",
+            "updated_at": "2026-11-17T15:25:04+02:00",
+            "alt": null,
+            "width": 960,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS080_24ozLightweightFlexStraw_Obsidian_StraightOn.jpg?v=1794921904",
+            "variant_ids": [
+              68706997371104
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 2,
+          "product_id": 15610885800160,
+          "created_at": "2026-11-17T15:26:58+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68706997403872,
+          "title": "Sapphire Blue",
+          "option1": "Sapphire Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "LW24LWFS392",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401671418080,
+            "product_id": 15610885800160,
+            "position": 2,
+            "created_at": "2026-11-17T15:25:03+02:00",
+            "updated_at": "2026-11-17T15:25:04+02:00",
+            "alt": null,
+            "width": 960,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS392_24ozLightweightFlexStraw_SapphireBlue_StraightOn.jpg?v=1794921904",
+            "variant_ids": [
+              68706997403872
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "999.00",
+          "position": 3,
+          "product_id": 15610885800160,
+          "created_at": "2026-11-17T15:26:58+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57401671647456,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS392_24ozLightweightFlexStraw_SapphireBlue_Angled.jpg?v=1794921904",
+          "width": 817,
+          "height": 1600
+        },
+        {
+          "id": 57401671418080,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [
+            68706997403872
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS392_24ozLightweightFlexStraw_SapphireBlue_StraightOn.jpg?v=1794921904",
+          "width": 960,
+          "height": 1600
+        },
+        {
+          "id": 57401671549152,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [
+            68706997371104
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS080_24ozLightweightFlexStraw_Obsidian_StraightOn.jpg?v=1794921904",
+          "width": 960,
+          "height": 1600
+        },
+        {
+          "id": 57401671450848,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/Lightweight_FlexStrawCap_SapphireBlue_Feature-LugStrap.jpg?v=1794921904",
+          "width": 1079,
+          "height": 1600
+        },
+        {
+          "id": 57401671483616,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS080_24ozLightweightFlexStraw_Obsidian_Angled_NoShadow.jpg?v=1794921904",
+          "width": 817,
+          "height": 1600
+        },
+        {
+          "id": 57401671516384,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS080_24ozLightweightFlexStraw_Obsidian_HB.jpg?v=1794921904",
+          "width": 675,
+          "height": 1600
+        },
+        {
+          "id": 57401671614688,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 7,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [
+            68706983117024
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS348_24ozLightweightFlexStraw_EmeraldGreen_StraightOn.jpg?v=1794921904",
+          "width": 960,
+          "height": 1600
+        },
+        {
+          "id": 57401671581920,
+          "created_at": "2026-11-17T15:25:03+02:00",
+          "position": 8,
+          "updated_at": "2026-11-17T15:25:04+02:00",
+          "product_id": 15610885800160,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LW24LWFS348_24ozLightweightFlexStraw_EmeraldGreen_Angled.jpg?v=1794921904",
+          "width": 817,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Emerald Green",
+            "Obsidian",
+            "Sapphire Blue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15610864206048,
+      "title": "Hydro Flask 28oz Insulated Food Jar, 828ml",
+      "handle": "hydro-flask-20oz-insulated-food-jar-591ml-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Pack well. Eat well.</h2>\n<p>A durable, leakproof insulated 28 oz. container for lunch and adventure, our largest stainless-steel insulated food jar is made to go anywhere. TempShield® keeps food fresh, and the soft grip lid seals tight and is easy to open.</p>\n<ul>\n<li>TempShield®️ double-wall vacuum insulation protects temperature for hours</li>\n<li>Made with 18/8 pro-grade stainless steel for durability, pure taste and no flavor transfer</li>\n<li>Leakproof when closed</li>\n<li>Easy grip lid</li>\n<li>Color Last™ powder coat is durable, sweat-free and colorful</li>\n<li>Dishwasher safe</li>\n<li>Not for use on a stove, in a microwave or freezer</li>\n</ul>",
+      "published_at": "2026-11-17T15:09:07+02:00",
+      "created_at": "2026-11-17T15:09:07+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Kitchenware",
+      "tags": [
+        "28oz/828ml",
+        "Food Jar"
+      ],
+      "variants": [
+        {
+          "id": 68706943140064,
+          "title": "Oat",
+          "option1": "Oat",
+          "option2": null,
+          "option3": null,
+          "sku": "RF28114",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401396166880,
+            "product_id": 15610864206048,
+            "position": 1,
+            "created_at": "2026-11-17T15:11:00+02:00",
+            "updated_at": "2026-11-17T15:11:01+02:00",
+            "alt": null,
+            "width": 1274,
+            "height": 1196,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28114_28ozInsulatedFoodJar_Oat_StraightOn.jpg?v=1794921061",
+            "variant_ids": [
+              68706943140064
+            ]
+          },
+          "available": false,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15610864206048,
+          "created_at": "2026-11-17T15:09:07+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68706943172832,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "RF28001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57401396134112,
+            "product_id": 15610864206048,
+            "position": 4,
+            "created_at": "2026-11-17T15:11:00+02:00",
+            "updated_at": "2026-11-17T15:11:01+02:00",
+            "alt": null,
+            "width": 1274,
+            "height": 1327,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28001_28ozInsulatedFoodJar_Black_StraightOn.jpg?v=1794921061",
+            "variant_ids": [
+              68706943172832
+            ]
+          },
+          "available": false,
+          "price": "899.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 2,
+          "product_id": 15610864206048,
+          "created_at": "2026-11-17T15:09:07+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57401396166880,
+          "created_at": "2026-11-17T15:11:00+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T15:11:01+02:00",
+          "product_id": 15610864206048,
+          "variant_ids": [
+            68706943140064
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28114_28ozInsulatedFoodJar_Oat_StraightOn.jpg?v=1794921061",
+          "width": 1274,
+          "height": 1196
+        },
+        {
+          "id": 57401396068576,
+          "created_at": "2026-11-17T15:11:00+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T15:11:01+02:00",
+          "product_id": 15610864206048,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28114_28ozInsulatedFoodJar_Oat_Angled_NoShadow.jpg?v=1794921061",
+          "width": 1350,
+          "height": 1307
+        },
+        {
+          "id": 57401396101344,
+          "created_at": "2026-11-17T15:11:00+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T15:11:01+02:00",
+          "product_id": 15610864206048,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28114_28ozInsulatedFoodJar_Oat_HB.jpg?v=1794921061",
+          "width": 1600,
+          "height": 1045
+        },
+        {
+          "id": 57401396134112,
+          "created_at": "2026-11-17T15:11:00+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T15:11:01+02:00",
+          "product_id": 15610864206048,
+          "variant_ids": [
+            68706943172832
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28001_28ozInsulatedFoodJar_Black_StraightOn.jpg?v=1794921061",
+          "width": 1274,
+          "height": 1327
+        },
+        {
+          "id": 57401396003040,
+          "created_at": "2026-11-17T15:11:00+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T15:11:01+02:00",
+          "product_id": 15610864206048,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28001_28ozInsulatedFoodJar_Black_Angled_NoShadow.jpg?v=1794921061",
+          "width": 1349,
+          "height": 1313
+        },
+        {
+          "id": 57401396035808,
+          "created_at": "2026-11-17T15:11:00+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T15:11:01+02:00",
+          "product_id": 15610864206048,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/RF28001-28ozInsulatedFoodJar-Black-HB.jpg?v=1794921061",
+          "width": 1600,
+          "height": 1045
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Oat",
+            "Black"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15610818986208,
+      "title": "Hydro Flask Carryout Soft Cooler 15L",
+      "handle": "hydro-flask-carryout-backpack-22l-copy",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Keep your cool</h2>\n<p>Carry all with the newest Carryout™ Cooler, boasting all-day cold. The new Carryout™ Cooler merges the best of high-performance insulation with innovative comfort and intuitive design features. With endless ways to fit your life, and all your snacks, this cooler fits seamlessly into afternoons, weekends, tailgates, concerts, parks, road trips, parties and more. The compression-molded body style was created with comfortable carrying in mind. The easy to use FlexClip™ Strap System and handles are removable and customizable. The 100% recycled main body fabric with a durable coating is bluesign® APPROVED. The Carryout™ Collection features a Lifetime Warranty under the Hydro Flask Promise product guarantee.</p>\n<ul>\n<li>All-day cold when used with an ice pack</li>\n<li>Lightweight, optimized insulation</li>\n<li>Main body fabric is made of bluesign® APPROVED 100% recycled polyester with a durable coating. This product meets the requirements and criteria for bluesign® PRODUCT</li>\n<li>FlexClip™ strap system</li>\n<li>Ergonomic, comfortable carry</li>\n<li>Clamshell lid for easy access</li>\n<li>Welded, leakproof interior liner</li>\n<li>Easy to clean</li>\n<li>Lifetime warranty</li>\n<li>Food safe liner</li>\n<li>Fits 24 standard 12 oz cans, without ice</li>\n</ul>\n<div class=\"specs-tab grid lg:grid-cols-3 hf:gap-5 md:grid-cols-2 pb-8 md:pb-0\">\n<div class=\"specs-tab__item\">\n<table class=\"m-product-table w-full\" role=\"presentation\">\n<tbody>\n<tr class=\"m-product-table__row border hf:border-0 hf:border-t\">\n<td class=\"m-product-table__row-header text-left py-4 pl-2\"></td>\n<td class=\"m-product-table__item text-right py-4 pr-2\"></td>\n</tr>\n<tr class=\"m-product-table__row border hf:border-0 hf:border-t\">\n<td class=\"m-product-table__row-header text-left py-4 pl-2\"></td>\n<td class=\"m-product-table__item text-right py-4 pr-2\"></td>\n</tr>\n</tbody>\n</table>\n</div>\n</div>",
+      "published_at": "2026-11-17T14:56:08+02:00",
+      "created_at": "2026-11-17T14:46:57+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Coolers & Lunch Boxes",
+      "tags": [
+        "15L"
+      ],
+      "variants": [
+        {
+          "id": 68706842902752,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "12PCO001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57400836227296,
+            "product_id": 15610818986208,
+            "position": 1,
+            "created_at": "2026-11-17T14:48:45+02:00",
+            "updated_at": "2026-11-17T14:48:46+02:00",
+            "alt": null,
+            "width": 1519,
+            "height": 1600,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/12PCO001_CarryoutCooler15L_Black_Angled.jpg?v=1794919726",
+            "variant_ids": [
+              68706842902752
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "1499.00",
+          "position": 1,
+          "product_id": 15610818986208,
+          "created_at": "2026-11-17T14:46:57+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68706856599776,
+          "title": "Harbor Blue",
+          "option1": "Harbor Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "12PCO384",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57400892915936,
+            "product_id": 15610818986208,
+            "position": 3,
+            "created_at": "2026-11-17T14:51:05+02:00",
+            "updated_at": "2026-11-17T14:51:06+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/12pco384-carryout-cooler-15l-harbor-blue-angled_1_1.jpg?v=1794919866",
+            "variant_ids": [
+              68706856599776
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "1499.00",
+          "position": 2,
+          "product_id": 15610818986208,
+          "created_at": "2026-11-17T14:54:08+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57400836227296,
+          "created_at": "2026-11-17T14:48:45+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T14:48:46+02:00",
+          "product_id": 15610818986208,
+          "variant_ids": [
+            68706842902752
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/12PCO001_CarryoutCooler15L_Black_Angled.jpg?v=1794919726",
+          "width": 1519,
+          "height": 1600
+        },
+        {
+          "id": 57400836194528,
+          "created_at": "2026-11-17T14:48:45+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T14:48:46+02:00",
+          "product_id": 15610818986208,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/12PCO001_CarryoutCooler15L_Black_StraightOn.jpg?v=1794919726",
+          "width": 1600,
+          "height": 1589
+        },
+        {
+          "id": 57400892915936,
+          "created_at": "2026-11-17T14:51:05+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T14:51:06+02:00",
+          "product_id": 15610818986208,
+          "variant_ids": [
+            68706856599776
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/12pco384-carryout-cooler-15l-harbor-blue-angled_1_1.jpg?v=1794919866",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57400892883168,
+          "created_at": "2026-11-17T14:51:05+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T14:51:06+02:00",
+          "product_id": 15610818986208,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/250815_hydro_s26_hb_14556_1_1.jpg?v=1794919866",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 57400892850400,
+          "created_at": "2026-11-17T14:51:05+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T14:51:06+02:00",
+          "product_id": 15610818986208,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/250815_hydro_cooler_details_14852_6.jpg?v=1794919866",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Black",
+            "Harbor Blue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15610811351264,
+      "title": "Hydro Flask Carryout Backpack 22L",
+      "handle": "hydro-flask-carryout-backpack-22l",
+      "body_html": "<h2 data-uw-rm-heading=\"prs\">Keep your cool</h2>\n<p>Carry all with the newest Carryout™ Cooler, boasting all-day cold. The new Carryout™ Cooler merges the best of high-performance insulation with innovative comfort and intuitive design features. With endless ways to fit your life, and all your snacks, this cooler fits seamlessly into afternoons, weekends, tailgates, concerts, parks, road trips, parties and more. The new compression-molded body style was created for easy carrying, with a comfort-forward suspension system. The easy to use FlexClip™ Strap System, new handles are removable and customizable. The 100% recycled main body fabric with a durable coating is bluesign® APPROVED.</p>\n<ul>\n<li>All-day cold when used with an ice pack</li>\n<li>Lightweight, optimized insulation</li>\n<li>Comfort-forward suspension system</li>\n<li>Ergonomic, comfortable carry</li>\n<li>Main body fabric is made of bluesign® APPROVED 100% recycled polyester with a durable coating. This product meets the requirements and criteria for bluesign® PRODUCT</li>\n<li>FlexClip™ strap system</li>\n<li>Clamshell lid for easy access</li>\n<li>Welded, leakproof interior liner</li>\n<li>Easy to clean</li>\n<li>Lifetime warranty</li>\n<li>Food safe liner</li>\n<li>Fits 30 standard 12 oz cans, without ice</li>\n</ul>\n<div class=\"specs-tab grid lg:grid-cols-3 hf:gap-5 md:grid-cols-2 pb-8 md:pb-0\">\n<div class=\"specs-tab__item\">\n<table class=\"m-product-table w-full\" role=\"presentation\">\n<tbody>\n<tr class=\"m-product-table__row border hf:border-0 hf:border-t\">\n<td class=\"m-product-table__row-header text-left py-4 pl-2\"></td>\n<td class=\"m-product-table__item text-right py-4 pr-2\"></td>\n</tr>\n<tr class=\"m-product-table__row border hf:border-0 hf:border-t\">\n<td class=\"m-product-table__row-header text-left py-4 pl-2\"></td>\n<td class=\"m-product-table__item text-right py-4 pr-2\"></td>\n</tr>\n</tbody>\n</table>\n</div>\n</div>",
+      "published_at": "2026-11-17T14:42:03+02:00",
+      "created_at": "2026-11-17T14:42:03+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Hydro Flask",
+      "product_type": "Coolers & Lunch Boxes",
+      "tags": [
+        "22L"
+      ],
+      "variants": [
+        {
+          "id": 68706835136736,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "18PCO001",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57400713642208,
+            "product_id": 15610811351264,
+            "position": 1,
+            "created_at": "2026-11-17T14:43:18+02:00",
+            "updated_at": "2026-11-17T14:43:20+02:00",
+            "alt": null,
+            "width": 1600,
+            "height": 1568,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/18PCO001_CarryoutBackpack22L_Black_Angled.jpg?v=1794919400",
+            "variant_ids": [
+              68706835136736
+            ]
+          },
+          "available": false,
+          "price": "999.00",
+          "grams": 0,
+          "compare_at_price": "1499.00",
+          "position": 1,
+          "product_id": 15610811351264,
+          "created_at": "2026-11-17T14:42:04+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57400713642208,
+          "created_at": "2026-11-17T14:43:18+02:00",
+          "position": 1,
+          "updated_at": "2026-11-17T14:43:20+02:00",
+          "product_id": 15610811351264,
+          "variant_ids": [
+            68706835136736
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/18PCO001_CarryoutBackpack22L_Black_Angled.jpg?v=1794919400",
+          "width": 1600,
+          "height": 1568
+        },
+        {
+          "id": 57400713609440,
+          "created_at": "2026-11-17T14:43:18+02:00",
+          "position": 2,
+          "updated_at": "2026-11-17T14:43:20+02:00",
+          "product_id": 15610811351264,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/18PCO001_CarryoutBackpack22L_Black_StraightOn_NoShadow.jpg?v=1794919400",
+          "width": 1395,
+          "height": 1600
+        },
+        {
+          "id": 57400738119904,
+          "created_at": "2026-11-17T14:44:52+02:00",
+          "position": 3,
+          "updated_at": "2026-11-17T14:44:53+02:00",
+          "product_id": 15610811351264,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/4693-grid-1.webp?v=1794919493",
+          "width": 840,
+          "height": 840
+        },
+        {
+          "id": 57400738480352,
+          "created_at": "2026-11-17T14:44:56+02:00",
+          "position": 4,
+          "updated_at": "2026-11-17T14:44:57+02:00",
+          "product_id": 15610811351264,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/4693-grid-3-u-1.webp?v=1794919497",
+          "width": 840,
+          "height": 840
+        },
+        {
+          "id": 57400738414816,
+          "created_at": "2026-11-17T14:44:55+02:00",
+          "position": 5,
+          "updated_at": "2026-11-17T14:44:56+02:00",
+          "product_id": 15610811351264,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/4693-grid-2.webp?v=1794919496",
+          "width": 840,
+          "height": 840
+        },
+        {
+          "id": 57400744411360,
+          "created_at": "2026-11-17T14:45:02+02:00",
+          "position": 6,
+          "updated_at": "2026-11-17T14:45:03+02:00",
+          "product_id": 15610811351264,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/4693-grid-5.jpg?v=1794919503",
+          "width": 840,
+          "height": 840
+        },
+        {
+          "id": 57400739234016,
+          "created_at": "2026-11-17T14:45:00+02:00",
+          "position": 7,
+          "updated_at": "2026-11-17T14:45:01+02:00",
+          "product_id": 15610811351264,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/4693-grid-4.webp?v=1794919501",
+          "width": 840,
+          "height": 840
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Black"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15557529174240,
+      "title": "Storm Tear-Aid Repair Kit",
+      "handle": "storm-non-scratch-sponge-copy",
+      "body_html": "<p><span>Storm Non-Scratch Sponge is specially designed to safely and effectively clean apparel &amp; gear without damaging the surface of the fabric. Simply soak the sponge to create a non-scratch surface to effectively lift contaminants including dirt, bird lime and stains. Partner with Storm cleaners to maximize cleaning without removing original DWR treatments. Perfect to use on tents, covers &amp; footwear.</span></p>",
+      "published_at": "2026-11-13T09:17:14+02:00",
+      "created_at": "2026-11-06T16:03:05+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Storm",
+      "product_type": "Restoration",
+      "tags": [],
+      "variants": [
+        {
+          "id": 68511693275360,
+          "title": "Patch",
+          "option1": "Patch",
+          "option2": null,
+          "option3": null,
+          "sku": "S66110-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57141803581664,
+            "product_id": 15557529174240,
+            "position": 1,
+            "created_at": "2026-11-06T16:04:35+02:00",
+            "updated_at": "2026-11-06T16:04:37+02:00",
+            "alt": null,
+            "width": 1445,
+            "height": 1445,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S66110TEARAIDPATCH_grey_background_2.jpg?v=1793973877",
+            "variant_ids": [
+              68511693275360
+            ]
+          },
+          "available": true,
+          "price": "339.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15557529174240,
+          "created_at": "2026-11-06T16:05:35+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68511693308128,
+          "title": "Standard",
+          "option1": "Standard",
+          "option2": null,
+          "option3": null,
+          "sku": "S66100-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57141803614432,
+            "product_id": 15557529174240,
+            "position": 2,
+            "created_at": "2026-11-06T16:04:35+02:00",
+            "updated_at": "2026-11-06T16:04:37+02:00",
+            "alt": null,
+            "width": 1445,
+            "height": 1445,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S66100TEARAIDSTANDARD_grey_background_1.jpg?v=1793973877",
+            "variant_ids": [
+              68511693308128
+            ]
+          },
+          "available": true,
+          "price": "499.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 2,
+          "product_id": 15557529174240,
+          "created_at": "2026-11-06T16:05:35+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57141803581664,
+          "created_at": "2026-11-06T16:04:35+02:00",
+          "position": 1,
+          "updated_at": "2026-11-06T16:04:37+02:00",
+          "product_id": 15557529174240,
+          "variant_ids": [
+            68511693275360
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S66110TEARAIDPATCH_grey_background_2.jpg?v=1793973877",
+          "width": 1445,
+          "height": 1445
+        },
+        {
+          "id": 57141803614432,
+          "created_at": "2026-11-06T16:04:35+02:00",
+          "position": 2,
+          "updated_at": "2026-11-06T16:04:37+02:00",
+          "product_id": 15557529174240,
+          "variant_ids": [
+            68511693308128
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S66100TEARAIDSTANDARD_grey_background_1.jpg?v=1793973877",
+          "width": 1445,
+          "height": 1445
+        }
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "position": 1,
+          "values": [
+            "Patch",
+            "Standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15557525111008,
+      "title": "Storm Tent & Gear Proofer - Spray on",
+      "handle": "storm-rope-wash-copy",
+      "body_html": "<p><span>High performance, air curing waterproofing spray | Specially formulated for tents, tarps, covers and backpacks. Restore water repellency to small to medium tents without the need to add heat during the drying process.</span></p>",
+      "published_at": "2026-11-13T09:14:48+02:00",
+      "created_at": "2026-11-06T15:50:24+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "Storm",
+      "product_type": "Restoration",
+      "tags": [],
+      "variants": [
+        {
+          "id": 68511601197280,
+          "title": "225ml",
+          "option1": "225ml",
+          "option2": null,
+          "option3": null,
+          "sku": "S61242-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57141687156960,
+            "product_id": 15557525111008,
+            "position": 2,
+            "created_at": "2026-11-06T15:52:23+02:00",
+            "updated_at": "2026-11-06T15:52:24+02:00",
+            "alt": null,
+            "width": 1445,
+            "height": 1445,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S61242TENTGEARPROOF225_web_1.jpg?v=1793973144",
+            "variant_ids": [
+              68511601197280
+            ]
+          },
+          "available": true,
+          "price": "249.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 1,
+          "product_id": 15557525111008,
+          "created_at": "2026-11-06T15:50:24+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 68511601230048,
+          "title": "500ml",
+          "option1": "500ml",
+          "option2": null,
+          "option3": null,
+          "sku": "S61243-1",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 57141687124192,
+            "product_id": 15557525111008,
+            "position": 1,
+            "created_at": "2026-11-06T15:52:23+02:00",
+            "updated_at": "2026-11-06T15:52:24+02:00",
+            "alt": null,
+            "width": 1445,
+            "height": 1445,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S61243TENTGEARPROOF500_web.jpg?v=1793973144",
+            "variant_ids": [
+              68511601230048
+            ]
+          },
+          "available": true,
+          "price": "349.00",
+          "grams": 0,
+          "compare_at_price": "0.00",
+          "position": 2,
+          "product_id": 15557525111008,
+          "created_at": "2026-11-06T15:50:24+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 57141687124192,
+          "created_at": "2026-11-06T15:52:23+02:00",
+          "position": 1,
+          "updated_at": "2026-11-06T15:52:24+02:00",
+          "product_id": 15557525111008,
+          "variant_ids": [
+            68511601230048
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S61243TENTGEARPROOF500_web.jpg?v=1793973144",
+          "width": 1445,
+          "height": 1445
+        },
+        {
+          "id": 57141687156960,
+          "created_at": "2026-11-06T15:52:23+02:00",
+          "position": 2,
+          "updated_at": "2026-11-06T15:52:24+02:00",
+          "product_id": 15557525111008,
+          "variant_ids": [
+            68511601197280
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/S61242TENTGEARPROOF225_web_1.jpg?v=1793973144",
+          "width": 1445,
+          "height": 1445
+        }
+      ],
+      "options": [
+        {
+          "name": "Size",
+          "position": 1,
+          "values": [
+            "225ml",
+            "500ml"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10026667606240,
+      "title": "LifeStraw Go Series Stainless Steel 1L",
+      "handle": "lifestraw-go-series-stainless-steel-1l",
+      "body_html": "<p><span lang=\"EN-US\">LifeStraw Go Series is the ultimate sidekick for safer, better-tasting water for travel and everyday use. The stainless steel BPA-free bottle filters out nasties, so you can fill up from airport bathrooms, a tap in Mexico, or a gas station while road-tripping. The advanced 2-stage filter improves taste and protects against bacteria, parasites, microplastics, chlorine, silt, sand, and cloudiness. The double wall vacuum insulation keeps your water cool all day. Do good on the go and avoid single-use plastic bottles. </span></p>\n<ul>\n<li>IMPROVES TASTE: the Carbon filter reduces chlorine, odors + organic chemical matter</li>\n<li>FILTERS OUT CONTAMINANTS: the Membrane microfilter protects against Bacteria, Parasites, Microplastics, sand, dirt, and cloudiness</li>\n<li>LONG LASTING: The membrane microfilter lasts up to 1,000 gal (4,000 L). Carbon filter lasts up to 26 gallons (100 L) - about two months.</li>\n<li>SAVES WASTE: The membrane microfilter saves 8,000 single use plastic water bottles</li>\n<li>LifeStraw is proud to be a B Corp and Climate Neutral Certified brand, committed to meeting the highest standards of verified social and environmental performance, transparency and accountability</li>\n</ul>",
+      "published_at": "2026-11-04T21:07:27+02:00",
+      "created_at": "2026-08-08T21:28:39+02:00",
+      "updated_at": "2026-11-18T14:11:07+02:00",
+      "vendor": "LifeStraw",
+      "product_type": "Bottle Filters",
+      "tags": [],
+      "variants": [
+        {
+          "id": 53888033784032,
+          "title": "Cactus Green",
+          "option1": "Cactus Green",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41SCGWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357654752,
+            "product_id": 10026667606240,
+            "position": 2,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/cactus1L_1000x-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888033784032
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 1,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 53888033816800,
+          "title": "Orchid Pink",
+          "option1": "Orchid Pink",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41SOPWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357687520,
+            "product_id": 10026667606240,
+            "position": 3,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/Orchid1L_1000x-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888033816800
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 2,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 53888033849568,
+          "title": "Aegean Sea",
+          "option1": "Aegean Sea",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41SASWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357720288,
+            "product_id": 10026667606240,
+            "position": 4,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SASWW-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888033849568
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 3,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 53888033882336,
+          "title": "Nordic Noir",
+          "option1": "Nordic Noir",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41SBKWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357753056,
+            "product_id": 10026667606240,
+            "position": 5,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SBKWW-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888033882336
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 4,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 53888033915104,
+          "title": "Icelandic Blue",
+          "option1": "Icelandic Blue",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41SBLWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357785824,
+            "product_id": 10026667606240,
+            "position": 6,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SBLWW-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888033915104
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 5,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 53888033947872,
+          "title": "Kyoto Orange",
+          "option1": "Kyoto Orange",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41SORWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357556448,
+            "product_id": 10026667606240,
+            "position": 1,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SORWW-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888033947872
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 6,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 53888033980640,
+          "title": "Laguna Teal",
+          "option1": "Laguna Teal",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41STLWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357818592,
+            "product_id": 10026667606240,
+            "position": 7,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41STLWW-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888033980640
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 7,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        },
+        {
+          "id": 53888034013408,
+          "title": "Polar White",
+          "option1": "Polar White",
+          "option2": null,
+          "option3": null,
+          "sku": "LGV41SWHWW",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 55248357851360,
+            "product_id": 10026667606240,
+            "position": 8,
+            "created_at": "2026-08-08T21:33:17+02:00",
+            "updated_at": "2026-08-08T21:33:19+02:00",
+            "alt": null,
+            "width": 1000,
+            "height": 1000,
+            "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SWHWW-Photoroom.jpg?v=1786217599",
+            "variant_ids": [
+              53888034013408
+            ]
+          },
+          "available": true,
+          "price": "1499.00",
+          "grams": 0,
+          "compare_at_price": "1999.00",
+          "position": 8,
+          "product_id": 10026667606240,
+          "created_at": "2026-08-08T21:28:40+02:00",
+          "updated_at": "2026-11-18T14:11:07+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 55248357556448,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 1,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888033947872
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SORWW-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357654752,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 2,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888033784032
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/cactus1L_1000x-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357687520,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 3,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888033816800
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/Orchid1L_1000x-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357720288,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 4,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888033849568
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SASWW-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357753056,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 5,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888033882336
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SBKWW-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357785824,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 6,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888033915104
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SBLWW-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357818592,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 7,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888033980640
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41STLWW-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357851360,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 8,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [
+            53888034013408
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/LGV41SWHWW-Photoroom.jpg?v=1786217599",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "id": 55248357589216,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 9,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/GoSeriesSSFeatures-929x1193-dd71858_1000x_98d7a065-3a73-4261-9f11-db2ca1a09dbd.webp?v=1786217599",
+          "width": 929,
+          "height": 1193
+        },
+        {
+          "id": 55248357621984,
+          "created_at": "2026-08-08T21:33:17+02:00",
+          "position": 10,
+          "updated_at": "2026-08-08T21:33:19+02:00",
+          "product_id": 10026667606240,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0821/9148/3104/files/GoSeriesSSFilter-929x1193-dd71858_1000x_f5e80113-c69e-404b-9922-b760043405d9.webp?v=1786217599",
+          "width": 929,
+          "height": 1193
+        }
+      ],
+      "options": [
+        {
+          "name": "Colour",
+          "position": 1,
+          "values": [
+            "Cactus Green",
+            "Orchid Pink",
+            "Aegean Sea",
+            "Nordic Noir",
+            "Icelandic Blue",
+            "Kyoto Orange",
+            "Laguna Teal",
+            "Polar White"
+          ]
+        }
+      ]
+    }
+  ]
+}

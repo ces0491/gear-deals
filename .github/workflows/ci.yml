@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      # Node from .nvmrc, so the runner's npm matches the npm that wrote package-lock.json.
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      # Builds the site against test/fixtures/site, not the live catalogue.
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7
+
+  # A separate job, so a dependency advisory and a failing test are two red marks.
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      # What ships to visitors and runs in the scrape job is held to "high".
+      - run: npm audit --omit=dev --audit-level=high
+      # Dev tooling is held to "critical": in November 2026 every picomatch release had a
+      # high-severity ReDoS advisory with no fixed version, reached only through ESLint's
+      # config loading on this repo's own globs. Raise this back to "high" once picomatch
+      # publishes a fix.
+      - run: npm audit --audit-level=critical

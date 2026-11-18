@@ -1,0 +1,69 @@
+name: Daily prices
+
+on:
+  schedule:
+    # 03:00 UTC is 05:00 in South Africa. GitHub starts scheduled runs late under load.
+    - cron: "0 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Never two runs at once: both would write the data files.
+concurrency:
+  group: prices
+  cancel-in-progress: false
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # Alerts are sent only when these secrets are set (see README, "Price alerts").
+      ALERTS_SECRET: ${{ secrets.ALERTS_SECRET }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      ALERTS_FROM: ${{ secrets.ALERTS_FROM }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+
+      # Exits 2 without writing anything when a sanity check fails, which stops the run here.
+      - name: Read the stores
+        id: scrape
+        run: npm run scrape
+
+      - name: Commit the new prices
+        run: |
+          if git diff --quiet data/; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ "${{ steps.scrape.outputs.catalogue_changed }}" = "true" ]; then
+            MSG="chore(data): refresh prices"
+          else
+            MSG="chore(data): no price changes, timestamps only"
+          fi
+          git add data/
+          git commit -m "$MSG"
+          git push
+
+      # After the commit, so alerts go out on prices that are being published.
+      - name: Send price alerts
+        if: env.ALERTS_SECRET != ''
+        run: npm run alerts:send
+
+      # Last, so the stores that did read still publish. A failed store's last good prices
+      # are carried forward for a few days, so a red run here is a fix-soon, not an outage.
+      - name: Fail if any store couldn't be read
+        if: steps.scrape.outputs.stores_failed != ''
+        run: |
+          echo "::error::Stores that couldn't be read: ${{ steps.scrape.outputs.stores_failed }}"
+          exit 1

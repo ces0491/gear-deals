@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/*
+ * Palette from 4x4 kit: brushed-aluminium ground, graphite text, safari-canvas olive for
+ * links and controls, and the safety yellow of a hardware store's "special" tag, which
+ * is kept for deal tags alone so it always means "saving".
+ */
+:root {
+  --ground: #e6e8e4;
+  --surface: #f7f8f5;
+  --ink: #1e2325;
+  --ink-muted: #545d61;
+  --line: #c6ccc6;
+  --canvas: #475631;
+  --canvas-strong: #36421f;
+  --canvas-wash: #dfe5d3;
+  --tag: #f2c21b;
+  --tag-ink: #1e2325;
+  --danger: #a3241c;
+  --photo: #ffffff;
+  /* The price-history line: checked with the dataviz validator against --surface (lightness, chroma, contrast). */
+  --chart-line: #557a1f;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #141819;
+    --surface: #1c2224;
+    --ink: #e4e8e3;
+    --ink-muted: #9ca5a8;
+    --line: #313a3d;
+    --canvas: #b3c48a;
+    --canvas-strong: #cddba6;
+    --canvas-wash: #283120;
+    --tag: #f2c21b;
+    --tag-ink: #1e2325;
+    --danger: #f08c80;
+    /* Store photos are shot on white; a dark mat keeps them from glaring. */
+    --photo: #e9ebe7;
+    --chart-line: #7f9f38;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-canvas: var(--canvas);
+  --color-canvas-strong: var(--canvas-strong);
+  --color-canvas-wash: var(--canvas-wash);
+  --color-tag: var(--tag);
+  --color-tag-ink: var(--tag-ink);
+  --color-danger: var(--danger);
+  --color-photo: var(--photo);
+  --color-chart-line: var(--chart-line);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-variant-numeric: lining-nums;
+  }
+  :focus-visible {
+    outline: 3px solid var(--canvas);
+    outline-offset: 2px;
+  }
+  button:not(:disabled),
+  [role="button"],
+  summary {
+    cursor: pointer;
+  }
+  /* Below 16px, iOS Safari zooms the page when a field takes focus. */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1rem);
+  }
+}
+
+/* Condensed Archivo for prices, headings and the tag. Utilities, so variants apply. */
+@utility narrow {
+  font-stretch: 72%;
+}
+@utility price {
+  font-stretch: 72%;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+  /*
+   * The deal tag: a swing tag with a punched eyelet, cut with clip-path and a radial mask.
+   * Its colour is reserved for savings.
+   */
+  .deal-tag {
+    --hole: 0.3rem;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.05rem;
+    padding: 0.35rem 0.7rem 0.4rem 1.45rem;
+    background: var(--tag);
+    color: var(--tag-ink);
+    clip-path: polygon(0.75rem 0, 100% 0, 100% 100%, 0.75rem 100%, 0 50%);
+    mask: radial-gradient(circle var(--hole) at 0.95rem 50%, transparent 98%, #000 100%);
+    line-height: 1.05;
+  }
+}
+
+/*
+ * Honour a stated motion preference. Kept as one blanket rule so a new component can't
+ * quietly opt itself back in.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

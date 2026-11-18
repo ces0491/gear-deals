@@ -12,11 +12,18 @@ What the site does and how is in README.md; what counts as done is in SCOPE.md.
   digests: Ces expects those to be ignored and unsubscribed from.
 - **Watchlist and alerts both in v1.**
 
+## Deployed (18 November 2026)
+
+Public repo `ces0491/gear-deals`, git-connected Vercel project `gear-deals` in
+cesaires-projects, live at gear-deals.vercel.app. CI passed on the first push. The
+Daily prices workflow hadn't run yet; its first scheduled run is 03:00 UTC on
+19 November, and that's the first time the stores are read from a GitHub runner.
+
 ## Not done yet, waiting on Ces
 
-- Nothing is committed and there's no remote. Committing, creating the public repo
-  `ces0491/gear-deals`, and the Vercel project all wait for Ces's go-ahead.
-- Domain `geardeals.sheetsolved.com` needs a GoDaddy CNAME once Vercel issues its target.
+- GoDaddy CNAME `geardeals` → `38d8fddbc39b8f2a.vercel-dns-016.com`. After it resolves,
+  set gear-deals.vercel.app to redirect (308) to the custom domain in the Vercel
+  project's domain settings.
 - Alerts need a Supabase project (apply `supabase/migrations/`), a Resend sending domain
   on sheetsolved.com, and the five values in `.env.example` in both Vercel and the
   repository's Actions secrets. Until then the site says alerts aren't available.
@@ -33,7 +40,12 @@ What the site does and how is in README.md; what counts as done is in SCOPE.md.
   dev server doesn't see a new scrape; restart it.
 - **Cache Components is on.** Anything reading `searchParams`, `params` or the alert
   store sits inside `<Suspense>`; `Date.now()` isn't used in render. Dynamic product routes
-  need `generateStaticParams` to return at least one entry.
+  need `generateStaticParams` to return at least one entry. A product URL that isn't in
+  the catalogue shows the not-found page with HTTP 200, because the product streams in
+  after the shell is sent; product pages are `noindex` and disallowed in robots.txt.
+- **`vercel link` rewrites `.gitignore`:** it appended `.vercel` and `.env*` after the
+  `!.env.example` exception, which would re-ignore `.env.example`. Reverted; check after
+  any re-link.
 - **Changing category rules:** check them against real data with
   `npm run scrape -- --placements <file>` (costs a full read of every store), or apply them
   to the committed catalogue with `npm run recategorise` (reads nothing).

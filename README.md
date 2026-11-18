@@ -194,15 +194,36 @@ that form fields use 16-pixel text.
 
 ## Deploy
 
-Not deployed yet. The intended setup:
+| | |
+|---|---|
+| Live | <https://gear-deals.vercel.app>, and <https://geardeals.sheetsolved.com> once its DNS record is set (below) |
+| Repository | [`ces0491/gear-deals`](https://github.com/ces0491/gear-deals), public, production branch `main` |
+| Project | `gear-deals` in the `cesaires-projects` Vercel team, git-connected, Node 24 |
+| Access | Production and the custom domain are public. Each deployment's own URL and preview deployments are behind Vercel Authentication (the project default, `all_except_custom_domains`). |
+| Environment variables | None needed; the alert values in `.env.example` turn alerts on |
 
-- **Repository:** a public `ces0491/gear-deals`. The Actions minutes are free, and the
-  scraper's user agent names the site.
-- **Hosting:** a Vercel project in `cesaires-projects`, git-connected so the morning's data
-  commit deploys.
-- **Domain:** `geardeals.sheetsolved.com` (`PRODUCTION_URL` in `src/lib/site.ts`), with a
-  GoDaddy CNAME as for the other sheetsolved.com subdomains. Vercel's default protection
-  should stay off for production, since the site is public.
+A push to `main` deploys to production, including the morning's data commit. The
+repository is public, so Actions minutes cost nothing.
+
+### Custom domain
+
+`geardeals.sheetsolved.com` is attached to the project. The DNS half goes at GoDaddy,
+under **DNS → Manage Zones → sheetsolved.com**:
+
+| Type | Name | Value |
+|---|---|---|
+| `CNAME` | `geardeals` | `38d8fddbc39b8f2a.vercel-dns-016.com` |
+
+The value is issued per domain. To read it back, or check it once the record is set:
+
+```bash
+vercel domains verify geardeals.sheetsolved.com --scope cesaires-projects
+```
+
+Until the record exists, metadata, the sitemap and alert emails already name the custom
+domain (`PRODUCTION_URL` in `src/lib/site.ts`). Once it resolves, `gear-deals.vercel.app`
+should redirect to it, set on that domain in the Vercel project (**Settings → Domains**),
+as for camp-finder.
 
 ## Layout
 

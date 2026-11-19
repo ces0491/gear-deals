@@ -14,7 +14,7 @@ import { dueAlerts } from "@/lib/alerts/rules";
 import type { AlertsRuntime } from "@/lib/alerts/runtime";
 import { confirmAlert, requestAlert, sendManageLink } from "@/lib/alerts/service";
 import { MemoryAlertStore } from "@/lib/alerts/store";
-import { confirmToken, hashAddress, manageToken, readConfirmToken, readManageToken } from "@/lib/alerts/tokens";
+import { confirmToken, hashAddress, hashEmail, manageToken, readConfirmToken, readManageToken } from "@/lib/alerts/tokens";
 import type { Product } from "@/lib/catalogue/types";
 
 import { makeProduct } from "../../../test/helpers";
@@ -72,6 +72,12 @@ describe("tokens", () => {
     expect(hashAddress("1.2.3.4", SECRET)).toBe(hashAddress("1.2.3.4", SECRET));
     expect(hashAddress("1.2.3.4", SECRET)).not.toBe(hashAddress("1.2.3.4", "z".repeat(40)));
   });
+
+  it("hashes email addresses the same however they're typed, and apart from network addresses", () => {
+    expect(hashEmail(" A@B.co", SECRET)).toBe(hashEmail("a@b.co", SECRET));
+    expect(hashEmail("a@b.co", SECRET)).not.toContain("a@b.co");
+    expect(hashEmail("a@b.co", SECRET)).not.toBe(hashAddress("a@b.co", SECRET));
+  });
 });
 
 describe("requestAlert and confirmAlert", () => {
@@ -93,11 +99,28 @@ describe("requestAlert and confirmAlert", () => {
     expect(await requestAlert(rt, { email: "a@b.co", targetZar: 12200, product: fridge }, ctx)).toMatchObject({ ok: false, field: "targetZar" });
   });
 
-  it("replaces an open alert on the same product", async () => {
-    const { rt, store } = runtime();
+  it("keeps a confirmed alert until a new one on the same product is confirmed", async () => {
+    const { rt, mailer, store } = runtime();
     await requestAlert(rt, { email: "a@b.co", targetZar: 11000, product: fridge }, ctx);
-    await requestAlert(rt, { email: "a@b.co", targetZar: 10000, product: fridge }, ctx);
+    await confirmAlert(rt, linkFrom(mailer.sent[0], "/alerts/confirm"), NOW);
+
+    // Anyone can ask with the address; the confirmed alert stays live until the owner confirms.
+    await requestAlert(rt, { email: "a@b.co", targetZar: 10000, product: fridge }, { ...ctx, ipHash: "someone-else" });
+    expect((await store.active()).map((a) => a.targetZar)).toEqual([11000]);
+    expect(await store.listByEmail("a@b.co")).toHaveLength(2);
+
+    await confirmAlert(rt, linkFrom(mailer.sent[1], "/alerts/confirm"), NOW);
     expect((await store.listByEmail("a@b.co")).map((a) => a.targetZar)).toEqual([10000]);
+    expect(await store.active()).toHaveLength(1);
+  });
+
+  it("counts open alerts by product, so a pending replacement doesn't use up the cap", async () => {
+    const { rt, store } = runtime();
+    for (let i = 0; i < MAX_ALERTS_PER_EMAIL - 1; i++) {
+      await store.create({ email: "a@b.co", productId: `p${i}`, productTitle: "x", storeId: "tentco", targetZar: 1, priceWhenSetZar: 2 }, NOW);
+    }
+    await store.create({ email: "a@b.co", productId: fridge.id, productTitle: "x", storeId: "nationalluna", targetZar: 1, priceWhenSetZar: 2 }, NOW);
+    expect((await requestAlert(rt, { email: "a@b.co", targetZar: 11000, product: fridge }, ctx)).ok).toBe(true);
   });
 
   it("limits requests per address per day", async () => {
@@ -107,6 +130,27 @@ describe("requestAlert and confirmAlert", () => {
       expect((await requestAlert(rt, { email: "a@b.co", targetZar: 400, product: p }, { ...ctx, ipHash: `ip-${i}` })).ok).toBe(true);
     }
     expect((await requestAlert(rt, { email: "a@b.co", targetZar: 11000, product: fridge }, { ...ctx, ipHash: "ip-new" })).ok).toBe(false);
+  });
+
+  it("keeps the daily limit after the address's alerts are deleted", async () => {
+    const { rt, store } = runtime();
+    for (let i = 0; i < MAX_REQUESTS_PER_EMAIL_PER_DAY; i++) {
+      await requestAlert(rt, { email: "a@b.co", targetZar: 400, product: makeProduct({ title: `Item ${i}`, priceZar: 500 }) }, ctx);
+    }
+    // What one-click unsubscribe and "delete all" do, with the token from any email.
+    await store.deleteAllForEmail("a@b.co");
+    expect((await requestAlert(rt, { email: "a@b.co", targetZar: 11000, product: fridge }, ctx)).ok).toBe(false);
+  });
+
+  it("holds the limit when requests arrive together", async () => {
+    const { rt, mailer } = runtime();
+    const outcomes = await Promise.all(
+      Array.from({ length: 3 * MAX_REQUESTS_PER_EMAIL_PER_DAY }, (_, i) =>
+        requestAlert(rt, { email: "a@b.co", targetZar: 400, product: makeProduct({ title: `Item ${i}`, priceZar: 500 }) }, ctx),
+      ),
+    );
+    expect(outcomes.filter((o) => o.ok)).toHaveLength(MAX_REQUESTS_PER_EMAIL_PER_DAY);
+    expect(mailer.sent).toHaveLength(MAX_REQUESTS_PER_EMAIL_PER_DAY);
   });
 
   it("limits open alerts per address", async () => {
@@ -119,7 +163,10 @@ describe("requestAlert and confirmAlert", () => {
 
   it("stops sending once the site's daily email budget is spent", async () => {
     const { rt, store } = runtime();
-    for (let i = 0; i < MAX_SITE_EMAILS_PER_DAY; i++) await store.logRequest({ kind: "alert", email: `u${i}@b.co`, ipHash: `ip${i}` }, NOW);
+    const roomy = { since: new Date(0), perEmail: 1_000, perNetwork: 1_000, sitewide: 1_000 };
+    for (let i = 0; i < MAX_SITE_EMAILS_PER_DAY; i++) {
+      await store.claimRequest({ kind: "alert", emailHash: `e${i}`, ipHash: `ip${i}` }, roomy, NOW);
+    }
     expect(await requestAlert(rt, { email: "new@b.co", targetZar: 11000, product: fridge }, ctx)).toMatchObject({ ok: false });
   });
 
@@ -145,6 +192,18 @@ describe("sendManageLink", () => {
     expect(mailer.sent).toHaveLength(0);
     expect(await sendManageLink(rt, "A@B.co", ctx)).toEqual({ ok: true });
     expect(readManageToken(linkFrom(mailer.sent[0], "/alerts/manage"), SECRET)).toBe("a@b.co");
+  });
+
+  it("reaches the daily limit at the same point whether or not the address has alerts", async () => {
+    const { rt, store } = runtime();
+    await store.create({ email: "has@b.co", productId: fridge.id, productTitle: "x", storeId: "nationalluna", targetZar: 1, priceWhenSetZar: 2 }, NOW);
+    const okUntilRefused = async (email: string) => {
+      const outcomes = [];
+      for (let i = 0; i <= MAX_REQUESTS_PER_EMAIL_PER_DAY; i++) outcomes.push((await sendManageLink(rt, email, ctx)).ok);
+      return outcomes;
+    };
+    expect(await okUntilRefused("has@b.co")).toEqual(await okUntilRefused("none@b.co"));
+    expect((await okUntilRefused("other@b.co")).at(-1)).toBe(false);
   });
 });
 

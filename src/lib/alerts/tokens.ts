@@ -7,7 +7,7 @@
  *
  * Each is `<base64url payload>.<base64url HMAC-SHA256>`, keyed by ALERTS_SECRET.
  */
-import { createHash, createHmac, timingSafeEqual } from "node:crypto";
+import { createHmac, timingSafeEqual } from "node:crypto";
 
 import { CONFIRM_LINK_HOURS } from "@/lib/alerts/config";
 
@@ -63,7 +63,21 @@ export function normaliseEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
-/** A network address, hashed with the secret so the request log never holds the address itself. */
+/**
+ * A value hashed with the secret, so the request log can count repeats of it without
+ * holding the value itself. `kind` keeps an email and a network address that happen to be
+ * the same text from hashing alike.
+ */
+function keyedHash(kind: "email" | "ip", value: string, secret: string): string {
+  return createHmac("sha256", secret).update(`${kind}:${value}`).digest("base64url").slice(0, 32);
+}
+
+/** A network address, for the request log. */
 export function hashAddress(address: string, secret: string): string {
-  return createHash("sha256").update(`${secret}|${address}`).digest("base64url").slice(0, 32);
+  return keyedHash("ip", address, secret);
+}
+
+/** An email address, for the request log. */
+export function hashEmail(email: string, secret: string): string {
+  return keyedHash("email", normaliseEmail(email), secret);
 }

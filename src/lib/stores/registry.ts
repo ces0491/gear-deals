@@ -3,7 +3,7 @@
  *
  * A store is listed when it publishes a machine-readable catalogue (Shopify's
  * /products.json or WooCommerce's Store API), sells online with prices, and its terms
- * don't ban automated reading. Checked 18 November 2026.
+ * don't ban automated reading. Checked 18 and 19 November 2026.
  */
 
 import type { CategoryHints } from "@/lib/catalogue/categories";
@@ -41,8 +41,8 @@ export interface Store {
   /** Store category names that mean a particular category at this store (see categorise). */
   categoryHints?: CategoryHints;
   /**
-   * Whether the daily scrape reads this store. Off for a store whose catalogue
-   * endpoint hasn't yet been confirmed from the scrape runner.
+   * Whether the daily scrape reads this store. A store whose site refuses the scrape
+   * runner isn't worked around: it's turned off and listed in LEFT_OUT_STORES.
    */
   enabled: boolean;
 }
@@ -156,7 +156,7 @@ export interface LeftOutStore {
   reason: string;
 }
 
-/** Stores looked at on 18 November 2026 and not read, so an empty result isn't read as "no deals anywhere". */
+/** Stores looked at on 18 and 19 November 2026 and not read, so an empty result isn't read as "no deals anywhere". */
 export const LEFT_OUT_STORES: readonly LeftOutStore[] = [
   {
     name: "Alpha Accessories",
@@ -169,9 +169,34 @@ export const LEFT_OUT_STORES: readonly LeftOutStore[] = [
     reason: "Its terms of service ban spidering, crawling and scraping the site.",
   },
   {
+    name: "Flex Adventures",
+    url: "https://www.flexadventures.co.za",
+    reason: "Its terms of service ban spidering, crawling and scraping the site.",
+  },
+  {
+    name: "The Bakkie Shop",
+    url: "https://thebakkieshop.co.za",
+    reason: "Its terms of service ban spidering, crawling and scraping the site.",
+  },
+  {
+    name: "Wild Access",
+    url: "https://www.wildaccess.co.za",
+    reason: "Its terms of service ban spidering, crawling and scraping the site.",
+  },
+  {
+    name: "All Outdoor and Home",
+    url: "https://alloutdoorandhome.co.za",
+    reason: "Its terms ban using a robot or spider to monitor or copy the site.",
+  },
+  {
     name: "Melvill & Moon",
     url: "https://www.melvillandmoon.com",
     reason: "Its site refuses automated requests for its catalogue.",
+  },
+  {
+    name: "Thule Store",
+    url: "https://thulestore.co.za",
+    reason: "Its site challenges automated requests.",
   },
   {
     name: "Safari Centre",
@@ -182,6 +207,21 @@ export const LEFT_OUT_STORES: readonly LeftOutStore[] = [
     name: "Snomaster",
     url: "https://www.snomaster.co.za",
     reason: "Its site lists prices but doesn't sell online.",
+  },
+  {
+    name: "Alu-Cab",
+    url: "https://www.alu-cab.com",
+    reason: "Its site shows its range without prices or a way to buy online.",
+  },
+  {
+    name: "Campmaster",
+    url: "https://www.campmaster.co.za",
+    reason: "Its site lists its range but doesn't sell online.",
+  },
+  {
+    name: "Tyres & More",
+    url: "https://tyresandmore.com",
+    reason: "Mostly tyres, which this site doesn't cover.",
   },
   {
     name: "Outdoor Warehouse",
@@ -197,6 +237,16 @@ export const LEFT_OUT_STORES: readonly LeftOutStore[] = [
     name: "Front Runner",
     url: "https://www.frontrunneroutfitters.com",
     reason: "No public machine-readable catalogue. Its products show up through Camp and Climb.",
+  },
+  {
+    name: "Dometic",
+    url: "https://www.dometic.com/en-za",
+    reason: "No public machine-readable catalogue. It now sells the Front Runner range.",
+  },
+  {
+    name: "Wildebees Outdoor",
+    url: "https://wildebeesoutdoor.com",
+    reason: "No public machine-readable catalogue.",
   },
   {
     name: "Sportsmans Warehouse",

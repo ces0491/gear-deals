@@ -64,4 +64,12 @@ test.describe("product page", () => {
     await page.goto("/product/tentco/does-not-exist");
     await expect(page.getByRole("heading", { name: "Not here" })).toBeVisible();
   });
+
+  // An address that isn't validly percent-encoded at all ("abc%2") fails in Next's routing
+  // with a 500 before the page runs; this covers the decoding the page does itself.
+  test("shows the not-found page for a product id containing an encoded %", async ({ page }) => {
+    const response = await page.goto("/product/tentco/%25");
+    expect(response?.status()).toBeLessThan(500);
+    await expect(page.getByRole("heading", { name: "Not here" })).toBeVisible();
+  });
 });

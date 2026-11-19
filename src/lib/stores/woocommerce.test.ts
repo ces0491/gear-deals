@@ -73,6 +73,15 @@ describe("parseWooPage", () => {
   it("rejects a page that isn't a product list", () => {
     expect(() => parseWooPage({ code: "rest_no_route" }, oppositeLock)).toThrow();
   });
+
+  it("leaves out a malformed product and counts it, keeping the rest of the page", () => {
+    const page = fixture<RawWoo[]>("stores/tentco.json");
+    const whole = parseWooPage(page, storeById("tentco"));
+    const result = parseWooPage([{ ...page[0], prices: undefined }, ...page.slice(1)], storeById("tentco"));
+    expect(result).toMatchObject({ rawCount: page.length, unreadable: 1 });
+    expect(result.firstProblem).toMatch(new RegExp(`^product ${page[0].id}: prices`));
+    expect(result.products).toEqual(whole.products.filter((p) => p.externalId !== String(page[0].id)));
+  });
 });
 
 describe("wooPrice", () => {
@@ -131,5 +140,17 @@ describe("scrapeWooCommerce", () => {
   it("fails on an HTTP 400 for the first page", async () => {
     const { http } = scriptedHttp([new Response("no", { status: 400 })]);
     await expect(scrapeWooCommerce(storeById("tentco"), http, 0)).rejects.toBeInstanceOf(HttpError);
+  });
+
+  it("reads the store when one product can't be read, and fails it when several can't", async () => {
+    const page = fixture<RawWoo[]>("stores/tentco.json");
+    const breakFirst = (n: number) => page.map((p, i) => (i < n ? { ...p, prices: undefined } : p));
+
+    const one = await scrapeWooCommerce(storeById("tentco"), scriptedHttp([json(breakFirst(1))]).http, 0);
+    expect(one).toMatchObject({ rawCount: page.length, unreadable: 1 });
+
+    await expect(scrapeWooCommerce(storeById("tentco"), scriptedHttp([json(breakFirst(3))]).http, 0)).rejects.toThrow(
+      new RegExp(`3 of ${page.length} products in Tentco's catalogue couldn't be read`),
+    );
   });
 });

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { io } from "next/cache";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -16,6 +17,8 @@ async function Confirm({ searchParams }: { searchParams: PageProps<"/alerts/conf
   const { token } = await searchParams;
   const rt = alertsRuntime();
   if (!rt) return <p className="text-ink-muted">Price alerts aren&rsquo;t available right now.</p>;
+  // The expiry check reads the clock, which Cache Components only allows after io().
+  await io();
   const check = typeof token === "string" ? readConfirmToken(token, rt.secret) : ({ ok: false, reason: "invalid" } as const);
   if (!check.ok) {
     return (

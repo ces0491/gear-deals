@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 
-import { productById } from "@/lib/data/catalogue";
+import { catalogue, productById } from "@/lib/data/catalogue";
 import { tagText } from "@/lib/deal-text";
 import { productPath } from "@/lib/paths";
 import { storeById } from "@/lib/stores/registry";
@@ -16,6 +16,12 @@ export interface WatchedProduct {
   priceZar: number;
   inStock: boolean;
   tag: { big: string; small: string } | null;
+}
+
+export interface WatchedProducts {
+  products: WatchedProduct[];
+  /** The day these prices were read. */
+  pricedOn: string;
 }
 
 /** Current details for the watchlist: `?ids=<id>,<id>`. Unknown ids are left out. */
@@ -36,5 +42,6 @@ export async function GET(request: NextRequest) {
       tag: p.deal ? tagText(p.deal) : null,
     });
   }
-  return Response.json({ products }, { headers: { "Cache-Control": "no-store" } });
+  const body: WatchedProducts = { products, pricedOn: catalogue().pricedOn };
+  return Response.json(body, { headers: { "Cache-Control": "no-store" } });
 }

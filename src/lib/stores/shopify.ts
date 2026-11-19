@@ -15,8 +15,8 @@ import { z } from "zod";
 
 import type { ScrapedProduct } from "@/lib/catalogue/types";
 import { getJson, StoreFormatError, type HttpOptions } from "@/lib/scrape/http";
+import { PageCollector, parseEach, type ParsedPage, type ScrapeResult } from "@/lib/stores/parse";
 import type { Store } from "@/lib/stores/registry";
-import type { ScrapeResult } from "@/lib/stores/woocommerce";
 
 export const PAGE_SIZE = 250;
 const MAX_PAGES = 40;
@@ -53,7 +53,8 @@ const shopifyProductSchema = z.object({
 
 export type ShopifyProduct = z.infer<typeof shopifyProductSchema>;
 
-const pageSchema = z.object({ products: z.array(shopifyProductSchema) });
+/** Each product is checked on its own (see parseEach). */
+const pageSchema = z.object({ products: z.array(z.unknown()) });
 
 const metaSchema = z.object({ currency: z.string() });
 
@@ -81,10 +82,11 @@ export function shopifyPrice(product: ShopifyProduct) {
   };
 }
 
-export function parseShopifyPage(body: unknown, store: Store): { products: ScrapedProduct[]; rawCount: number } {
+export function parseShopifyPage(body: unknown, store: Store): ParsedPage {
   const page = pageSchema.parse(body);
+  const { items, unreadable, firstProblem } = parseEach(shopifyProductSchema, page.products);
   const products: ScrapedProduct[] = [];
-  for (const item of page.products) {
+  for (const item of items) {
     const price = shopifyPrice(item);
     if (!price) continue;
     products.push({
@@ -102,7 +104,7 @@ export function parseShopifyPage(body: unknown, store: Store): { products: Scrap
       inStock: price.inStock,
     });
   }
-  return { products, rawCount: page.products.length };
+  return { products, rawCount: page.products.length, unreadable, firstProblem };
 }
 
 export async function scrapeShopify(store: Store, http: HttpOptions, pauseMs: number): Promise<ScrapeResult> {
@@ -110,16 +112,14 @@ export async function scrapeShopify(store: Store, http: HttpOptions, pauseMs: nu
   if (meta.currency !== "ZAR") {
     throw new StoreFormatError(`${store.name} prices in ${meta.currency}, not rand.`);
   }
-  const products: ScrapedProduct[] = [];
-  let rawCount = 0;
+  const pages = new PageCollector();
   let requests = 1;
   for (let page = 1; page <= MAX_PAGES; page++) {
     await http.sleep(pauseMs);
     requests += 1;
     const parsed = parseShopifyPage(await getJson(productsUrl(store, page), http), store);
-    products.push(...parsed.products);
-    rawCount += parsed.rawCount;
-    if (parsed.rawCount < PAGE_SIZE) return { products, rawCount, requests };
+    pages.add(parsed);
+    if (parsed.rawCount < PAGE_SIZE) return pages.result(store.name, requests);
   }
   throw new StoreFormatError(`${store.name} returned more than ${MAX_PAGES} pages; stopped in case pagination is broken.`);
 }

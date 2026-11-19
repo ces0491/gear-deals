@@ -17,7 +17,7 @@ export const metadata: Metadata = { title: "Your price alerts", robots: { index:
 const DONE: Record<string, string> = {
   confirmed: "Alert confirmed. You'll get one email when it hits your price.",
   deleted: "Alert deleted.",
-  "all-deleted": "Everything held about this address has been deleted.",
+  "all-deleted": "Every alert for this address has been deleted.",
 };
 
 function status(a: AlertRecord): string {
@@ -96,10 +96,10 @@ async function Manage({ searchParams }: { searchParams: PageProps<"/alerts/manag
         <form action={deleteEverythingAction} className="border-t border-line pt-6">
           <input type="hidden" name="token" value={token as string} />
           <p className="mb-3 max-w-prose text-ink-muted">
-            Deletes every alert and the request log for this address. Nothing more will be sent to it.
+            Deletes every alert for this address. Nothing more will be sent to it.
           </p>
           <button type="submit" className="rounded border border-danger px-4 py-2 font-semibold text-danger">
-            Delete everything for this address
+            Delete all alerts for this address
           </button>
         </form>
       )}

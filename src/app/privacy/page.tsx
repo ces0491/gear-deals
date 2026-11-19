@@ -34,15 +34,16 @@ export default function PrivacyPage() {
         </ul>
         <p>
           They&rsquo;re used for one thing: emailing you when the product reaches your price. Nothing is sent until you confirm
-          the alert from the first email, and nothing else is ever sent to the address. To stop abuse of the form, each request
-          is also logged with your email and a scrambled (hashed) form of your network address, kept for{" "}
-          {REQUEST_LOG_RETENTION_DAYS} days.
+          the alert from the first email, and nothing else is ever sent to the address. To stop abuse of the forms, each request
+          is also logged with scrambled (hashed) forms of your email and network address, not the addresses themselves. These
+          records enforce the daily limits, so they stay for {REQUEST_LOG_RETENTION_DAYS} days even if you delete your alerts,
+          and are then deleted.
         </p>
         <p>
           Alerts are stored in a Supabase database and emails go out through Resend; neither uses them for anything else. An
           alert you don&rsquo;t confirm is deleted after {UNCONFIRMED_RETENTION_DAYS} days, and a sent alert after{" "}
-          {SENT_RETENTION_DAYS} days. Every email links to a page where you can delete any alert, or delete everything held about
-          your address. <Link href="/alerts">Get that link again</Link> if you&rsquo;ve lost it.
+          {SENT_RETENTION_DAYS} days. Every email links to a page where you can delete any alert, or all of them at once.{" "}
+          <Link href="/alerts">Get that link again</Link> if you&rsquo;ve lost it.
         </p>
 
         <h2>Product photos</h2>
@@ -59,8 +60,8 @@ export default function PrivacyPage() {
 
         <h2>Seeing and deleting what&rsquo;s held</h2>
         <p>
-          The link in any alert email opens a page showing every alert held for your address, and deletes them or everything at
-          once. That covers access and deletion under the Protection of Personal Information Act without you having to contact
+          The link in any alert email opens a page showing every alert held for your address, and deletes them one at a time
+          or all at once. That covers access and deletion under the Protection of Personal Information Act without you having to contact
           anyone. For anything else, <a href={`${REPO_URL}/issues`}>open an issue</a>; issues are public, so leave your email
           address out of it.
         </p>

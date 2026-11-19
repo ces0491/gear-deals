@@ -71,6 +71,13 @@ describe("parseShopifyPage", () => {
     const { products } = parseShopifyPage({ products: [{ ...product(), tags: "Sale, Hilux" }] }, ironman);
     expect(products[0].storeCategories).toEqual(["Suspension", "Sale", "Hilux"]);
   });
+
+  it("leaves out a malformed product and counts it", () => {
+    const result = parseShopifyPage({ products: [product(), { id: 2, title: "No variants", handle: "x" }] }, ironman);
+    expect(result).toMatchObject({ rawCount: 2, unreadable: 1 });
+    expect(result.products.map((p) => p.externalId)).toEqual(["1"]);
+    expect(result.firstProblem).toMatch(/^product 2: variants/);
+  });
 });
 
 describe("parseShopifyPage on a captured page", () => {
@@ -100,6 +107,11 @@ describe("scrapeShopify", () => {
     expect(urls[1]).toBe(productsUrl(ironman, 1));
     expect(result.rawCount).toBe(PAGE_SIZE + 1);
     expect(result.requests).toBe(3);
+  });
+
+  it("fails a store when too much of its catalogue can't be read", async () => {
+    const { http } = scriptedHttp([json({ currency: "ZAR" }), json({ products: [product(), { id: 2 }] })]);
+    await expect(scrapeShopify(ironman, http, 0)).rejects.toThrow(/1 of 2 products in Ironman 4x4's catalogue couldn't be read/);
   });
 
   it("refuses a store that doesn't price in rand", async () => {

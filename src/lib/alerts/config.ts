@@ -10,8 +10,8 @@ export const MAX_REQUESTS_PER_EMAIL_PER_DAY = 5;
 /** Alert requests from one network address in a day. */
 export const MAX_REQUESTS_PER_IP_PER_DAY = 20;
 /**
- * Confirmation and manage-link emails the site sends in a day, across everyone. Resend's
- * free plan allows 100 emails a day, and alert emails need room too.
+ * Requests that can send a confirmation or manage-link email, across everyone, in a day.
+ * Resend's free plan allows 100 emails a day, and alert emails need room too.
  */
 export const MAX_SITE_EMAILS_PER_DAY = 50;
 /** How long a confirmation link works. */

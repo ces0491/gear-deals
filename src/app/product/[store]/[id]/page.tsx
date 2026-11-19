@@ -35,8 +35,9 @@ export function generateStaticParams() {
   return params.length > 0 ? params : [{ store: "none", id: "none" }];
 }
 
+/** Next has already decoded the params; decoding again throws on a stray "%". */
 function lookup(store: string, id: string): Product | null {
-  return productById(`${store}:${decodeURIComponent(id)}`);
+  return productById(`${store}:${id}`);
 }
 
 export async function generateMetadata({ params }: PageProps<"/product/[store]/[id]">): Promise<Metadata> {

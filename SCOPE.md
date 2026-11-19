@@ -55,11 +55,14 @@ each store by hand, and hear about it when something they want drops to their pr
 
 ## Out of scope
 
-- Stores whose terms ban scraping (Alpha Accessories, Camp Cover) or that block
-  automated reads (Melvill & Moon). Getting past any bot protection.
-- Catalogue sites with no prices or checkout (Safari Centre, Snomaster)
+- Stores whose terms ban scraping (Alpha Accessories, Camp Cover, Flex Adventures, The
+  Bakkie Shop, Wild Access, All Outdoor and Home) or that block automated reads (Melvill &
+  Moon, Thule Store). Getting past any bot protection.
+- Catalogue sites with no prices or checkout (Safari Centre, Snomaster, Alu-Cab,
+  Campmaster)
 - Stores with no public machine-readable catalogue (Outdoor Warehouse, Cape Union Mart,
-  Front Runner, Sportsmans Warehouse, Due South)
+  Front Runner, Dometic, Wildebees Outdoor, Sportsmans Warehouse, Due South)
+- Tyres, and stores that mostly sell them (Tyres & More)
 - Matching products across stores by name. Only identical manufacturer codes match.
 - Copying store content beyond name, price, one photo (loaded from the store) and link
 - Accounts and sign-in, digests, newsletters or any email that isn't a confirmation or
@@ -87,3 +90,5 @@ Ces, once the site is live and has been used to judge a real purchase.
 
 - 2026-11-18: initial scope, with alerts and the watchlist in v1
 - 2026-11-18: added links from product pages to Facebook Marketplace and Gumtree search
+- 2026-11-19: added ten stores left out after a wider look at South African stores, and
+  put tyres out of scope

@@ -31,25 +31,42 @@ export interface AlertStore {
   confirm(id: string, now: Date): Promise<AlertRecord | null>;
   /** Deletes one alert, only if it belongs to `email`. */
   delete(id: string, email: string): Promise<boolean>;
+  /**
+   * Deletes every alert for `email`. The request log stays: it holds no address, and
+   * clearing it would reset the daily limits for whoever holds a link.
+   */
   deleteAllForEmail(email: string): Promise<number>;
   /** Confirmed, not yet sent or closed. */
   active(): Promise<AlertRecord[]>;
   markFired(fired: { id: string; priceZar: number }[], now: Date): Promise<void>;
   close(ids: string[], reason: string, now: Date): Promise<void>;
-  /** Records a request that sends an email, for the rate limits. */
-  logRequest(request: RequestLog, now: Date): Promise<void>;
-  /** Requests since `since`, narrowed by whichever fields are given. */
-  countRequests(filter: Partial<RequestLog>, since: Date): Promise<number>;
+  /**
+   * Logs a request that may send an email, unless that would pass one of the limits.
+   * Checking and logging happen as one step, so requests arriving together can't all
+   * pass the same check.
+   */
+  claimRequest(request: RequestLog, limits: RequestLimits, now: Date): Promise<ClaimOutcome>;
   /** Deletes what's no longer needed. Returns counts for the log. */
   purge(cutoffs: { unconfirmedBefore: Date; sentBefore: Date; requestsBefore: Date }): Promise<Record<string, number>>;
 }
 
 export interface RequestLog {
   kind: "alert" | "manage-link";
-  email: string;
+  /** The email address, hashed (see hashEmail). */
+  emailHash: string;
   /** The requester's network address, hashed (see hashAddress). */
   ipHash: string;
 }
+
+/** The most requests allowed since `since`: per email address, per network address, and across the site. */
+export interface RequestLimits {
+  since: Date;
+  perEmail: number;
+  perNetwork: number;
+  sitewide: number;
+}
+
+export type ClaimOutcome = { ok: true } | { ok: false; limit: "sitewide" | "email" | "network" };
 
 export class MemoryAlertStore implements AlertStore {
   private alerts = new Map<string, AlertRecord>();
@@ -102,7 +119,6 @@ export class MemoryAlertStore implements AlertStore {
         n += 1;
       }
     }
-    this.requests = this.requests.filter((r) => r.email !== email);
     return n;
   }
 
@@ -130,19 +146,15 @@ export class MemoryAlertStore implements AlertStore {
     }
   }
 
-  async logRequest(request: RequestLog, now: Date) {
+  // No await between the counts and the push, so concurrent calls can't interleave.
+  async claimRequest(request: RequestLog, limits: RequestLimits, now: Date): Promise<ClaimOutcome> {
+    const from = limits.since.toISOString();
+    const recent = this.requests.filter((r) => r.at >= from);
+    if (recent.length >= limits.sitewide) return { ok: false, limit: "sitewide" };
+    if (recent.filter((r) => r.emailHash === request.emailHash).length >= limits.perEmail) return { ok: false, limit: "email" };
+    if (recent.filter((r) => r.ipHash === request.ipHash).length >= limits.perNetwork) return { ok: false, limit: "network" };
     this.requests.push({ ...request, at: now.toISOString() });
-  }
-
-  async countRequests(filter: Partial<RequestLog>, since: Date) {
-    const from = since.toISOString();
-    return this.requests.filter(
-      (r) =>
-        r.at >= from &&
-        (filter.kind === undefined || r.kind === filter.kind) &&
-        (filter.email === undefined || r.email === filter.email) &&
-        (filter.ipHash === undefined || r.ipHash === filter.ipHash),
-    ).length;
+    return { ok: true };
   }
 
   async purge(cutoffs: { unconfirmedBefore: Date; sentBefore: Date; requestsBefore: Date }) {

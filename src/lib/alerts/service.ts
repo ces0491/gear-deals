@@ -11,8 +11,8 @@ import {
 } from "@/lib/alerts/config";
 import { confirmEmail, manageLinkEmail } from "@/lib/alerts/emails";
 import type { AlertsRuntime } from "@/lib/alerts/runtime";
-import type { AlertRecord } from "@/lib/alerts/store";
-import { confirmToken, manageToken, normaliseEmail, readConfirmToken } from "@/lib/alerts/tokens";
+import type { AlertRecord, RequestLimits } from "@/lib/alerts/store";
+import { confirmToken, hashEmail, manageToken, normaliseEmail, readConfirmToken } from "@/lib/alerts/tokens";
 import type { Product } from "@/lib/catalogue/types";
 import { formatRand } from "@/lib/format";
 import { productPath } from "@/lib/paths";
@@ -40,9 +40,19 @@ export type RequestOutcome = { ok: true } | { ok: false; field?: "email" | "targ
 
 const isOpen = (a: AlertRecord) => !a.firedAt && !a.closedReason;
 
+function dailyLimits(now: Date): RequestLimits {
+  return {
+    since: new Date(now.getTime() - DAY_MS),
+    perEmail: MAX_REQUESTS_PER_EMAIL_PER_DAY,
+    perNetwork: MAX_REQUESTS_PER_IP_PER_DAY,
+    sitewide: MAX_SITE_EMAILS_PER_DAY,
+  };
+}
+
 /**
- * Creates an unconfirmed alert and emails a confirmation link. A new alert on a product
- * the address already watches replaces the old one.
+ * Creates an unconfirmed alert and emails a confirmation link. An open alert the address
+ * already has on the product stays until the new one is confirmed (see confirmAlert), so
+ * someone else asking with that address can't cancel it.
  */
 export async function requestAlert(
   rt: AlertsRuntime,
@@ -55,26 +65,26 @@ export async function requestAlert(
     return { ok: false, field: "targetZar", message: `It's already ${formatRand(product.priceZar)}. Pick a price below that.` };
   }
 
-  const since = new Date(ctx.now.getTime() - DAY_MS);
-  const [byEmail, byIp, sitewide, existing] = await Promise.all([
-    rt.store.countRequests({ email }, since),
-    rt.store.countRequests({ ipHash: ctx.ipHash }, since),
-    rt.store.countRequests({}, since),
-    rt.store.listByEmail(email),
-  ]);
-  if (sitewide >= MAX_SITE_EMAILS_PER_DAY) {
-    return { ok: false, message: "The site has sent as many emails as it can today. Try again tomorrow." };
-  }
-  if (byEmail >= MAX_REQUESTS_PER_EMAIL_PER_DAY || byIp >= MAX_REQUESTS_PER_IP_PER_DAY) {
-    return { ok: false, message: "That's as many alerts as can be set from here today. Try again tomorrow." };
-  }
-  const replacing = existing.filter((a) => isOpen(a) && a.productId === product.id);
-  if (existing.filter(isOpen).length - replacing.length >= MAX_ALERTS_PER_EMAIL) {
+  // Counted by product: alerts waiting to replace one on the same product don't add to the total.
+  const watched = new Set((await rt.store.listByEmail(email)).filter(isOpen).map((a) => a.productId));
+  watched.delete(product.id);
+  if (watched.size >= MAX_ALERTS_PER_EMAIL) {
     return {
       ok: false,
       field: "email",
       message: `That address has ${MAX_ALERTS_PER_EMAIL} alerts already. Delete some using the link in any alert email.`,
     };
+  }
+
+  const claim = await rt.store.claimRequest(
+    { kind: "alert", emailHash: hashEmail(email, rt.secret), ipHash: ctx.ipHash },
+    dailyLimits(ctx.now),
+    ctx.now,
+  );
+  if (!claim.ok) {
+    return claim.limit === "sitewide"
+      ? { ok: false, message: "The site has sent as many emails as it can today. Try again tomorrow." }
+      : { ok: false, message: "That's as many alerts as can be set from here today. Try again tomorrow." };
   }
 
   const alert = await rt.store.create(
@@ -88,7 +98,6 @@ export async function requestAlert(
     },
     ctx.now,
   );
-  await rt.store.logRequest({ kind: "alert", email, ipHash: ctx.ipHash }, ctx.now);
   try {
     await rt.mailer.send(
       confirmEmail({
@@ -106,8 +115,6 @@ export async function requestAlert(
     await rt.store.delete(alert.id, email);
     return { ok: false, message: "The confirmation email couldn't be sent. Try again in a few minutes." };
   }
-  // The new alert supersedes any open one on the same product, once it's safely sent.
-  for (const old of replacing) await rt.store.delete(old.id, email);
   return { ok: true };
 }
 
@@ -115,16 +122,23 @@ export type ConfirmOutcome =
   | { ok: true; alert: AlertRecord }
   | { ok: false; reason: "invalid" | "expired" | "gone" };
 
+/** Makes the alert live. It replaces any other open alert the address has on the same product. */
 export async function confirmAlert(rt: AlertsRuntime, token: string, now: Date): Promise<ConfirmOutcome> {
   const check = readConfirmToken(token, rt.secret, now.getTime());
   if (!check.ok) return check;
   const alert = await rt.store.confirm(check.alertId, now);
-  return alert ? { ok: true, alert } : { ok: false, reason: "gone" };
+  if (!alert) return { ok: false, reason: "gone" };
+  const replaced = (await rt.store.listByEmail(alert.email)).filter(
+    (a) => a.id !== alert.id && a.productId === alert.productId && isOpen(a),
+  );
+  for (const old of replaced) await rt.store.delete(old.id, alert.email);
+  return { ok: true, alert };
 }
 
 /**
  * Emails the manage link to an address that has alerts. Says the same whether or not it
- * has any, so the form can't be used to find out who has alerts.
+ * has any, and counts the request against the limits either way, so neither the answer
+ * nor reaching a limit shows who has alerts.
  */
 export async function sendManageLink(
   rt: AlertsRuntime,
@@ -132,19 +146,15 @@ export async function sendManageLink(
   ctx: { ipHash: string; now: Date; siteUrl: string },
 ): Promise<RequestOutcome> {
   const email = normaliseEmail(rawEmail);
-  const since = new Date(ctx.now.getTime() - DAY_MS);
-  const [byEmail, byIp, sitewide] = await Promise.all([
-    rt.store.countRequests({ email }, since),
-    rt.store.countRequests({ ipHash: ctx.ipHash }, since),
-    rt.store.countRequests({}, since),
-  ]);
-  if (sitewide >= MAX_SITE_EMAILS_PER_DAY || byEmail >= MAX_REQUESTS_PER_EMAIL_PER_DAY || byIp >= MAX_REQUESTS_PER_IP_PER_DAY) {
+  const claim = await rt.store.claimRequest(
+    { kind: "manage-link", emailHash: hashEmail(email, rt.secret), ipHash: ctx.ipHash },
+    dailyLimits(ctx.now),
+    ctx.now,
+  );
+  if (!claim.ok) {
     return { ok: false, message: "That's as many emails as can be sent from here today. Try again tomorrow." };
   }
   const alerts = await rt.store.listByEmail(email);
-  if (alerts.length > 0) {
-    await rt.store.logRequest({ kind: "manage-link", email, ipHash: ctx.ipHash }, ctx.now);
-    await rt.mailer.send(manageLinkEmail(email, manageUrl(ctx.siteUrl, email, rt.secret)));
-  }
+  if (alerts.length > 0) await rt.mailer.send(manageLinkEmail(email, manageUrl(ctx.siteUrl, email, rt.secret)));
   return { ok: true };
 }

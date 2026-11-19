@@ -18,12 +18,18 @@ import { carryForward } from "@/lib/scrape/carry-forward";
 import { describeError } from "@/lib/scrape/http";
 import { runSanityChecks } from "@/lib/scrape/sanity";
 import type { Store, StoreId } from "@/lib/stores/registry";
-import type { ScrapeResult } from "@/lib/stores/woocommerce";
+import type { ScrapeResult } from "@/lib/stores/parse";
 
 export interface RunInput {
   stores: readonly Store[];
   read: (store: Store) => Promise<ScrapeResult>;
   previous: CatalogueFile | null;
+  /**
+   * Stores not read this run whose products in `previous` stay on the site (a run with
+   * --only). They take part in matching and deals, so cross-store comparisons cover the
+   * whole catalogue, but nothing is recorded in history for them.
+   */
+  keep?: readonly StoreId[];
   history: HistoryFile | null;
   now?: Date;
   log?: (line: string) => void;
@@ -80,8 +86,9 @@ export async function runScrape(input: RunInput): Promise<RunOutput> {
           });
         }
       }
+      const unreadable = read.unreadable > 0 ? `, ${read.unreadable} unreadable` : "";
       log(
-        `${store.id}: ${read.rawCount} in catalogue, ${read.products.length} for sale, ${products.length} kept, ${excluded} not gear (${read.requests} requests)`,
+        `${store.id}: ${read.rawCount} in catalogue${unreadable}, ${read.products.length} for sale, ${products.length} kept, ${excluded} not gear (${read.requests} requests)`,
       );
       const status: StoreRunStatus = { ok: true, count: products.length, rawCount: read.rawCount, ranAt };
       return { store, observed: products, carried: [] as Product[], status };
@@ -118,7 +125,11 @@ export async function runScrape(input: RunInput): Promise<RunOutput> {
   const observed = results.flatMap((r) => r.observed);
   const history = recordDay(input.history ?? emptyHistory(today), observed, today);
 
-  const all: NormalisedProduct[] = [...observed, ...results.flatMap((r) => r.carried)];
+  // Like carried products, kept ones are re-placed under today's category rules.
+  const keep = new Set<StoreId>(input.keep ?? []);
+  const kept = recategorise((input.previous?.products ?? []).filter((p) => keep.has(p.storeId))).products;
+
+  const all: NormalisedProduct[] = [...observed, ...results.flatMap((r) => r.carried), ...kept];
   const byId = new Map(all.map((p) => [p.id, p]));
   const matches = findMatches(all);
 
@@ -131,6 +142,10 @@ export async function runScrape(input: RunInput): Promise<RunOutput> {
     .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 
   const stores: CatalogueFile["stores"] = {};
+  for (const id of keep) {
+    const status = input.previous?.stores[id];
+    if (status) stores[id] = status;
+  }
   for (const r of results) stores[r.store.id] = r.status;
 
   const catalogue: CatalogueFile = {

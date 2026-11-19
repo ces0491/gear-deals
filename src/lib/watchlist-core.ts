@@ -13,15 +13,35 @@ export interface WatchItem {
   priceWhenAdded: number;
 }
 
+/** The prices the watchlist page showed on a visit. */
+export interface VisitSnapshot {
+  at: string;
+  /** The day those prices were read. Missing from lists saved before it was recorded. */
+  pricedOn?: string;
+  prices: Record<string, number>;
+}
+
 export interface WatchState {
   items: WatchItem[];
-  /** Prices as they were the last time the watchlist page was open. */
-  lastVisit: { at: string; prices: Record<string, number> } | null;
+  /** The most recent visit to the watchlist page. */
+  lastVisit: VisitSnapshot | null;
+  /** The most recent visit before that which saw an earlier day's prices. */
+  earlierVisit?: VisitSnapshot | null;
 }
 
 export const EMPTY_WATCHLIST: WatchState = { items: [], lastVisit: null };
 
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
+
+function isSnapshot(v: unknown): v is VisitSnapshot {
+  return (
+    isRecord(v) &&
+    typeof v.at === "string" &&
+    (v.pricedOn === undefined || typeof v.pricedOn === "string") &&
+    isRecord(v.prices) &&
+    Object.values(v.prices).every((p) => typeof p === "number")
+  );
+}
 
 /**
  * Checks stored data by hand rather than with a schema library, which would add to every
@@ -37,14 +57,28 @@ export function isWatchState(v: unknown): v is WatchState {
       typeof i.addedAt === "string" &&
       typeof i.priceWhenAdded === "number",
   );
-  const visit = v.lastVisit;
-  const visitOk =
-    visit === null ||
-    (isRecord(visit) &&
-      typeof visit.at === "string" &&
-      isRecord(visit.prices) &&
-      Object.values(visit.prices).every((p) => typeof p === "number"));
-  return itemsOk && visitOk;
+  const lastOk = v.lastVisit === null || isSnapshot(v.lastVisit);
+  const earlierOk = v.earlierVisit === undefined || v.earlierVisit === null || isSnapshot(v.earlierVisit);
+  return itemsOk && lastOk && earlierOk;
+}
+
+/**
+ * What "since your last visit" compares against when the page shows the prices read on
+ * `pricedOn`. Prices change once a morning, so a second look the same day, a refresh
+ * included, compares against the last visit that saw an earlier day's prices.
+ */
+export function visitBaseline(state: WatchState, pricedOn: string): VisitSnapshot | null {
+  const last = state.lastVisit;
+  return last && last.pricedOn === pricedOn ? (state.earlierVisit ?? null) : last;
+}
+
+/** The state after a visit that showed `prices`, read on `pricedOn`. */
+export function recordVisit(state: WatchState, pricedOn: string, prices: Record<string, number>, now: Date): WatchState {
+  const last = state.lastVisit;
+  if (last && last.pricedOn === pricedOn) {
+    return { ...state, lastVisit: { ...last, at: now.toISOString(), prices: { ...last.prices, ...prices } } };
+  }
+  return { ...state, earlierVisit: last, lastVisit: { at: now.toISOString(), pricedOn, prices } };
 }
 
 export interface WatchChange {
@@ -54,8 +88,8 @@ export interface WatchChange {
   sinceLastVisit: number | null;
 }
 
-export function changeFor(item: WatchItem, priceNow: number, lastVisit: WatchState["lastVisit"]): WatchChange {
-  const seen = lastVisit?.prices[item.id];
+export function changeFor(item: WatchItem, priceNow: number, baseline: VisitSnapshot | null): WatchChange {
+  const seen = baseline?.prices[item.id];
   return {
     sinceAdded: round(priceNow - item.priceWhenAdded),
     sinceLastVisit: seen === undefined ? null : round(priceNow - seen),

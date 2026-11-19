@@ -88,7 +88,7 @@ export default function StoresPage() {
 
       <h2 className="narrow mt-12 text-3xl font-bold">Looked at and left out</h2>
       <p className="mt-2 max-w-2xl text-ink-muted">
-        Checked on 18 November 2026. A store whose site refuses automated reading isn&rsquo;t worked around: the way back is
+        Checked on 18 and 19 November 2026. A store whose site refuses automated reading isn&rsquo;t worked around: the way back is
         the store allowing it.
       </p>
       <ul className="mt-4 divide-y divide-line border-y border-line">

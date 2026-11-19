@@ -4,14 +4,23 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-import type { WatchedProduct } from "@/app/api/products/route";
+import type { WatchedProduct, WatchedProducts } from "@/app/api/products/route";
 import { ProductImage } from "@/components/product-image";
 import { formatRand } from "@/lib/format";
-import { changeFor, markVisited, readWatchlist, unwatch, useWatchlist, type WatchState } from "@/lib/watchlist";
+import {
+  changeFor,
+  markVisited,
+  readWatchlist,
+  unwatch,
+  useWatchlist,
+  visitBaseline,
+  type VisitSnapshot,
+  type WatchState,
+} from "@/lib/watchlist";
 
 type Load =
   | { status: "loading" }
-  | { status: "ready"; products: Map<string, WatchedProduct>; previousVisit: WatchState["lastVisit"] }
+  | { status: "ready"; products: Map<string, WatchedProduct>; baseline: VisitSnapshot | null }
   | { status: "failed" };
 
 function Change({ amount, label }: { amount: number | null; label: string }) {
@@ -28,24 +37,24 @@ function Change({ amount, label }: { amount: number | null; label: string }) {
 export function WatchlistView() {
   const { items } = useWatchlist();
   const [load, setLoad] = useState<Load>({ status: "loading" });
-  // The previous visit, read once before this visit is recorded, so "since your last visit"
-  // keeps comparing against it when an item is removed and the list reloads.
-  const previousVisit = useRef<WatchState["lastVisit"] | undefined>(undefined);
+  // The stored list as it was before this visit is recorded, read once, so "since your last
+  // visit" keeps comparing against the same visit when an item is removed and the list reloads.
+  const before = useRef<WatchState | undefined>(undefined);
   const ids = items.map((i) => i.id).join(",");
 
   useEffect(() => {
-    if (previousVisit.current === undefined) previousVisit.current = readWatchlist().lastVisit;
-    const before = previousVisit.current;
+    before.current ??= readWatchlist();
+    const stored = before.current;
     // An empty list renders its own message without loading anything.
     if (!ids) return;
     const controller = new AbortController();
     fetch(`/api/products?ids=${encodeURIComponent(ids)}`, { signal: controller.signal })
       .then(async (r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        const body = (await r.json()) as { products: WatchedProduct[] };
+        const body = (await r.json()) as WatchedProducts;
         const products = new Map(body.products.map((p) => [p.id, p]));
-        setLoad({ status: "ready", products, previousVisit: before });
-        markVisited(Object.fromEntries(body.products.map((p) => [p.id, p.priceZar])));
+        setLoad({ status: "ready", products, baseline: visitBaseline(stored, body.pricedOn) });
+        markVisited(body.pricedOn, Object.fromEntries(body.products.map((p) => [p.id, p.priceZar])));
       })
       .catch(() => {
         if (!controller.signal.aborted) setLoad({ status: "failed" });
@@ -74,7 +83,7 @@ export function WatchlistView() {
     <ul className="divide-y divide-line border-y border-line" aria-busy={load.status === "loading"}>
       {items.map((item) => {
         const p = load.status === "ready" ? load.products.get(item.id) : undefined;
-        const change = p && load.status === "ready" ? changeFor(item, p.priceZar, load.previousVisit) : null;
+        const change = p && load.status === "ready" ? changeFor(item, p.priceZar, load.baseline) : null;
         return (
           <li key={item.id} className="grid grid-cols-[4.5rem_1fr_auto] items-start gap-4 py-4">
             <ProductImage src={p?.image ?? null} alt="" width={160} className="rounded border border-line" />

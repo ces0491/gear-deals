@@ -29,6 +29,20 @@ for (const width of [320, 412]) {
   }
 }
 
+test("pages send the security headers and break none of their rules", async ({ page }) => {
+  const violations: string[] = [];
+  page.on("console", (m) => {
+    if (/Content Security Policy/i.test(m.text())) violations.push(m.text());
+  });
+  for (const path of PAGES) {
+    const response = await page.goto(path);
+    await page.waitForLoadState("networkidle");
+    expect(response?.headers()["content-security-policy"]).toContain("frame-ancestors 'none'");
+    expect(response?.headers()["x-content-type-options"]).toBe("nosniff");
+  }
+  expect(violations).toEqual([]);
+});
+
 test.describe("filter sheet on a phone", () => {
   test.use({ viewport: { width: 375, height: 760 } });
 

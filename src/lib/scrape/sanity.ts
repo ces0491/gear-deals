@@ -52,8 +52,9 @@ export function runSanityChecks(
       );
     }
 
+    // After a failed run, `was` is what was carried forward: still the last good read.
     const was = before.get(storeId);
-    if (was && was.length > 0 && previous?.stores[storeId]?.ok && now.length / was.length < COUNT_DROP_FLOOR) {
+    if (was && was.length > 0 && now.length / was.length < COUNT_DROP_FLOOR) {
       failures.push(`${storeId}: products fell from ${was.length} to ${now.length} since the last run`);
     }
 

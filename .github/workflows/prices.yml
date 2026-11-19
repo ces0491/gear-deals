@@ -2,8 +2,9 @@ name: Daily prices
 
 on:
   schedule:
-    # 03:00 UTC is 05:00 in South Africa. GitHub starts scheduled runs late under load.
-    - cron: "0 3 * * *"
+    # 03:17 UTC is 05:17 in South Africa. GitHub delays scheduled runs under load, and
+    # drops some when it's busy enough; the start of the hour is the busiest time.
+    - cron: "17 3 * * *"
   workflow_dispatch: {}
 
 permissions:

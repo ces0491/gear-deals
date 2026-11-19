@@ -9,9 +9,9 @@
  */
 import { useSyncExternalStore } from "react";
 
-import { EMPTY_WATCHLIST, isWatchState, MAX_WATCHED, type WatchItem, type WatchState } from "@/lib/watchlist-core";
+import { EMPTY_WATCHLIST, isWatchState, MAX_WATCHED, recordVisit, type WatchItem, type WatchState } from "@/lib/watchlist-core";
 
-export { changeFor, type WatchItem, type WatchState } from "@/lib/watchlist-core";
+export { changeFor, visitBaseline, type VisitSnapshot, type WatchItem, type WatchState } from "@/lib/watchlist-core";
 
 const KEY = "gear-deals:watchlist:v1";
 const CHANGE_EVENT = "gear-deals:watchlist";
@@ -68,9 +68,9 @@ export function unwatch(id: string): void {
   write({ ...state, items: state.items.filter((i) => i.id !== id) });
 }
 
-/** Records the prices seen on this visit, so the next visit can say what changed since. */
-export function markVisited(prices: Record<string, number>, now: Date = new Date()): void {
-  write({ ...readWatchlist(), lastVisit: { at: now.toISOString(), prices } });
+/** Records the prices seen on this visit, read on `pricedOn`, so a later visit can say what changed since. */
+export function markVisited(pricedOn: string, prices: Record<string, number>, now: Date = new Date()): void {
+  write(recordVisit(readWatchlist(), pricedOn, prices, now));
 }
 
 function subscribe(onChange: () => void): () => void {

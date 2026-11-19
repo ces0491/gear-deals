@@ -20,6 +20,7 @@ import { z } from "zod";
 
 import type { ScrapedProduct } from "@/lib/catalogue/types";
 import { getJson, HttpError, StoreFormatError, type HttpOptions } from "@/lib/scrape/http";
+import { PageCollector, parseEach, type ParsedPage, type ScrapeResult } from "@/lib/stores/parse";
 import type { Store } from "@/lib/stores/registry";
 
 export const PER_PAGE = 100;
@@ -65,7 +66,8 @@ const wooProductSchema = z.object({
 
 export type WooProduct = z.infer<typeof wooProductSchema>;
 
-const pageSchema = z.array(wooProductSchema);
+/** Each product is checked on its own (see parseEach). */
+const pageSchema = z.array(z.unknown());
 
 export function productsUrl(store: Store, page: number): string {
   const params = new URLSearchParams({ per_page: String(PER_PAGE), page: String(page), _fields: FIELDS });
@@ -104,10 +106,11 @@ export function wooPrice(product: WooProduct): WooPrice | null {
 }
 
 /** Turns one page of the Store API into products, leaving out what can't be bought. */
-export function parseWooPage(body: unknown, store: Store): { products: ScrapedProduct[]; rawCount: number } {
+export function parseWooPage(body: unknown, store: Store): ParsedPage {
   const page = pageSchema.parse(body);
+  const { items, unreadable, firstProblem } = parseEach(wooProductSchema, page);
   const products: ScrapedProduct[] = [];
-  for (const item of page) {
+  for (const item of items) {
     if (item.prices.currency_code !== "ZAR") {
       throw new StoreFormatError(`${store.name} priced a product in ${item.prices.currency_code}, not rand.`);
     }
@@ -128,20 +131,12 @@ export function parseWooPage(body: unknown, store: Store): { products: ScrapedPr
       inStock: item.is_in_stock,
     });
   }
-  return { products, rawCount: page.length };
-}
-
-export interface ScrapeResult {
-  products: ScrapedProduct[];
-  /** Products the catalogue returned, before anything was left out. */
-  rawCount: number;
-  requests: number;
+  return { products, rawCount: page.length, unreadable, firstProblem };
 }
 
 /** Reads a store's whole catalogue, one page at a time with a pause between pages. */
 export async function scrapeWooCommerce(store: Store, http: HttpOptions, pauseMs: number): Promise<ScrapeResult> {
-  const products: ScrapedProduct[] = [];
-  let rawCount = 0;
+  const pages = new PageCollector();
   let requests = 0;
   for (let page = 1; page <= MAX_PAGES; page++) {
     if (page > 1) await http.sleep(pauseMs);
@@ -151,13 +146,12 @@ export async function scrapeWooCommerce(store: Store, http: HttpOptions, pauseMs
       body = await getJson(productsUrl(store, page), http);
     } catch (error) {
       // Some installs answer 400 past the last page. A 400 on page one is a real failure.
-      if (page > 1 && error instanceof HttpError && error.status === 400) return { products, rawCount, requests };
+      if (page > 1 && error instanceof HttpError && error.status === 400) return pages.result(store.name, requests);
       throw error;
     }
     const parsed = parseWooPage(body, store);
-    products.push(...parsed.products);
-    rawCount += parsed.rawCount;
-    if (parsed.rawCount < PER_PAGE) return { products, rawCount, requests };
+    pages.add(parsed);
+    if (parsed.rawCount < PER_PAGE) return pages.result(store.name, requests);
   }
   throw new StoreFormatError(`${store.name} returned more than ${MAX_PAGES} pages; stopped in case pagination is broken.`);
 }

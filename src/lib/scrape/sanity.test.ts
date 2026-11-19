@@ -37,6 +37,14 @@ describe("runSanityChecks", () => {
     expect(runSanityChecks(many(50), ok(50), previousOf(many(100)))[0]).toMatch(/fell from 100 to 50/);
   });
 
+  it("checks the count against carried-forward products when the last run failed", () => {
+    const carried: CatalogueFile = {
+      ...previousOf(many(100)),
+      stores: { tentco: { ok: false, count: 100, error: "HTTP 503", ranAt: "2026-11-17T03:00:00Z", lastOkAt: "2026-11-16T03:00:00Z" } },
+    };
+    expect(runSanityChecks(many(40), ok(40), carried)[0]).toMatch(/fell from 100 to 40/);
+  });
+
   it("fails when was-prices suddenly appear on most products", () => {
     const failures = runSanityChecks(many(100, () => ({ wasZar: 200 })), ok(100), previousOf(many(100)));
     expect(failures[0]).toMatch(/100% of products now show a was-price, up from 0%/);

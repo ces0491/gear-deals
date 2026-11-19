@@ -5,7 +5,7 @@ import { parseCatalogue, parseHistory, stringifyCatalogue, stringifyHistory } fr
 import { HttpError } from "@/lib/scrape/http";
 import { laneOf, runScrape } from "@/lib/scrape/run";
 import { storeById } from "@/lib/stores/registry";
-import type { ScrapeResult } from "@/lib/stores/woocommerce";
+import type { ScrapeResult } from "@/lib/stores/parse";
 
 import { makeScraped } from "../../../test/helpers";
 
@@ -26,10 +26,11 @@ describe("runScrape", () => {
     const out = await runScrape({
       stores: [tentco, camp],
       read: read({
-        tentco: { products: [cupboard("tentco", 1150)], rawCount: 1, requests: 1 },
+        tentco: { products: [cupboard("tentco", 1150)], rawCount: 1, requests: 1, unreadable: 0 },
         campandclimb: {
           products: [cupboard("campandclimb", 1095 - 40), makeScraped({ title: "Belay Device", storeCategories: ["Climbing"] })],
           rawCount: 2,
+          unreadable: 0,
           requests: 1,
         },
       }),
@@ -52,7 +53,7 @@ describe("runScrape", () => {
   it("carries a failed store forward without recording history for it", async () => {
     const first = await runScrape({
       stores: [tentco],
-      read: read({ tentco: { products: [cupboard("tentco", 1150)], rawCount: 1, requests: 1 } }),
+      read: read({ tentco: { products: [cupboard("tentco", 1150)], rawCount: 1, requests: 1, unreadable: 0 } }),
       previous: null,
       history: null,
       now: new Date("2026-11-17T03:00:00Z"),
@@ -70,10 +71,38 @@ describe("runScrape", () => {
     expect(second.history.products["tentco:tentco-cupboard"].lastSeen).toBe("2026-11-17");
   });
 
+  it("keeps the stores a partial run didn't read, and matches against them", async () => {
+    const first = await runScrape({
+      stores: [tentco, camp],
+      read: read({
+        tentco: { products: [cupboard("tentco", 1150)], rawCount: 1, requests: 1, unreadable: 0 },
+        campandclimb: { products: [cupboard("campandclimb", 1055)], rawCount: 1, requests: 1, unreadable: 0 },
+      }),
+      previous: null,
+      history: null,
+      now: new Date("2026-11-17T03:00:00Z"),
+    });
+    // Only Tentco is read; it's now the cheaper of the two.
+    const partial = await runScrape({
+      stores: [tentco],
+      read: read({ tentco: { products: [cupboard("tentco", 1000)], rawCount: 1, requests: 1, unreadable: 0 } }),
+      previous: first.catalogue,
+      history: first.history,
+      keep: ["campandclimb"],
+      now: new Date("2026-11-18T03:00:00Z"),
+    });
+    const [atCamp, atTentco] = partial.catalogue.products;
+    expect(atCamp).toMatchObject({ id: "campandclimb:campandclimb-cupboard", priceZar: 1055, deal: null });
+    expect(atTentco.deal?.reasons[0]).toMatchObject({ kind: "cheaper-elsewhere", otherStoreId: "campandclimb", savingZar: 55 });
+    expect(partial.catalogue.stores.campandclimb).toEqual(first.catalogue.stores.campandclimb);
+    expect(partial.history.products["campandclimb:campandclimb-cupboard"].lastSeen).toBe("2026-11-17");
+    expect(partial.sanityFailures).toEqual([]);
+  });
+
   it("reports no change when only timestamps moved", async () => {
     const input = {
       stores: [tentco],
-      read: read({ tentco: { products: [cupboard("tentco", 1150)], rawCount: 1, requests: 1 } }),
+      read: read({ tentco: { products: [cupboard("tentco", 1150)], rawCount: 1, requests: 1, unreadable: 0 } }),
       history: null,
     };
     const first = await runScrape({ ...input, previous: null, now: new Date("2026-11-18T03:00:00Z") });
@@ -89,7 +118,7 @@ describe("read order", () => {
       events.push(`start ${id}`);
       await new Promise((r) => setTimeout(r, 5));
       events.push(`end ${id}`);
-      return { products: [], rawCount: 0, requests: 1 };
+      return { products: [], rawCount: 0, requests: 1, unreadable: 0 };
     };
     const stores = [storeById("ironman"), storeById("trappers"), tentco];
     await runScrape({
@@ -110,7 +139,7 @@ describe("data files", () => {
   it("writes one product per line and reads back the same data", async () => {
     const out = await runScrape({
       stores: [tentco],
-      read: read({ tentco: { products: [cupboard("tentco", 1150), makeScraped({ storeId: "tentco", title: "Chair Director", storeCategories: ["Chairs"] })], rawCount: 2, requests: 1 } }),
+      read: read({ tentco: { products: [cupboard("tentco", 1150), makeScraped({ storeId: "tentco", title: "Chair Director", storeCategories: ["Chairs"] })], rawCount: 2, requests: 1, unreadable: 0 } }),
       previous: null,
       history: null,
       now: new Date("2026-11-18T03:00:00Z"),

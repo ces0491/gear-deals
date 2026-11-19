@@ -31,12 +31,17 @@ online with prices, and its terms don't ban automated reading. The registry is
 `src/lib/stores/registry.ts`, which also lists the stores looked at and left out, with
 the reason; the Stores page shows both. In short:
 
-- **Terms ban scraping:** Alpha Accessories and Camp Cover use Shopify's default terms,
-  which prohibit "spider, crawl, or scrape".
-- **Refuse automated reading:** Melvill & Moon answers a full catalogue page with HTTP 403.
-- **No prices or no checkout:** Safari Centre and Snomaster.
-- **No public catalogue:** Outdoor Warehouse, Cape Union Mart, Front Runner, Sportsmans
-  Warehouse and Due South.
+- **Terms ban scraping:** Alpha Accessories, Camp Cover, Flex Adventures, The Bakkie Shop
+  and Wild Access use Shopify's default terms, which prohibit "spider, crawl, or scrape".
+  All Outdoor and Home's own terms ban robots and spiders.
+- **Refuse automated reading:** Melvill & Moon answers a full catalogue page with HTTP 403;
+  Thule Store answers with a Cloudflare challenge.
+- **No prices or no checkout:** Safari Centre, Snomaster, Alu-Cab and Campmaster.
+- **No public catalogue:** Outdoor Warehouse, Cape Union Mart, Front Runner, Dometic,
+  Wildebees Outdoor, Sportsmans Warehouse and Due South.
+- **Not this site's range:** Tyres & More, which is mostly tyres.
+
+Stores were looked at on 18 November 2026, and again more widely on 19 November.
 
 A store whose site refuses the scraper isn't worked around. The way back is the store
 allowing it.
@@ -88,7 +93,9 @@ Lock roof console R2 489 cheaper than at 4x4 Mega World.
 
 ## Data and the daily run
 
-`.github/workflows/prices.yml` runs at 03:00 UTC (05:00 SAST). It:
+`.github/workflows/prices.yml` runs at 03:17 UTC (05:17 SAST): off the hour, because
+GitHub delays scheduled runs under load and drops some when it's busy enough, and the start
+of the hour is the busiest time. It:
 
 1. runs `npm run scrape`, which writes `data/catalogue.json` and `data/history.json`
 2. commits them, which deploys the site
@@ -104,6 +111,9 @@ after a burst of requests. A full run made 75 requests and took 101 seconds on
 
 - **History** (`src/lib/history/history.ts`) records a product only on days its price or
   was-price changes, and only for products actually read that day.
+- **A product the adapter can't read** is left out and counted in the run log. When more
+  than 5% of a store's catalogue can't be read (`src/lib/stores/parse.ts`), the store
+  fails for the day instead.
 - **A store that fails** keeps its last good products for up to 7 days
   (`src/lib/scrape/carry-forward.ts`). The Stores page says so, and those products are
   re-placed under the current category rules.
@@ -127,17 +137,25 @@ signed in.
 ## Price alerts
 
 An alert is an email address and a target price on one product. It goes live only once
-the address confirms it from an email. It sends once when the product is in stock at or
-under the target, then closes. Several alerts hitting on one morning share an email.
-Every email links to a page listing the address's alerts with delete buttons, and alert
-emails carry one-click unsubscribe headers. Limits and retention periods are in
-`src/lib/alerts/config.ts`; the privacy page states them.
+the address confirms it from an email. A new alert on a product the address already has
+one on replaces the old one when it's confirmed, not before. An alert sends once when the
+product is in stock at or under the target, then closes. Several alerts hitting on one
+morning share an email. Every email links to a page listing the address's alerts with
+delete buttons, and alert emails carry one-click unsubscribe headers.
+
+Limits and retention periods are in `src/lib/alerts/config.ts`; the privacy page states
+them. Each request that can send an email is logged with hashes of the email and network
+addresses, and the limits are checked and logged in one database call
+(`claim_alert_request`), so requests sent in parallel can't slip past them. Deleting an
+address's alerts leaves the log, which expires after two days, so it doesn't reset the
+limits.
 
 Alerts need four things, all optional for running the site (without them it says alerts
 aren't available):
 
-1. **A Supabase project** with `supabase/migrations/20261118120000_alerts.sql` applied.
-   Both tables have row level security with no policies, so only the secret key reaches them.
+1. **A Supabase project** with the migrations in `supabase/migrations/` applied, in order.
+   Both tables have row level security with no policies, and only the secret key can call
+   `claim_alert_request`, so nothing reaches them without it.
 2. **A Resend account** with a verified sending domain. The DNS records go on
    sheetsolved.com at GoDaddy, as for the other sheetsolved.com subdomains.
 3. **A signing secret**, `ALERTS_SECRET`; `.env.example` shows how to make one.
@@ -169,7 +187,7 @@ lists the optional ones.
 | `npm run typecheck` | Next's route types (`next typegen`), then TypeScript |
 | `npm test` | Unit tests (Vitest) |
 | `npm run test:e2e` | Browser tests (Playwright) |
-| `npm run scrape` | Read the stores and write `data/`. `-- --only tentco,eeziawn` reads some; `-- --placements <file>` also writes where each product was placed |
+| `npm run scrape` | Read the stores and write `data/`. `-- --only tentco,eeziawn` reads some and keeps the others' last products, with deals matched across all of them; `-- --placements <file>` also writes where each product was placed |
 | `npm run recategorise` | Re-apply the category rules to `data/catalogue.json` without reading any store |
 | `npm run alerts:send` | Send the morning's alerts (needs the alert settings) |
 | `npm run fixtures:capture` | Re-capture the store responses the unit tests use; `-- --shopify` for the Shopify stores |
@@ -189,14 +207,15 @@ products with made-up history for the tracked-drop and long-running cases, so th
 change with the morning's prices. Alerts run on the memory store, and the tests read
 confirmation links from the outbox file. Every request that isn't to the site is blocked,
 so no store sees test traffic. The layout tests check that no page scrolls sideways at
-320 and 412 pixels in light and dark, that the phone filter sheet opens and closes, and
-that form fields use 16-pixel text.
+320 and 412 pixels in light and dark, that the phone filter sheet opens and closes, that
+form fields use 16-pixel text, and that pages send the security headers without the
+content security policy blocking anything they load.
 
 ## Deploy
 
 | | |
 |---|---|
-| Live | <https://gear-deals.vercel.app>, and <https://geardeals.sheetsolved.com> once its DNS record is set (below) |
+| Live | <https://geardeals.sheetsolved.com>; <https://gear-deals.vercel.app> redirects (308) to it |
 | Repository | [`ces0491/gear-deals`](https://github.com/ces0491/gear-deals), public, production branch `main` |
 | Project | `gear-deals` in the `cesaires-projects` Vercel team, git-connected, Node 24 |
 | Access | Production and the custom domain are public. Each deployment's own URL and preview deployments are behind Vercel Authentication (the project default, `all_except_custom_domains`). |
@@ -207,23 +226,23 @@ repository is public, so Actions minutes cost nothing.
 
 ### Custom domain
 
-`geardeals.sheetsolved.com` is attached to the project. The DNS half goes at GoDaddy,
+`geardeals.sheetsolved.com` is attached to the project. The DNS half lives at GoDaddy,
 under **DNS → Manage Zones → sheetsolved.com**:
 
 | Type | Name | Value |
 |---|---|---|
 | `CNAME` | `geardeals` | `38d8fddbc39b8f2a.vercel-dns-016.com` |
 
-The value is issued per domain. To read it back, or check it once the record is set:
+The value is issued per domain. To read it back or check it:
 
 ```bash
 vercel domains verify geardeals.sheetsolved.com --scope cesaires-projects
 ```
 
-Until the record exists, metadata, the sitemap and alert emails already name the custom
-domain (`PRODUCTION_URL` in `src/lib/site.ts`). Once it resolves, `gear-deals.vercel.app`
-should redirect to it, set on that domain in the Vercel project (**Settings → Domains**),
-as for camp-finder.
+Metadata, the sitemap and alert emails name this domain (`PRODUCTION_URL` in
+`src/lib/site.ts`). `gear-deals.vercel.app` redirects (308) to it, keeping the path and
+query. The redirect is a setting on that domain in the Vercel project (**Settings →
+Domains**), not code, so preview deployments keep serving themselves.
 
 ## Layout
 

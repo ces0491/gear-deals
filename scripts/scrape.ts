@@ -57,15 +57,18 @@ async function main() {
   const started = Date.now();
   console.log(`Reading ${stores.length} stores: ${stores.map((s) => s.id).join(", ")}`);
 
-  const previous = readOrNull(CATALOGUE_PATH, parseCatalogue);
+  const selected = new Set(stores.map((s) => s.id));
   const result = await runScrape({
     stores,
     read: (store) =>
       store.platform === "shopify"
         ? scrapeShopify(store, realHttp, PAGE_PAUSE_MS)
         : scrapeWooCommerce(store, realHttp, PAGE_PAUSE_MS),
-    // A partial run (--only) keeps the other stores from the last catalogue.
-    previous,
+    previous: readOrNull(CATALOGUE_PATH, parseCatalogue),
+    // A partial run (--only) keeps the other stores' products from the last catalogue.
+    keep: enabledStores()
+      .filter((s) => !selected.has(s.id))
+      .map((s) => s.id),
     history: readOrNull(HISTORY_PATH, parseHistory),
     log: (line) => console.log(`  ${line}`),
     collectPlacements: flagValue("--placements") !== null,
@@ -83,18 +86,7 @@ async function main() {
     process.exit(2);
   }
 
-  let catalogue = result.catalogue;
-  if (previous && stores.length < enabledStores().length) {
-    const read = new Set(stores.map((s) => s.id));
-    catalogue = {
-      ...catalogue,
-      stores: { ...previous.stores, ...catalogue.stores },
-      products: [...previous.products.filter((p) => !read.has(p.storeId)), ...catalogue.products].sort((a, b) =>
-        a.id < b.id ? -1 : 1,
-      ),
-    };
-  }
-
+  const { catalogue } = result;
   writeFileSync(CATALOGUE_PATH, stringifyCatalogue(catalogue));
   writeFileSync(HISTORY_PATH, stringifyHistory(result.history));
   const deals = catalogue.products.filter((p) => p.deal).length;

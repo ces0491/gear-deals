@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-import type { AlertRecord, AlertStore, NewAlert, RequestLog } from "@/lib/alerts/store";
+import type { AlertRecord, AlertStore, ClaimOutcome, NewAlert, RequestLimits, RequestLog } from "@/lib/alerts/store";
 import type { StoreId } from "@/lib/stores/registry";
 
 /** The alerts table as PostgREST returns it. */
@@ -92,7 +92,6 @@ export class SupabaseAlertStore implements AlertStore {
 
   async deleteAllForEmail(email: string) {
     const rows = check(await this.db.from("alerts").delete().eq("email", email).select("id"));
-    check(await this.db.from("alert_requests").delete().eq("email", email));
     return (rows as unknown[]).length;
   }
 
@@ -114,22 +113,23 @@ export class SupabaseAlertStore implements AlertStore {
     check(await this.db.from("alerts").update({ closed_reason: reason, fired_at: now.toISOString() }).in("id", ids));
   }
 
-  async logRequest(request: RequestLog, now: Date) {
-    check(
-      await this.db
-        .from("alert_requests")
-        .insert({ kind: request.kind, email: request.email, ip_hash: request.ipHash, created_at: now.toISOString() }),
+  /** One call to claim_alert_request (supabase/migrations), which counts and logs under a lock. */
+  async claimRequest(request: RequestLog, limits: RequestLimits, now: Date): Promise<ClaimOutcome> {
+    const result = check(
+      await this.db.rpc("claim_alert_request", {
+        p_kind: request.kind,
+        p_email_hash: request.emailHash,
+        p_ip_hash: request.ipHash,
+        p_since: limits.since.toISOString(),
+        p_now: now.toISOString(),
+        p_per_email: limits.perEmail,
+        p_per_network: limits.perNetwork,
+        p_sitewide: limits.sitewide,
+      }),
     );
-  }
-
-  async countRequests(filter: Partial<RequestLog>, since: Date) {
-    let q = this.db.from("alert_requests").select("id", { count: "exact", head: true }).gte("created_at", since.toISOString());
-    if (filter.kind) q = q.eq("kind", filter.kind);
-    if (filter.email) q = q.eq("email", filter.email);
-    if (filter.ipHash) q = q.eq("ip_hash", filter.ipHash);
-    const { count, error } = await q;
-    if (error) throw new Error(`Supabase: ${error.message}`);
-    return count ?? 0;
+    if (result === "ok") return { ok: true };
+    if (result === "sitewide" || result === "email" || result === "network") return { ok: false, limit: result };
+    throw new Error(`Supabase: claim_alert_request returned ${JSON.stringify(result)}`);
   }
 
   async purge(cutoffs: { unconfirmedBefore: Date; sentBefore: Date; requestsBefore: Date }) {

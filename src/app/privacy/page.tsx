@@ -6,7 +6,7 @@ import { REPO_URL, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "What the site keeps about you: nothing, unless you set a price alert.",
+  description: "What the site keeps about you: nothing, unless you use price alerts.",
 };
 
 export default function PrivacyPage() {
@@ -62,7 +62,8 @@ export default function PrivacyPage() {
         <p>
           The link in any alert email opens a page showing every alert held for your address, and deletes them one at a time
           or all at once. That covers access and deletion under the Protection of Personal Information Act without you having to contact
-          anyone. For anything else, <a href={`${REPO_URL}/issues`}>open an issue</a>; issues are public, so leave your email
+          anyone. The hashed request records described above aren&rsquo;t on that page; they&rsquo;re deleted after{" "}
+          {REQUEST_LOG_RETENTION_DAYS} days. For anything else, <a href={`${REPO_URL}/issues`}>open an issue</a>; issues are public, so leave your email
           address out of it.
         </p>
       </div>

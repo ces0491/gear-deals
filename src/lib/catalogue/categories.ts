@@ -99,7 +99,8 @@ const RULES: readonly (readonly [CategoryId, RegExp])[] = [
     /suspension|lift kits?|levell?ing kits?|shock absorbers?|\bshocks?\b(?! ?cord)|coil springs?|leaf springs?|torsion bars?|\bstruts?\b|u-?bolts?|\bbush(es|ings?)\b|steering dampers?|snorkels?|intakes?\b|pre-?filters?|catch cans?|throttle|fuel manager|exhausts?/i,
   ],
   ["water", /\bwater\b|reservoirs?|jerry|showers?|toilets?|porta ?potti|basins?|hygiene|bathroom|wash ?stands?/i],
-  ["packs", /rucksacks?|backpacks?|day ?packs?|packs \+ bags|hiking packs?|trekking poles?|walking poles?|gaiters?/i],
+  // Bounded: Adventure Inc files hiking boots under "Backpacking".
+  ["packs", /rucksacks?|\bbackpacks?\b|backpacking packs?|day ?packs?|packs \+ bags|hiking packs?|trekking poles?|walking poles?|gaiters?/i],
   [
     "vehicle",
     /seat covers?|floor mats?|dashboard|centre consoles?|roof consoles?|interior|aerials?|antennas?|in-cab|cabin trim|mirrors?|vehicle accessor|vehicle fitments?|mounting brackets?|cargo barriers?|auto travel|vehicle care|vehicle maintenance|valeting|caravan/i,

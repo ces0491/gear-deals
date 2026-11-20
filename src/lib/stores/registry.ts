@@ -3,7 +3,7 @@
  *
  * A store is listed when it publishes a machine-readable catalogue (Shopify's
  * /products.json or WooCommerce's Store API), sells online with prices, and its terms
- * don't ban automated reading. Checked 18 and 19 November 2026.
+ * don't ban automated reading. Checked 18 to 20 November 2026.
  */
 
 import type { CategoryHints } from "@/lib/catalogue/categories";
@@ -116,7 +116,9 @@ export const STORES: readonly Store[] = [
     url: "https://www.ironman4x4.co.za",
     platform: "shopify",
     // No ownBrand: the shop also sells Cadac and Born Free, and names each product's vendor.
-    enabled: true,
+    // Off since 20 November 2026: it answered the scrape runner with HTTP 403 on 19 and 20
+    // November (see LEFT_OUT_STORES). Kept here so its captured responses still test the adapter.
+    enabled: false,
   },
   {
     id: "adventureinc",
@@ -156,7 +158,7 @@ export interface LeftOutStore {
   reason: string;
 }
 
-/** Stores looked at on 18 and 19 November 2026 and not read, so an empty result isn't read as "no deals anywhere". */
+/** Stores looked at from 18 to 20 November 2026 and not read, so an empty result isn't read as "no deals anywhere". */
 export const LEFT_OUT_STORES: readonly LeftOutStore[] = [
   {
     name: "Alpha Accessories",
@@ -197,6 +199,11 @@ export const LEFT_OUT_STORES: readonly LeftOutStore[] = [
     name: "Thule Store",
     url: "https://thulestore.co.za",
     reason: "Its site challenges automated requests.",
+  },
+  {
+    name: "Ironman 4x4",
+    url: "https://www.ironman4x4.co.za",
+    reason: "Its site refuses the daily read (HTTP 403).",
   },
   {
     name: "Safari Centre",

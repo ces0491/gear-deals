@@ -2,6 +2,7 @@
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { after } from "next/server";
 import { z } from "zod";
 
 import { alertsRuntime } from "@/lib/alerts/runtime";
@@ -105,6 +106,7 @@ export async function sendManageLinkAction(_prev: FormState, form: FormData): Pr
     ipHash: hashAddress(await clientAddress(), rt.secret),
     now: new Date(),
     siteUrl: SITE_URL,
+    defer: (task) => after(task),
   });
   return outcome.ok
     ? { status: "done", message: "If that address has alerts, a link to them is on its way." }

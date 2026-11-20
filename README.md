@@ -10,22 +10,21 @@ It's a public site. `SCOPE.md` is the done-contract.
 
 ## Stores
 
-Read on 18 November 2026:
+Read on 20 November 2026:
 
 | Store | Platform | Products | Deals in stock |
 |---|---|---:|---:|
-| Camp and Climb | WooCommerce | 2 123 | 36 |
-| Ironman 4x4 | Shopify | 1 233 | 22 |
-| 4x4 Mega World | WooCommerce | 988 | 81 |
-| Trappers | Shopify | 574 | 26 |
-| Adventure Inc | Shopify | 498 | 116 |
-| Tentco | WooCommerce | 485 | 37 |
-| Opposite Lock | WooCommerce | 275 | 74 |
+| Camp and Climb | WooCommerce | 2 155 | 54 |
+| 4x4 Mega World | WooCommerce | 987 | 81 |
+| Trappers | Shopify | 579 | 27 |
+| Adventure Inc | Shopify | 486 | 115 |
+| Tentco | WooCommerce | 485 | 39 |
+| Opposite Lock | WooCommerce | 301 | 75 |
 | Bushtech | WooCommerce | 41 | 0 |
 | Eezi-Awn | WooCommerce | 39 | 0 |
 | National Luna | WooCommerce | 30 | 0 |
 
-That's 6 286 products and 392 deals in stock. A store is listed when it publishes a
+That's 5 103 products and 391 deals in stock. A store is listed when it publishes a
 machine-readable catalogue (Shopify's `/products.json` or WooCommerce's Store API), sells
 online with prices, and its terms don't ban automated reading. The registry is
 `src/lib/stores/registry.ts`, which also lists the stores looked at and left out, with
@@ -35,13 +34,17 @@ the reason; the Stores page shows both. In short:
   and Wild Access use Shopify's default terms, which prohibit "spider, crawl, or scrape".
   All Outdoor and Home's own terms ban robots and spiders.
 - **Refuse automated reading:** Melvill & Moon answers a full catalogue page with HTTP 403;
-  Thule Store answers with a Cloudflare challenge.
+  Thule Store answers with a Cloudflare challenge. Ironman 4x4 answered the daily read with
+  HTTP 403 on 19 and 20 November 2026, though it had answered a read from elsewhere on 18
+  November, so it was turned off.
 - **No prices or no checkout:** Safari Centre, Snomaster, Alu-Cab and Campmaster.
 - **No public catalogue:** Outdoor Warehouse, Cape Union Mart, Front Runner, Dometic,
   Wildebees Outdoor, Sportsmans Warehouse and Due South.
 - **Not this site's range:** Tyres & More, which is mostly tyres.
 
 Stores were looked at on 18 November 2026, and again more widely on 19 November.
+Turning a store off takes `enabled: false` in the registry, an entry in `LEFT_OUT_STORES`,
+and `npm run recategorise` to drop its products from the committed catalogue.
 
 A store whose site refuses the scraper isn't worked around. The way back is the store
 allowing it.
@@ -93,14 +96,24 @@ Lock roof console R2 489 cheaper than at 4x4 Mega World.
 
 ## Data and the daily run
 
-`.github/workflows/prices.yml` runs at 03:17 UTC (05:17 SAST): off the hour, because
-GitHub delays scheduled runs under load and drops some when it's busy enough, and the start
-of the hour is the busiest time. It:
+`.github/workflows/prices.yml` has two triggers, because GitHub's own schedule started no
+run on 19 or 20 November 2026:
 
-1. runs `npm run scrape`, which writes `data/catalogue.json` and `data/history.json`
-2. commits them, which deploys the site
-3. sends the morning's price alerts
-4. fails the run if any store couldn't be read
+- **GitHub's schedule**, at 03:17 UTC (05:17 SAST). It's off the hour because GitHub
+  delays scheduled runs under load and drops some when it's busy enough, and the start of
+  the hour is the busiest time.
+- **A Vercel schedule** (`vercel.json`) at 03:30 UTC. It calls `/api/cron/prices`, which
+  asks GitHub's API to start the workflow (`src/lib/scrape/dispatch.ts`). It needs
+  `CRON_SECRET` and `PRICES_DISPATCH_TOKEN` set in the Vercel project (see Deploy, below).
+
+Whichever starts second finds today's prices already in and stops, so the stores are read
+once a day. `gh workflow run prices.yml -f force=true` reads them again anyway. A run:
+
+1. stops if today's prices are already in
+2. runs `npm run scrape`, which writes `data/catalogue.json` and `data/history.json`
+3. commits them, which deploys the site
+4. sends the morning's price alerts
+5. fails the run if any store couldn't be read
 
 `scripts/scrape.ts` and `src/lib/scrape/run.ts` do the work. Stores on WooCommerce are
 read in parallel, one page at a time each with a 1.5-second pause. Shopify stores are read
@@ -188,7 +201,7 @@ lists the optional ones.
 | `npm test` | Unit tests (Vitest) |
 | `npm run test:e2e` | Browser tests (Playwright) |
 | `npm run scrape` | Read the stores and write `data/`. `-- --only tentco,eeziawn` reads some and keeps the others' last products, with deals matched across all of them; `-- --placements <file>` also writes where each product was placed |
-| `npm run recategorise` | Re-apply the category rules to `data/catalogue.json` without reading any store |
+| `npm run recategorise` | Rebuild `data/catalogue.json` under the current category rules and registry, without reading any store: drops what the rules leave out and the products of stores turned off, and works deals out again |
 | `npm run alerts:send` | Send the morning's alerts (needs the alert settings) |
 | `npm run fixtures:capture` | Re-capture the store responses the unit tests use; `-- --shopify` for the Shopify stores |
 | `npm run fixtures:catalogue` | Rebuild the browser tests' catalogue from `data/` |
@@ -219,10 +232,24 @@ content security policy blocking anything they load.
 | Repository | [`ces0491/gear-deals`](https://github.com/ces0491/gear-deals), public, production branch `main` |
 | Project | `gear-deals` in the `cesaires-projects` Vercel team, git-connected, Node 24 |
 | Access | Production and the custom domain are public. Each deployment's own URL and preview deployments are behind Vercel Authentication (the project default, `all_except_custom_domains`). |
-| Environment variables | None needed; the alert values in `.env.example` turn alerts on |
+| Environment variables | None needed to serve the site. `CRON_SECRET` and `PRICES_DISPATCH_TOKEN` (production) let the Vercel schedule start the daily run; the alert values in `.env.example` turn alerts on |
 
 A push to `main` deploys to production, including the morning's data commit. The
 repository is public, so Actions minutes cost nothing.
+
+### Morning trigger
+
+The Vercel schedule in `vercel.json` does nothing until two values are set in the
+project's production environment:
+
+1. `CRON_SECRET`: any long random string. Vercel sends it with each scheduled request, and
+   `/api/cron/prices` refuses requests without it.
+2. `PRICES_DISPATCH_TOKEN`: a fine-grained GitHub token with access to this repository
+   only and the **Actions: read and write** permission, which is what starting a workflow
+   needs. Fine-grained tokens expire; note the date and replace it before then.
+
+They take effect on the next deployment. Without them the route answers 503 (no token)
+or 401 (no secret) and GitHub's own schedule is the only trigger.
 
 ### Custom domain
 
@@ -248,13 +275,14 @@ Domains**), not code, so preview deployments keep serving themselves.
 
 ```
 src/app/                pages: deals (/), product, stores, how-it-works, privacy, watchlist,
-                        alerts (request, confirm, manage); API routes for the watchlist and unsubscribe
+                        alerts (request, confirm, manage); API routes for the watchlist, unsubscribe
+                        and the morning trigger (api/cron/prices)
 src/components/         deal card and tag, filters, price chart, alert and watchlist UI
 src/lib/stores/         the store registry and the WooCommerce and Shopify adapters
 src/lib/catalogue/      types, normalising, categories, brands
 src/lib/deals/          deal rules and cross-store matching
 src/lib/history/        price history
-src/lib/scrape/         the run, HTTP, carry-forward, sanity checks, data files
+src/lib/scrape/         the run, HTTP, carry-forward, sanity checks, data files, starting the run
 src/lib/data/           the server's catalogue and the deals page's query
 src/lib/alerts/         alert store (Supabase and memory), tokens, emails, rules, the morning job
 scripts/                scrape, alerts, recategorise, fixture builders

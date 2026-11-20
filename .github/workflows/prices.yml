@@ -1,11 +1,19 @@
 name: Daily prices
 
+# Two triggers, because GitHub's schedule started no run on 19 or 20 November 2026: this
+# schedule, and a Vercel schedule that asks GitHub to start the run (vercel.json,
+# src/lib/scrape/dispatch.ts). Whichever comes second finds today's prices in and stops.
 on:
   schedule:
     # 03:17 UTC is 05:17 in South Africa. GitHub delays scheduled runs under load, and
     # drops some when it's busy enough; the start of the hour is the busiest time.
     - cron: "17 3 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Read the stores even if today's prices are already in
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -28,18 +36,36 @@ jobs:
       ALERTS_FROM: ${{ secrets.ALERTS_FROM }}
     steps:
       - uses: actions/checkout@v7
+
+      # A run queued behind another starts from the commit before that one's prices, so it
+      # pulls them first.
+      - name: Check whether today's prices are in
+        id: fresh
+        if: ${{ !inputs.force }}
+        run: |
+          git pull --ff-only origin main
+          today=$(TZ=Africa/Johannesburg date +%F)
+          if [ "$(jq -r .pricedOn data/catalogue.json)" = "$today" ]; then
+            echo "Prices for $today are already in; nothing to do."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v7
+        if: steps.fresh.outputs.skip != 'true'
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+        if: steps.fresh.outputs.skip != 'true'
 
       # Exits 2 without writing anything when a sanity check fails, which stops the run here.
       - name: Read the stores
         id: scrape
+        if: steps.fresh.outputs.skip != 'true'
         run: npm run scrape
 
       - name: Commit the new prices
+        if: steps.fresh.outputs.skip != 'true'
         run: |
           if git diff --quiet data/; then
             echo "Nothing to commit."
@@ -58,13 +84,13 @@ jobs:
 
       # After the commit, so alerts go out on prices that are being published.
       - name: Send price alerts
-        if: env.ALERTS_SECRET != ''
+        if: steps.fresh.outputs.skip != 'true' && env.ALERTS_SECRET != ''
         run: npm run alerts:send
 
       # Last, so the stores that did read still publish. A failed store's last good prices
       # are carried forward for a few days, so a red run here is a fix-soon, not an outage.
       - name: Fail if any store couldn't be read
-        if: steps.scrape.outputs.stores_failed != ''
+        if: steps.fresh.outputs.skip != 'true' && steps.scrape.outputs.stores_failed != ''
         run: |
           echo "::error::Stores that couldn't be read: ${{ steps.scrape.outputs.stores_failed }}"
           exit 1

@@ -122,14 +122,18 @@ export type ConfirmOutcome =
   | { ok: true; alert: AlertRecord }
   | { ok: false; reason: "invalid" | "expired" | "gone" };
 
-/** Makes the alert live. It replaces any other open alert the address has on the same product. */
+/**
+ * Makes the alert live. It replaces the open alerts the address set on the same product
+ * before it, but not later ones: confirming an older email mustn't undo a newer target,
+ * and two links confirmed at once mustn't delete each other.
+ */
 export async function confirmAlert(rt: AlertsRuntime, token: string, now: Date): Promise<ConfirmOutcome> {
   const check = readConfirmToken(token, rt.secret, now.getTime());
   if (!check.ok) return check;
   const alert = await rt.store.confirm(check.alertId, now);
   if (!alert) return { ok: false, reason: "gone" };
   const replaced = (await rt.store.listByEmail(alert.email)).filter(
-    (a) => a.id !== alert.id && a.productId === alert.productId && isOpen(a),
+    (a) => a.productId === alert.productId && a.createdAt < alert.createdAt && isOpen(a),
   );
   for (const old of replaced) await rt.store.delete(old.id, alert.email);
   return { ok: true, alert };
@@ -138,12 +142,14 @@ export async function confirmAlert(rt: AlertsRuntime, token: string, now: Date):
 /**
  * Emails the manage link to an address that has alerts. Says the same whether or not it
  * has any, and counts the request against the limits either way, so neither the answer
- * nor reaching a limit shows who has alerts.
+ * nor reaching a limit shows who has alerts. With `defer` (Next's `after` in the server
+ * action), the lookup and the email happen after the reply, so its timing doesn't show it
+ * either, and nor does a failed send.
  */
 export async function sendManageLink(
   rt: AlertsRuntime,
   rawEmail: string,
-  ctx: { ipHash: string; now: Date; siteUrl: string },
+  ctx: { ipHash: string; now: Date; siteUrl: string; defer?: (task: () => Promise<void>) => void },
 ): Promise<RequestOutcome> {
   const email = normaliseEmail(rawEmail);
   const claim = await rt.store.claimRequest(
@@ -154,7 +160,14 @@ export async function sendManageLink(
   if (!claim.ok) {
     return { ok: false, message: "That's as many emails as can be sent from here today. Try again tomorrow." };
   }
-  const alerts = await rt.store.listByEmail(email);
-  if (alerts.length > 0) await rt.mailer.send(manageLinkEmail(email, manageUrl(ctx.siteUrl, email, rt.secret)));
+  const send = async () => {
+    const alerts = await rt.store.listByEmail(email);
+    if (alerts.length > 0) await rt.mailer.send(manageLinkEmail(email, manageUrl(ctx.siteUrl, email, rt.secret)));
+  };
+  if (ctx.defer) {
+    ctx.defer(() => send().catch((error: unknown) => console.error("[alerts] manage-link email failed", error)));
+  } else {
+    await send();
+  }
   return { ok: true };
 }

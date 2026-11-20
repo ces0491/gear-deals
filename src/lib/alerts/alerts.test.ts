@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   CONFIRM_LINK_HOURS,
@@ -105,13 +105,31 @@ describe("requestAlert and confirmAlert", () => {
     await confirmAlert(rt, linkFrom(mailer.sent[0], "/alerts/confirm"), NOW);
 
     // Anyone can ask with the address; the confirmed alert stays live until the owner confirms.
-    await requestAlert(rt, { email: "a@b.co", targetZar: 10000, product: fridge }, { ...ctx, ipHash: "someone-else" });
+    const later = new Date(NOW.getTime() + 60_000);
+    await requestAlert(rt, { email: "a@b.co", targetZar: 10000, product: fridge }, { ...ctx, ipHash: "someone-else", now: later });
     expect((await store.active()).map((a) => a.targetZar)).toEqual([11000]);
     expect(await store.listByEmail("a@b.co")).toHaveLength(2);
 
-    await confirmAlert(rt, linkFrom(mailer.sent[1], "/alerts/confirm"), NOW);
+    await confirmAlert(rt, linkFrom(mailer.sent[1], "/alerts/confirm"), later);
     expect((await store.listByEmail("a@b.co")).map((a) => a.targetZar)).toEqual([10000]);
     expect(await store.active()).toHaveLength(1);
+  });
+
+  it("keeps the newer target when the emails are confirmed out of order or at once", async () => {
+    const later = new Date(NOW.getTime() + 60_000);
+    for (const order of ["older first", "together"] as const) {
+      const { rt, mailer, store } = runtime();
+      await requestAlert(rt, { email: "a@b.co", targetZar: 11000, product: fridge }, ctx);
+      await requestAlert(rt, { email: "a@b.co", targetZar: 10000, product: fridge }, { ...ctx, now: later });
+      const [older, newer] = mailer.sent.map((e) => linkFrom(e, "/alerts/confirm"));
+      if (order === "older first") {
+        await confirmAlert(rt, older, later);
+        await confirmAlert(rt, newer, later);
+      } else {
+        await Promise.all([confirmAlert(rt, older, later), confirmAlert(rt, newer, later)]);
+      }
+      expect((await store.active()).map((a) => a.targetZar), order).toEqual([10000]);
+    }
   });
 
   it("counts open alerts by product, so a pending replacement doesn't use up the cap", async () => {
@@ -192,6 +210,26 @@ describe("sendManageLink", () => {
     expect(mailer.sent).toHaveLength(0);
     expect(await sendManageLink(rt, "A@B.co", ctx)).toEqual({ ok: true });
     expect(readManageToken(linkFrom(mailer.sent[0], "/alerts/manage"), SECRET)).toBe("a@b.co");
+  });
+
+  it("can answer before looking the address up, and send afterwards", async () => {
+    const { rt, mailer, store } = runtime();
+    await store.create({ email: "has@b.co", productId: fridge.id, productTitle: "x", storeId: "nationalluna", targetZar: 1, priceWhenSetZar: 2 }, NOW);
+    const later: (() => Promise<void>)[] = [];
+    const defer = (task: () => Promise<void>) => void later.push(task);
+
+    expect(await sendManageLink(rt, "has@b.co", { ...ctx, defer })).toEqual({ ok: true });
+    expect(mailer.sent).toHaveLength(0);
+    await later[0]();
+    expect(mailer.sent).toHaveLength(1);
+
+    // A send that fails after the answer is logged, not thrown.
+    const logged = vi.spyOn(console, "error").mockImplementation(() => {});
+    mailer.failFor.add("has@b.co");
+    await sendManageLink(rt, "has@b.co", { ...ctx, defer });
+    await expect(later[1]()).resolves.toBeUndefined();
+    expect(logged).toHaveBeenCalled();
+    logged.mockRestore();
   });
 
   it("reaches the daily limit at the same point whether or not the address has alerts", async () => {

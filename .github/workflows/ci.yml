@@ -44,10 +44,5 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
-      # What ships to visitors and runs in the scrape job is held to "high".
-      - run: npm audit --omit=dev --audit-level=high
-      # Dev tooling is held to "critical": in November 2026 every picomatch release had a
-      # high-severity ReDoS advisory with no fixed version, reached only through ESLint's
-      # config loading on this repo's own globs. Raise this back to "high" once picomatch
-      # publishes a fix.
-      - run: npm audit --audit-level=critical
+      # Runtime and dev dependencies alike.
+      - run: npm audit --audit-level=high

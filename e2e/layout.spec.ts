@@ -66,6 +66,15 @@ test.describe("filter sheet on a phone", () => {
     await expect(page.getByRole("dialog", { name: "Filters" })).toBeHidden();
   });
 
+  test("takes focus when it opens and gives it back when it closes", async ({ page }) => {
+    await page.goto("/");
+    const opener = page.getByRole("button", { name: /^Filters/ });
+    await opener.click();
+    await expect(page.getByRole("button", { name: "Close filters" })).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(opener).toBeFocused();
+  });
+
   test("form fields use 16px text, so iOS doesn't zoom on focus", async ({ page }) => {
     await page.goto("/");
     const sizes = await page.$$eval("input, select", (els) =>

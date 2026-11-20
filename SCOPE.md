@@ -10,9 +10,8 @@ each store by hand, and hear about it when something they want drops to their pr
 
 - [ ] A daily scrape (GitHub Actions, early morning SAST) reads 7 WooCommerce stores:
       Camp and Climb, 4x4 Mega World, Tentco, Opposite Lock, Eezi-Awn, Bushtech and
-      National Luna; plus Ironman 4x4, Adventure Inc and Trappers on Shopify once their
-      catalogue endpoint answers a runner. Products with no price, or that the store
-      doesn't let you buy, are left out.
+      National Luna; plus Adventure Inc and Trappers on Shopify. Products with no price,
+      or that the store doesn't let you buy, are left out.
 - [ ] Price history is kept from the first run: a dated entry whenever a product's price
       or was-price changes.
 - [ ] A product counts as a deal for one or more stated reasons, each shown with its evidence:
@@ -57,7 +56,7 @@ each store by hand, and hear about it when something they want drops to their pr
 
 - Stores whose terms ban scraping (Alpha Accessories, Camp Cover, Flex Adventures, The
   Bakkie Shop, Wild Access, All Outdoor and Home) or that block automated reads (Melvill &
-  Moon, Thule Store). Getting past any bot protection.
+  Moon, Thule Store, Ironman 4x4). Getting past any bot protection.
 - Catalogue sites with no prices or checkout (Safari Centre, Snomaster, Alu-Cab,
   Campmaster)
 - Stores with no public machine-readable catalogue (Outdoor Warehouse, Cape Union Mart,
@@ -92,3 +91,5 @@ Ces, once the site is live and has been used to judge a real purchase.
 - 2026-11-18: added links from product pages to Facebook Marketplace and Gumtree search
 - 2026-11-19: added ten stores left out after a wider look at South African stores, and
   put tyres out of scope
+- 2026-11-20: Ironman 4x4 out of scope after it refused the daily read on 19 and 20
+  November

@@ -38,6 +38,14 @@ describe("categorise", () => {
     expect(placed("Waterproof Phone Pouch")).toBe("other");
   });
 
+  it("doesn't take a \"Backpacking\" section for backpacks", () => {
+    const backpacking = ["Backpacking|Trekking", "Backpacking"];
+    expect(placed("Zamberlan Vioz GTX Men's Hiking Boot", [...backpacking, "Boots", "Zamberlan Shoes"])).toMatch(/^excluded/);
+    expect(placed("Zamberlan Guide GTX Men's Boot", ["Backpacking|Trekking"])).toMatch(/^excluded/);
+    expect(placed("Osprey Kestrel 58 Hiking Backpack", backpacking)).toBe("packs");
+    expect(placed("Osprey Kyte LT 65 Women's Backpacking Pack", backpacking)).toBe("packs");
+  });
+
   it("uses a store's hints before the rules", () => {
     expect(placed("Amber Watermelon Lights", ["Lighting"], { Lighting: "vehicle-lighting" })).toBe("vehicle-lighting");
     expect(placed("Lumeno Rechargeable LED Sensor Light", ["Lighting", "LED Lights"])).toBe("camp-lighting");

@@ -1,7 +1,7 @@
 "use client";
 
 import { SlidersHorizontal, X } from "lucide-react";
-import { useEffect, useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
 
@@ -20,6 +20,8 @@ export function FilterSheet({
 }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const opener = useRef<HTMLButtonElement>(null);
+  const closer = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -27,15 +29,20 @@ export function FilterSheet({
     document.addEventListener("keydown", onKey);
     const overflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // A modal dialog takes focus when it opens and hands it back to its button when it closes.
+    const button = opener.current;
+    closer.current?.focus();
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = overflow;
+      button?.focus();
     };
   }, [open]);
 
   return (
     <>
       <button
+        ref={opener}
         type="button"
         onClick={() => setOpen(true)}
         aria-expanded={open}
@@ -63,7 +70,7 @@ export function FilterSheet({
         {open && (
           <div className="flex items-center justify-between border-b border-line px-4 py-3 lg:hidden">
             <h2 className="narrow text-xl font-bold">Filters</h2>
-            <button type="button" onClick={() => setOpen(false)} className="rounded p-1" aria-label="Close filters">
+            <button ref={closer} type="button" onClick={() => setOpen(false)} className="rounded p-1" aria-label="Close filters">
               <X aria-hidden className="size-5" />
             </button>
           </div>

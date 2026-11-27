@@ -3,7 +3,9 @@
  * history, and find matches and deals.
  *
  * A store that can't be read, or whose products fail a sanity check, keeps its last good
- * products for a few days (carry-forward.ts) while the other stores publish.
+ * products for a few days (carry-forward.ts) while the other stores publish. A store held
+ * back by a check stays held until a read passes the checks or someone accepts it
+ * (`accept`); the hold doesn't end when the carried products lapse.
  *
  * Each store's pages are read one at a time, so no store sees more than one request in
  * flight from this site. WooCommerce stores are separate hosts and are read in parallel.
@@ -33,6 +35,11 @@ export interface RunInput {
    * whole catalogue, but nothing is recorded in history for them.
    */
   keep?: readonly StoreId[];
+  /**
+   * Stores whose reads are published this run whatever the sanity checks find. For a
+   * store that's been held back, once someone has looked at why and its prices are right.
+   */
+  accept?: readonly StoreId[];
   history: HistoryFile | null;
   now?: Date;
   log?: (line: string) => void;
@@ -62,7 +69,10 @@ export interface RunOutput {
   history: HistoryFile;
   /** Stores that couldn't be read. */
   failedStores: StoreId[];
-  /** Stores that were read but failed a sanity check. Like a failed store, each keeps its last good products. */
+  /**
+   * Stores that were read but held back by a sanity check, and weren't accepted. Like a
+   * failed store, each keeps its last good products while they last.
+   */
   heldStores: HeldStore[];
   /**
    * Sanity failures among stores kept from the last catalogue without being read (a run
@@ -89,25 +99,26 @@ export async function runScrape(input: RunInput): Promise<RunOutput> {
   const lastProducts = new Map<StoreId, Product[]>();
   for (const p of input.previous?.products ?? []) lastProducts.set(p.storeId, [...(lastProducts.get(p.storeId) ?? []), p]);
 
-  /** A store with nothing new to publish: its last good products, placed under today's category rules. */
-  const carry = (store: Store, message: string, ranAt: string, held: string[]) => {
+  const accepted = new Set<StoreId>(input.accept ?? []);
+
+  /**
+   * A store with nothing new to publish: its last good products, placed under today's
+   * category rules. `held` is what the checks found, empty when the read itself failed;
+   * `onHold` says whether the store's prices are being held back after this run.
+   */
+  const carry = (store: Store, message: string, ranAt: string, held: string[], onHold: boolean) => {
     const carried = carryForward(store.id, message, ranAt, input.previous);
     const replaced = recategorise(carried.products).products;
     if (replaced.length > 0) {
       log(`${store.id}: carrying forward ${replaced.length} products from ${carried.status.lastOkAt}`);
     }
-    return {
-      store,
-      observed: [] as NormalisedProduct[],
-      carried: replaced,
-      status: { ...carried.status, count: replaced.length },
-      readFailed: held.length === 0,
-      held,
-    };
+    const status: StoreRunStatus = { ...carried.status, count: replaced.length, ...(onHold ? { held: true } : {}) };
+    return { store, observed: [] as NormalisedProduct[], carried: replaced, status, readFailed: held.length === 0, held };
   };
 
   const readStore = async (store: Store) => {
     const ranAt = new Date().toISOString();
+    const before = input.previous?.stores[store.id];
     try {
       const read = await input.read(store);
       const products: NormalisedProduct[] = [];
@@ -129,17 +140,26 @@ export async function runScrape(input: RunInput): Promise<RunOutput> {
       log(
         `${store.id}: ${read.rawCount} in catalogue${unreadable}, ${read.products.length} for sale, ${products.length} kept, ${excluded} not gear (${read.requests} requests)`,
       );
-      const failures = sanityFailures(store.id, products, read.rawCount, lastProducts.get(store.id) ?? []);
-      if (failures.length > 0) {
-        for (const failure of failures) log(`${store.id}: HELD: ${failure}`);
-        return carry(store, HELD_MESSAGE, ranAt, failures);
+      const was = lastProducts.get(store.id) ?? [];
+      const failures = sanityFailures(store.id, products, read.rawCount, was);
+      // A hold outlasts the store's carried products. With those gone there's nothing to
+      // check a read against, and it isn't published on the strength of that.
+      if (before?.held && was.length === 0) {
+        failures.push(
+          `its last good prices${before.lastOkAt ? ` (read ${before.lastOkAt.slice(0, 10)})` : ""} lapsed while it was held, so this read has nothing to be checked against`,
+        );
       }
+      if (failures.length > 0 && !accepted.has(store.id)) {
+        for (const failure of failures) log(`${store.id}: HELD: ${failure}`);
+        return carry(store, HELD_MESSAGE, ranAt, failures, true);
+      }
+      for (const failure of failures) log(`${store.id}: ACCEPTED: ${failure}`);
       const status: StoreRunStatus = { ok: true, count: products.length, rawCount: read.rawCount, ranAt };
       return { store, observed: products, carried: [] as Product[], status, readFailed: false, held: [] as string[] };
     } catch (error) {
       const message = describeError(error);
       log(`${store.id}: FAILED: ${message}`);
-      return carry(store, message, ranAt, []);
+      return carry(store, message, ranAt, [], before?.held === true);
     }
   };
 

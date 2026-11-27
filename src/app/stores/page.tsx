@@ -75,7 +75,9 @@ export default function StoresPage() {
                         Failed {when(status.ranAt)}: {status.error}{" "}
                         {status.count > 0 && status.lastOkAt
                           ? `Showing its prices from ${when(status.lastOkAt)}.`
-                          : "Its products are left out until it reads again."}
+                          : status.held
+                            ? "Its products are left out until its prices have been checked."
+                            : "Its products are left out until it reads again."}
                       </span>
                     )}
                   </td>

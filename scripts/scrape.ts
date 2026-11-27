@@ -11,6 +11,10 @@
  *
  * With --only, the stores not read are kept from the last catalogue. If one of those fails
  * a sanity check (a category rule now drops most of it), nothing is written and it exits 2.
+ *
+ * `-- --accept campandclimb` publishes that store's read whatever the checks find. It's
+ * for a store that's been held back, once someone has looked at why and its prices are
+ * right; pair it with --only so nothing else is read again.
  */
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -18,7 +22,7 @@ import { join } from "node:path";
 import { parseCatalogue, parseHistory, stringifyCatalogue, stringifyHistory } from "../src/lib/scrape/files";
 import { realHttp } from "../src/lib/scrape/http";
 import { runScrape } from "../src/lib/scrape/run";
-import { enabledStores, type Store } from "../src/lib/stores/registry";
+import { enabledStores, type Store, type StoreId } from "../src/lib/stores/registry";
 import { scrapeShopify } from "../src/lib/stores/shopify";
 import { scrapeWooCommerce } from "../src/lib/stores/woocommerce";
 
@@ -52,12 +56,28 @@ function selectedStores(): Store[] {
   const only = flagValue("--only");
   const stores = enabledStores();
   if (only === null) return stores;
-  const wanted = new Set(only.split(","));
+  const wanted = new Set(only.split(",").map((name) => name.trim()));
   return stores.filter((s) => wanted.has(s.id));
+}
+
+/** The stores named by --accept. A name this run doesn't read is a mistake worth stopping for. */
+function acceptedStores(reading: readonly Store[]): StoreId[] {
+  const names = (flagValue("--accept") ?? "")
+    .split(",")
+    .map((name) => name.trim())
+    .filter(Boolean);
+  const accepted = reading.filter((s) => names.includes(s.id)).map((s) => s.id);
+  const unknown = names.filter((name) => !reading.some((s) => s.id === name));
+  if (unknown.length > 0) {
+    console.error(`--accept names stores this run doesn't read: ${unknown.join(", ")}`);
+    process.exit(1);
+  }
+  return accepted;
 }
 
 async function main() {
   const stores = selectedStores();
+  const accept = acceptedStores(stores);
   const started = Date.now();
   console.log(`Reading ${stores.length} stores: ${stores.map((s) => s.id).join(", ")}`);
 
@@ -73,6 +93,7 @@ async function main() {
     keep: enabledStores()
       .filter((s) => !selected.has(s.id))
       .map((s) => s.id),
+    accept,
     history: readOrNull(HISTORY_PATH, parseHistory),
     log: (line) => console.log(`  ${line}`),
     collectPlacements: flagValue("--placements") !== null,

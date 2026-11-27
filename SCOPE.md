@@ -43,8 +43,9 @@ each store by hand, and hear about it when something they want drops to their pr
       affiliate links, and how a store asks to be removed.
 - [ ] A store that fails to scrape keeps its last good data for up to 7 days, with the
       failure shown. Sanity checks hold back a store's read when its counts collapse or
-      its discounts look broken: that store keeps its last good data the same way, and
-      the other stores publish.
+      its discounts look broken: that store keeps its last good data the same way, the
+      other stores publish, and its new prices stay back until a read passes or someone
+      accepts them.
 - [ ] Layout holds from 320 px to desktop with no sideways scroll, in light and dark
       (Playwright). Unit tests cover parsers, normalising, history, deal rules and alert
       rules using captured store responses. E2E covers search, the product page, the
@@ -96,4 +97,4 @@ Ces, once the site is live and has been used to judge a real purchase.
   November
 - 2026-11-27: a failed sanity check holds back the store that tripped it and the other
   stores publish; it used to stop the whole run, which kept all nine stores' prices back
-  on 27 November
+  on 27 November. A hold lasts until a read passes or the store is accepted by hand.

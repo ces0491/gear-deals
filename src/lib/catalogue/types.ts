@@ -99,6 +99,11 @@ export interface StoreRunStatus {
   ranAt: string;
   /** When this store last read successfully. Set on a failed run when known. */
   lastOkAt?: string;
+  /**
+   * Set while a sanity check is holding the store's prices back. It stays through failed
+   * reads, until a read passes the checks or someone accepts the store.
+   */
+  held?: true;
 }
 
 export interface CatalogueFile {

@@ -95,6 +95,7 @@ describe("runScrape", () => {
     expect(second.heldStores).toEqual([]);
     expect(second.catalogue.products).toHaveLength(1);
     expect(second.catalogue.stores.tentco).toMatchObject({ ok: false, count: 1, lastOkAt: first.catalogue.stores.tentco?.ranAt });
+    expect(second.catalogue.stores.tentco).not.toHaveProperty("held");
     expect(second.history.products["tentco:tentco-cupboard"].lastSeen).toBe("2026-11-17");
   });
 
@@ -108,6 +109,7 @@ describe("runScrape", () => {
     expect(atCamp.map((p) => p.priceZar)).toEqual(Array(10).fill(1000));
     expect(held.catalogue.stores.campandclimb).toMatchObject({
       ok: false,
+      held: true,
       count: 10,
       error: HELD_MESSAGE,
       lastOkAt: good.catalogue.stores.campandclimb?.ranAt,
@@ -131,20 +133,94 @@ describe("runScrape", () => {
     expect(nextDay.catalogue.stores.campandclimb).toMatchObject({ count: 10, lastOkAt: good.catalogue.stores.campandclimb?.ranAt });
   });
 
-  it("publishes a held store's read once its carried products have lapsed", async () => {
+  it("lets a held store go once a read passes the checks", async () => {
+    const { held } = await aGoodDayThenAHold();
+    const nextDay = await runScrape({
+      stores: [camp],
+      read: read({ campandclimb: page(shelves(950)) }),
+      previous: held.catalogue,
+      history: held.history,
+      now: new Date("2026-11-19T03:00:00Z"),
+    });
+    expect(nextDay.heldStores).toEqual([]);
+    expect(nextDay.catalogue.stores.campandclimb).toMatchObject({ ok: true, count: 10 });
+    expect(nextDay.catalogue.stores.campandclimb).not.toHaveProperty("held");
+    expect(nextDay.catalogue.products.every((p) => p.priceZar === 950)).toBe(true);
+  });
+
+  it("publishes an accepted store's read whatever the checks find, and says what they found", async () => {
+    const { held } = await aGoodDayThenAHold();
+    const log: string[] = [];
+    const accepted = await runScrape({
+      stores: [camp],
+      read: read({ campandclimb: page(shelves(10)) }),
+      previous: held.catalogue,
+      history: held.history,
+      keep: ["tentco"],
+      accept: ["campandclimb"],
+      now: new Date("2026-11-18T09:00:00Z"),
+      log: (line) => log.push(line),
+    });
+    expect(accepted.heldStores).toEqual([]);
+    expect(accepted.failedStores).toEqual([]);
+    expect(accepted.catalogue.stores.campandclimb).toMatchObject({ ok: true, count: 10 });
+    expect(accepted.catalogue.stores.campandclimb).not.toHaveProperty("held");
+    expect(accepted.catalogue.products.filter((p) => p.storeId === "campandclimb").every((p) => p.priceZar === 10)).toBe(true);
+    expect(accepted.catalogue.products.find((p) => p.storeId === "tentco")?.priceZar).toBe(1100);
+    expect(accepted.history.products["campandclimb:shelf-0"]).toMatchObject({ lastSeen: "2026-11-18", points: [{ priceZar: 1000 }, { priceZar: 10 }] });
+    expect(log.filter((line) => line.includes("ACCEPTED"))).toEqual([expect.stringMatching(/^campandclimb: ACCEPTED: 10 products fell 70% or more/)]);
+  });
+
+  it("keeps a store held after its carried products lapse, until it's accepted", async () => {
+    const { good } = await aGoodDayThenAHold();
+    const longAgo: CatalogueFile = {
+      ...good.catalogue,
+      stores: { ...good.catalogue.stores, campandclimb: { ok: true, count: 10, rawCount: 10, ranAt: "2026-11-01T03:00:00Z" } },
+    };
+    const cheap = { stores: [camp], read: read({ campandclimb: page(shelves(10)) }) };
+
+    const lapsed = await runScrape({ ...cheap, previous: longAgo, history: good.history });
+    expect(lapsed.catalogue.stores.campandclimb).toMatchObject({ ok: false, held: true, count: 0, lastOkAt: "2026-11-01T03:00:00Z" });
+
+    // Nothing is left to compare the read with, and that alone doesn't publish it.
+    const stillHeld = await runScrape({ ...cheap, previous: lapsed.catalogue, history: lapsed.history });
+    expect(stillHeld.heldStores).toEqual([
+      { storeId: "campandclimb", failures: [expect.stringMatching(/^its last good prices \(read 2026-11-01\) lapsed while it was held/)] },
+    ]);
+    expect(stillHeld.catalogue.stores.campandclimb).toMatchObject({ ok: false, held: true, count: 0 });
+    expect(stillHeld.catalogue.products).toEqual([]);
+
+    const accepted = await runScrape({ ...cheap, previous: stillHeld.catalogue, history: stillHeld.history, accept: ["campandclimb"] });
+    expect(accepted.heldStores).toEqual([]);
+    expect(accepted.catalogue.stores.campandclimb).toMatchObject({ ok: true, count: 10 });
+    expect(accepted.catalogue.products.every((p) => p.priceZar === 10)).toBe(true);
+  });
+
+  it("keeps a store held through a day it can't be read", async () => {
     const { good } = await aGoodDayThenAHold();
     const longAgo: CatalogueFile = {
       ...good.catalogue,
       stores: { ...good.catalogue.stores, campandclimb: { ok: true, count: 10, rawCount: 10, ranAt: "2026-11-01T03:00:00Z" } },
     };
     const lapsed = await runScrape({ stores: [camp], read: read({ campandclimb: page(shelves(10)) }), previous: longAgo, history: good.history });
-    expect(lapsed.heldStores.map((h) => h.storeId)).toEqual(["campandclimb"]);
-    expect(lapsed.catalogue.stores.campandclimb).toMatchObject({ ok: false, count: 0 });
 
-    const after = await runScrape({ stores: [camp], read: read({ campandclimb: page(shelves(10)) }), previous: lapsed.catalogue, history: lapsed.history });
-    expect(after.heldStores).toEqual([]);
-    expect(after.catalogue.stores.campandclimb).toMatchObject({ ok: true, count: 10 });
-    expect(after.catalogue.products.every((p) => p.priceZar === 10)).toBe(true);
+    const unreadable = await runScrape({
+      stores: [camp],
+      read: read({ campandclimb: new HttpError("https://campandclimb.co.za/x", 503) }),
+      previous: lapsed.catalogue,
+      history: lapsed.history,
+    });
+    expect(unreadable.failedStores).toEqual(["campandclimb"]);
+    expect(unreadable.heldStores).toEqual([]);
+    expect(unreadable.catalogue.stores.campandclimb).toMatchObject({ ok: false, held: true, error: "The store answered with an error (HTTP 503)." });
+
+    const readAgain = await runScrape({
+      stores: [camp],
+      read: read({ campandclimb: page(shelves(10)) }),
+      previous: unreadable.catalogue,
+      history: unreadable.history,
+    });
+    expect(readAgain.heldStores.map((h) => h.storeId)).toEqual(["campandclimb"]);
   });
 
   it("reports a kept store that fails a check as a reason not to write the files", async () => {

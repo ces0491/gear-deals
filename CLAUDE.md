@@ -47,6 +47,10 @@ What the site does and how is in README.md; what counts as done is in SCOPE.md.
 - Commit and push only with Ces's go-ahead. A push to `main` deploys to production.
 - The site runs on the committed `data/` files, so `npm run dev` needs nothing else.
   Don't scrape to test a UI change.
+- **A red price run with a held store:** the "Read the stores" log has a `HELD:` line
+  saying what the sanity check found. If the store's prices are right, release it with
+  `gh workflow run prices.yml -f accept=<store>` (reads only that store); if the check is
+  wrong, fix the check. A hold doesn't end on its own (README, "Data and the daily run").
 
 ## Gotchas
 

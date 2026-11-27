@@ -139,10 +139,15 @@ after a burst of requests. A full run made 75 requests and took 101 seconds on
   and Trappers have lower parsing floors, explained there.
 - **A store that's held back** is treated as one that failed: it keeps its last good
   products, the other stores publish, and the run ends red with what the check found in
-  the "Read the stores" log. The read is checked against those last good products each
-  morning, so the hold lasts until the store's prices pass or the check is changed. After
-  7 days the carried products lapse, the store has nothing left to be compared with, and
-  its next read is published as a new store's would be.
+  the "Read the stores" log. Each morning's read is checked against those last good
+  products, and the hold ends when one passes. After 7 days the carried products lapse
+  and the store's products come off the site, but the hold stays: with nothing left to
+  compare a read against, it isn't published until someone accepts it.
+- **Accepting a held store** publishes its prices as they are. Look at what the check
+  found first, then run `gh workflow run prices.yml -f accept=campandclimb` (several
+  stores, comma-separated). That run reads only the stores named, skips the sanity checks
+  for them, and logs what the checks found. If the check itself is wrong, change it
+  instead.
 - **A store that isn't read** (a run with `--only`, or `npm run recategorise`) has no
   earlier read to fall back on, so a check failing there stops the files being written.
 
@@ -211,7 +216,7 @@ lists the optional ones.
 | `npm run typecheck` | Next's route types (`next typegen`), then TypeScript |
 | `npm test` | Unit tests (Vitest) |
 | `npm run test:e2e` | Browser tests (Playwright) |
-| `npm run scrape` | Read the stores and write `data/`. `-- --only tentco,eeziawn` reads some and keeps the others' last products, with deals matched across all of them; `-- --placements <file>` also writes where each product was placed |
+| `npm run scrape` | Read the stores and write `data/`. `-- --only tentco,eeziawn` reads some and keeps the others' last products, with deals matched across all of them; `-- --accept tentco` publishes that store's read whatever the sanity checks find; `-- --placements <file>` also writes where each product was placed |
 | `npm run recategorise` | Rebuild `data/catalogue.json` under the current category rules and registry, without reading any store: drops what the rules leave out and the products of stores turned off, and works deals out again |
 | `npm run alerts:send` | Send the morning's alerts (needs the alert settings) |
 | `npm run fixtures:capture` | Re-capture the store responses the unit tests use; `-- --shopify` for the Shopify stores |

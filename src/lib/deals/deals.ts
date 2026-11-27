@@ -37,6 +37,14 @@ function saving(reference: number, price: number) {
   return { savingZar, savingPct: savingZar / reference };
 }
 
+/**
+ * Whether a saving reaches MIN_SAVING_PCT. The slack is for floating point: R265.05
+ * against R279 is 5% off and divides to 0.04999….
+ */
+function countsAsSaving(savingPct: number): boolean {
+  return savingPct >= MIN_SAVING_PCT - 1e-9;
+}
+
 export function dealFor(
   product: DealInput,
   history: ProductHistory | null,
@@ -48,7 +56,7 @@ export function dealFor(
 
   if (product.wasZar !== null && product.wasZar > product.priceZar) {
     const s = saving(product.wasZar, product.priceZar);
-    if (s.savingPct >= MIN_SAVING_PCT) {
+    if (countsAsSaving(s.savingPct)) {
       const since = stats?.wasSince ?? today;
       reasons.push({
         kind: "was-price",
@@ -71,7 +79,7 @@ export function dealFor(
     daysBetween(stats.currentSince, today) <= PRICE_DROP_WINDOW_DAYS
   ) {
     const s = saving(previous.priceZar, product.priceZar);
-    if (s.savingPct >= MIN_SAVING_PCT) {
+    if (countsAsSaving(s.savingPct)) {
       reasons.push({ kind: "price-drop", fromZar: previous.priceZar, ...s, on: stats.currentSince });
     }
   }
@@ -81,7 +89,7 @@ export function dealFor(
     if (others.length > 0 && others.every((o) => o.priceZar > product.priceZar)) {
       const next = others.reduce((a, b) => (b.priceZar < a.priceZar ? b : a));
       const s = saving(next.priceZar, product.priceZar);
-      if (s.savingPct >= MIN_SAVING_PCT) {
+      if (countsAsSaving(s.savingPct)) {
         reasons.push({
           kind: "cheaper-elsewhere",
           otherStoreId: next.storeId,

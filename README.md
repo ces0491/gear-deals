@@ -131,9 +131,12 @@ after a burst of requests. A full run made 75 requests and took 101 seconds on
   (`src/lib/scrape/carry-forward.ts`). The Stores page says so, and those products are
   re-placed under the current category rules.
 - **Sanity checks** (`src/lib/scrape/sanity.ts`) refuse to write the files when most of a
-  store's catalogue stops parsing, its product count falls by more than 40%, was-prices
-  suddenly appear on most of its products, or many of its prices collapse at once. National
-  Luna and Trappers have lower parsing floors, explained there.
+  store's catalogue stops parsing, its product count falls by more than 40%, most of its
+  products gain a was-price the last run doesn't back, or many of its prices collapse at
+  once. A was-price is backed when it's the price or the was-price recorded on the last
+  run, so a store-wide sale passes (Camp and Climb took 5% off most of its catalogue on
+  27 November 2026) and a misread field or an inflated regular price doesn't. National Luna
+  and Trappers have lower parsing floors, explained there.
 
 The files keep one product per line, so a day's commit shows which products changed.
 

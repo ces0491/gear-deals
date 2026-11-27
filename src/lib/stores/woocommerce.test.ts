@@ -109,6 +109,11 @@ describe("wooPrice", () => {
     expect(wooPrice({ ...base, prices: prices({ price: "10000", regular_price: "10000" }) })?.wasZar).toBeNull();
   });
 
+  it("takes the sale price of a variable product whose options all cost the same", () => {
+    const p = { ...base, type: "variable", prices: prices({ price: "142025", regular_price: "149500" }) };
+    expect(wooPrice(p)).toEqual({ priceZar: 1420.25, maxPriceZar: null, wasZar: null });
+  });
+
   it("falls back from an empty range minimum on a variable product", () => {
     const p = { ...base, type: "variable", prices: prices({ price: "0", regular_price: "25000", price_range: { min_amount: "", max_amount: "" } }) };
     expect(wooPrice(p)).toEqual({ priceZar: 250, maxPriceZar: null, wasZar: null });

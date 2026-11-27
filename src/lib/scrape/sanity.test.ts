@@ -45,9 +45,27 @@ describe("runSanityChecks", () => {
     expect(runSanityChecks(many(40), ok(40), carried)[0]).toMatch(/fell from 100 to 40/);
   });
 
-  it("fails when was-prices suddenly appear on most products", () => {
+  it("fails when most products gain a was-price the last run doesn't back", () => {
     const failures = runSanityChecks(many(100, () => ({ wasZar: 200 })), ok(100), previousOf(many(100)));
-    expect(failures[0]).toMatch(/100% of products now show a was-price, up from 0%/);
+    expect(failures[0]).toMatch(/100% of products show a was-price that is neither the price nor the was-price recorded last run/);
+    expect(failures[0]).toMatch(/"Item 0" was R200, R100 last run/);
+  });
+
+  it("passes a store-wide sale whose was-prices are the prices recorded last run", () => {
+    const onSale = many(100, () => ({ priceZar: 95, wasZar: 100 }));
+    expect(runSanityChecks(onSale, ok(100), previousOf(many(100)))).toEqual([]);
+  });
+
+  it("passes was-prices the store already showed last run", () => {
+    const onSale = many(100, () => ({ priceZar: 80, wasZar: 120 }));
+    const cheaperStill = many(100, () => ({ priceZar: 70, wasZar: 120 }));
+    expect(runSanityChecks(cheaperStill, ok(100), previousOf(onSale))).toEqual([]);
+  });
+
+  it("doesn't count a was-price on a product the last run didn't have as backed", () => {
+    const failures = runSanityChecks(many(100, () => ({ priceZar: 95, wasZar: 100 })), ok(100), previousOf(many(40)));
+    expect(failures[0]).toMatch(/60% of products show a was-price/);
+    expect(failures[0]).toMatch(/"Item 40" was R100, not seen last run/);
   });
 
   it("fails when many prices collapse at once, as a unit change would cause", () => {

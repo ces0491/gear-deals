@@ -9,8 +9,11 @@
  * - Prices are strings in minor units (`"189500"` with `currency_minor_unit: 2` is
  *   R1,895.00).
  * - A variable product (one with sizes or colours) gives `price_range` with the lowest
- *   and highest option. Its own `price` and `regular_price` are a default that matches no
- *   option, so no was-price is taken from it.
+ *   and highest option when they differ. When every option costs the same there is no
+ *   range and `price` is that cost, sale included: on 27 November 2026 Camp and Climb's
+ *   page for one gave R1,495.00 as the original price and R1,420.25 as the current one,
+ *   against `price: "142025"` and `regular_price: "149500"`. No was-price is taken from a
+ *   variable product, because its one `regular_price` can't speak for every option.
  * - `is_purchasable: false` marks products the store doesn't sell online (Snomaster's
  *   whole catalogue, some of Opposite Lock's). These, and products priced at zero, are
  *   left out.
@@ -92,9 +95,10 @@ export function wooPrice(product: WooProduct): WooPrice | null {
   const range = prices.price_range;
 
   if (product.type === "variable") {
-    // `||` rather than `??`: some installs send "" for an absent amount.
-    const price = amount(range?.min_amount || prices.regular_price || prices.price, unit);
-    if (!(price > 0)) return null;
+    // The range's lowest option, else the one price every option shares. Some installs
+    // send "" or "0" for those, which leaves the regular price.
+    const price = [range?.min_amount, prices.price, prices.regular_price].map((minor) => amount(minor, unit)).find((zar) => zar > 0);
+    if (price === undefined) return null;
     const max = range ? amount(range.max_amount, unit) : Number.NaN;
     return { priceZar: price, maxPriceZar: max > price ? max : null, wasZar: null };
   }

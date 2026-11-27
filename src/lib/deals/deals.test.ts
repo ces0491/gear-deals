@@ -44,6 +44,11 @@ describe("was-price", () => {
   it("ignores savings under 5%", () => {
     expect(dealFor(item({ priceZar: 97, wasZar: 100 }), null, [], TODAY)).toBeNull();
   });
+
+  it("counts a saving of exactly 5%, which floating point puts a hair under", () => {
+    const deal = dealFor(item({ priceZar: 265.05, wasZar: 279 }), null, [], TODAY);
+    expect(deal?.reasons[0]).toMatchObject({ kind: "was-price", savingZar: 13.95 });
+  });
 });
 
 describe("clearance", () => {

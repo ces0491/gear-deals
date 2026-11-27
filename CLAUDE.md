@@ -12,11 +12,12 @@ What the site does and how is in README.md; what counts as done is in SCOPE.md.
 - gear-deals.vercel.app redirects (308) to the custom domain. The redirect is a setting
   on that domain in the Vercel project, not in next.config.
 - Repository `ces0491/gear-deals` is public.
-- **GitHub's schedule has never started the price run** (03:00 UTC on 19 November,
-  03:17 on 20 November; no incident, nothing wrong with the workflow that we could find).
-  A Vercel schedule now also starts it through GitHub's API, once `CRON_SECRET` and
-  `PRICES_DISPATCH_TOKEN` are set (README, "Morning trigger"). `gh run list --workflow
-  prices.yml` shows the runs; a good one leaves a `chore(data)` commit that Vercel deploys.
+- **The Vercel schedule starts the price run**, at 03:30 UTC through GitHub's API (README,
+  "Morning trigger"); it has done so each day since 21 November. GitHub's own schedule,
+  set for 03:17 UTC, started it between 11:07 and 13:47 UTC on 20 to 26 November, by
+  which time the day's prices were in and the run stopped. After a failed morning run,
+  that late run is a second attempt. `gh run list --workflow prices.yml` shows the runs; a
+  good one leaves a `chore(data)` commit that Vercel deploys.
 - **Ironman 4x4 is off** since 20 November: it answered the runner with HTTP 403 on 19
   and 20 November.
 
@@ -33,8 +34,6 @@ What the site does and how is in README.md; what counts as done is in SCOPE.md.
 
 ## Waiting on Ces
 
-- The morning trigger needs `CRON_SECRET` and a fine-grained `PRICES_DISPATCH_TOKEN`
-  (Actions: read and write on this repo) in Vercel's production environment.
 - Alerts need a Supabase project (apply `supabase/migrations/`), a Resend sending domain
   on sheetsolved.com, and the five alert values in `.env.example` in both Vercel and the
   repository's Actions secrets. Until then the site says alerts aren't available.

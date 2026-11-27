@@ -3,10 +3,14 @@
  * `-- --placements <file>` also writes where each product was placed (category or the
  * reason it was left out), for reviewing the category rules.
  *
- * Reads every enabled store, then writes data/catalogue.json and data/history.json,
- * unless a sanity check fails, in which case nothing is written and it exits 2. In
- * GitHub Actions it reports `stores_failed` and `catalogue_changed` as step outputs so the
- * workflow can name the commit and fail after publishing what did scrape.
+ * Reads every enabled store, then writes data/catalogue.json and data/history.json. A
+ * store that can't be read, or whose products fail a sanity check, keeps its last good
+ * products and the others are written. In GitHub Actions it reports `stores_failed`,
+ * `stores_held` and `catalogue_changed` as step outputs so the workflow can name the commit
+ * and fail after publishing what did scrape.
+ *
+ * With --only, the stores not read are kept from the last catalogue. If one of those fails
+ * a sanity check (a category rule now drops most of it), nothing is written and it exits 2.
  */
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -81,7 +85,7 @@ async function main() {
   }
 
   if (result.sanityFailures.length > 0) {
-    console.error("\nSanity checks failed; not writing the data files:");
+    console.error("\nSanity checks failed for stores this run didn't read; not writing the data files:");
     for (const f of result.sanityFailures) console.error(`  ${f}`);
     process.exit(2);
   }
@@ -96,10 +100,16 @@ async function main() {
     }.`,
   );
 
+  if (result.heldStores.length > 0) {
+    console.error("\nHeld back by the sanity checks; these stores keep their last good prices:");
+    for (const held of result.heldStores) for (const f of held.failures) console.error(`  ${held.storeId}: ${f}`);
+  }
+
   output("catalogue_changed", String(result.changed));
   output("stores_failed", result.failedStores.join(","));
-  if (result.failedStores.length === stores.length) {
-    console.error("Every store failed.");
+  output("stores_held", result.heldStores.map((h) => h.storeId).join(","));
+  if (result.failedStores.length + result.heldStores.length === stores.length) {
+    console.error("No store's read could be published.");
     process.exit(1);
   }
 }

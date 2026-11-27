@@ -113,7 +113,7 @@ once a day. `gh workflow run prices.yml -f force=true` reads them again anyway. 
 2. runs `npm run scrape`, which writes `data/catalogue.json` and `data/history.json`
 3. commits them, which deploys the site
 4. sends the morning's price alerts
-5. fails the run if any store couldn't be read
+5. fails the run if any store couldn't be read or was held back by a sanity check
 
 `scripts/scrape.ts` and `src/lib/scrape/run.ts` do the work. Stores on WooCommerce are
 read in parallel, one page at a time each with a 1.5-second pause. Shopify stores are read
@@ -130,13 +130,21 @@ after a burst of requests. A full run made 75 requests and took 101 seconds on
 - **A store that fails** keeps its last good products for up to 7 days
   (`src/lib/scrape/carry-forward.ts`). The Stores page says so, and those products are
   re-placed under the current category rules.
-- **Sanity checks** (`src/lib/scrape/sanity.ts`) refuse to write the files when most of a
-  store's catalogue stops parsing, its product count falls by more than 40%, most of its
-  products gain a was-price the last run doesn't back, or many of its prices collapse at
-  once. A was-price is backed when it's the price or the was-price recorded on the last
-  run, so a store-wide sale passes (Camp and Climb took 5% off most of its catalogue on
+- **Sanity checks** (`src/lib/scrape/sanity.ts`) hold back a store's read when most of its
+  catalogue stops parsing, its product count falls by more than 40%, most of its products
+  gain a was-price the last run doesn't back, or many of its prices collapse at once. A
+  was-price is backed when it's the price or the was-price recorded on the last run, so a
+  store-wide sale passes (Camp and Climb took 5% off most of its catalogue on
   27 November 2026) and a misread field or an inflated regular price doesn't. National Luna
   and Trappers have lower parsing floors, explained there.
+- **A store that's held back** is treated as one that failed: it keeps its last good
+  products, the other stores publish, and the run ends red with what the check found in
+  the "Read the stores" log. The read is checked against those last good products each
+  morning, so the hold lasts until the store's prices pass or the check is changed. After
+  7 days the carried products lapse, the store has nothing left to be compared with, and
+  its next read is published as a new store's would be.
+- **A store that isn't read** (a run with `--only`, or `npm run recategorise`) has no
+  earlier read to fall back on, so a check failing there stops the files being written.
 
 The files keep one product per line, so a day's commit shows which products changed.
 

@@ -15,8 +15,8 @@ What the site does and how is in README.md; what counts as done is in SCOPE.md.
 - **The Vercel schedule starts the price run**, at 03:30 UTC through GitHub's API (README,
   "Morning trigger"); it has done so each day since 21 November. GitHub's own schedule,
   set for 03:17 UTC, started it between 11:07 and 13:47 UTC on 20 to 26 November, by
-  which time the day's prices were in and the run stopped. After a failed morning run,
-  that late run is a second attempt. `gh run list --workflow prices.yml` shows the runs; a
+  which time the day's prices were in and the run stopped. When the morning run publishes
+  nothing, that late run is a second attempt. `gh run list --workflow prices.yml` shows the runs; a
   good one leaves a `chore(data)` commit that Vercel deploys.
 - **Ironman 4x4 is off** since 20 November: it answered the runner with HTTP 403 on 19
   and 20 November.

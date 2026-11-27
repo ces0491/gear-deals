@@ -58,7 +58,9 @@ jobs:
       - run: npm ci
         if: steps.fresh.outputs.skip != 'true'
 
-      # Exits 2 without writing anything when a sanity check fails, which stops the run here.
+      # A store that can't be read, or whose prices fail a sanity check, keeps its last good
+      # prices and is named in this step's outputs. When no store's read can be published
+      # the step fails, which stops the run here.
       - name: Read the stores
         id: scrape
         if: steps.fresh.outputs.skip != 'true'
@@ -87,10 +89,15 @@ jobs:
         if: steps.fresh.outputs.skip != 'true' && env.ALERTS_SECRET != ''
         run: npm run alerts:send
 
-      # Last, so the stores that did read still publish. A failed store's last good prices
-      # are carried forward for a few days, so a red run here is a fix-soon, not an outage.
-      - name: Fail if any store couldn't be read
-        if: steps.fresh.outputs.skip != 'true' && steps.scrape.outputs.stores_failed != ''
+      # Last, so the stores that did read still publish. A failed or held store's last good
+      # prices are carried forward for a few days, so a red run here is a fix-soon, not an
+      # outage. The "Read the stores" log says what a held store's prices failed on.
+      - name: Fail if any store wasn't updated
+        if: steps.fresh.outputs.skip != 'true' && (steps.scrape.outputs.stores_failed != '' || steps.scrape.outputs.stores_held != '')
+        env:
+          FAILED: ${{ steps.scrape.outputs.stores_failed }}
+          HELD: ${{ steps.scrape.outputs.stores_held }}
         run: |
-          echo "::error::Stores that couldn't be read: ${{ steps.scrape.outputs.stores_failed }}"
+          if [ -n "$FAILED" ]; then echo "::error::Stores that couldn't be read: $FAILED"; fi
+          if [ -n "$HELD" ]; then echo "::error::Stores held back by a sanity check: $HELD"; fi
           exit 1

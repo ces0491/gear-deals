@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import type { CatalogueFile, Product } from "@/lib/catalogue/types";
 import { carryForward, MAX_CARRY_DAYS } from "@/lib/scrape/carry-forward";
-import { runSanityChecks } from "@/lib/scrape/sanity";
+import { sanityFailures } from "@/lib/scrape/sanity";
 
 import { makeProduct } from "../../../test/helpers";
 
@@ -17,64 +17,53 @@ const previousOf = (products: Product[], ranAt = "2026-11-17T03:00:00Z"): Catalo
   products,
 });
 
-const ok = (count: number, rawCount = count) => ({ tentco: { ok: true, count, rawCount, ranAt: "2026-11-18T03:00:00Z" } });
-
-describe("runSanityChecks", () => {
+describe("sanityFailures", () => {
   it("passes a normal run", () => {
-    expect(runSanityChecks(many(100), ok(100), previousOf(many(98)))).toEqual([]);
+    expect(sanityFailures("tentco", many(100), 100, many(98))).toEqual([]);
   });
 
   it("fails when most of a store's catalogue stopped parsing", () => {
-    expect(runSanityChecks(many(10), ok(10, 100), null)[0]).toMatch(/tentco: 10 of 100 catalogue products survived/);
+    expect(sanityFailures("tentco", many(10), 100, [])[0]).toMatch(/^10 of 100 catalogue products survived/);
   });
 
   it("allows a store's own lower yield floor", () => {
-    const products = many(30, (i) => ({ storeId: "nationalluna", externalId: String(i) }));
-    expect(runSanityChecks(products, { nationalluna: { ok: true, count: 30, rawCount: 175, ranAt: "x" } }, null)).toEqual([]);
+    expect(sanityFailures("nationalluna", many(30), 175, [])).toEqual([]);
   });
 
   it("fails when a store's product count collapses", () => {
-    expect(runSanityChecks(many(50), ok(50), previousOf(many(100)))[0]).toMatch(/fell from 100 to 50/);
+    expect(sanityFailures("tentco", many(50), 50, many(100))[0]).toMatch(/fell from 100 to 50/);
   });
 
-  it("checks the count against carried-forward products when the last run failed", () => {
-    const carried: CatalogueFile = {
-      ...previousOf(many(100)),
-      stores: { tentco: { ok: false, count: 100, error: "HTTP 503", ranAt: "2026-11-17T03:00:00Z", lastOkAt: "2026-11-16T03:00:00Z" } },
-    };
-    expect(runSanityChecks(many(40), ok(40), carried)[0]).toMatch(/fell from 100 to 40/);
+  it("judges a store with no earlier products only on how much of its catalogue parsed", () => {
+    expect(sanityFailures("tentco", many(100, () => ({ priceZar: 1, wasZar: 200 })), 100, [])).toEqual([]);
   });
 
   it("fails when most products gain a was-price the last run doesn't back", () => {
-    const failures = runSanityChecks(many(100, () => ({ wasZar: 200 })), ok(100), previousOf(many(100)));
-    expect(failures[0]).toMatch(/100% of products show a was-price that is neither the price nor the was-price recorded last run/);
+    const failures = sanityFailures("tentco", many(100, () => ({ wasZar: 200 })), 100, many(100));
+    expect(failures[0]).toMatch(/^100% of products show a was-price that is neither the price nor the was-price recorded last run/);
     expect(failures[0]).toMatch(/"Item 0" was R200, R100 last run/);
   });
 
   it("passes a store-wide sale whose was-prices are the prices recorded last run", () => {
     const onSale = many(100, () => ({ priceZar: 95, wasZar: 100 }));
-    expect(runSanityChecks(onSale, ok(100), previousOf(many(100)))).toEqual([]);
+    expect(sanityFailures("tentco", onSale, 100, many(100))).toEqual([]);
   });
 
   it("passes was-prices the store already showed last run", () => {
     const onSale = many(100, () => ({ priceZar: 80, wasZar: 120 }));
     const cheaperStill = many(100, () => ({ priceZar: 70, wasZar: 120 }));
-    expect(runSanityChecks(cheaperStill, ok(100), previousOf(onSale))).toEqual([]);
+    expect(sanityFailures("tentco", cheaperStill, 100, onSale)).toEqual([]);
   });
 
   it("doesn't count a was-price on a product the last run didn't have as backed", () => {
-    const failures = runSanityChecks(many(100, () => ({ priceZar: 95, wasZar: 100 })), ok(100), previousOf(many(40)));
-    expect(failures[0]).toMatch(/60% of products show a was-price/);
+    const failures = sanityFailures("tentco", many(100, () => ({ priceZar: 95, wasZar: 100 })), 100, many(40));
+    expect(failures[0]).toMatch(/^60% of products show a was-price/);
     expect(failures[0]).toMatch(/"Item 40" was R100, not seen last run/);
   });
 
   it("fails when many prices collapse at once, as a unit change would cause", () => {
-    const failures = runSanityChecks(many(100, () => ({ priceZar: 1 })), ok(100), previousOf(many(100)));
-    expect(failures[0]).toMatch(/100 products fell 70% or more/);
-  });
-
-  it("doesn't judge stores that failed this run", () => {
-    expect(runSanityChecks([], { tentco: { ok: false, count: 0, ranAt: "x" } }, previousOf(many(100)))).toEqual([]);
+    const failures = sanityFailures("tentco", many(100, () => ({ priceZar: 1 })), 100, many(100));
+    expect(failures[0]).toMatch(/^100 products fell 70% or more/);
   });
 });
 
